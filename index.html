@@ -5,211 +5,211 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>장동근 | 백엔드 개발자</title>
 <meta name="description" content="같은 요청이 두 번 와도 값은 한 번만 바뀌게 만드는 백엔드 개발자 장동근의 포트폴리오">
-<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&display=swap">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
 <style>
-:root{--paper:#f3eee4;--card:#faf7f0;--ink:#16181b;--mute:#6b6a64;--rule:#16181b;--hair:#d8d1c2;--acc:#c2410c;--acc-soft:#f6dfd2;--mono:'IBM Plex Mono',Consolas,monospace}
-:root[data-theme=dark]{--paper:#111315;--card:#181b1e;--ink:#ece7dc;--mute:#9a968b;--rule:#ece7dc;--hair:#2b2f33;--acc:#fb8c4a;--acc-soft:#3a2418}
+:root{--bg:#f2f5f4;--card:#fff;--ink:#0f1c1a;--sub:#5b6b68;--line:#e1e8e6;--acc:#0d9488;--acc2:#14b8a6;--dark:#0b2321;--dark2:#0f3a36;--warm:#f59e0b;--shadow:0 12px 34px rgba(11,35,33,.08)}
+:root[data-theme=dark]{--bg:#0a1211;--card:#101c1a;--ink:#e8f1ef;--sub:#93a8a4;--line:#1d2f2c;--acc:#2dd4bf;--acc2:#14b8a6;--dark:#0b2321;--dark2:#0f3a36;--shadow:0 12px 34px rgba(0,0,0,.4)}
 *{box-sizing:border-box;margin:0}
-html{scroll-behavior:smooth}
-body{font-family:Pretendard,'Malgun Gothic',system-ui,sans-serif;background:var(--paper);color:var(--ink);line-height:1.7;-webkit-font-smoothing:antialiased;word-break:keep-all}
+html{scroll-behavior:smooth;scroll-padding-top:90px}
+body{font-family:Pretendard,'Malgun Gothic',system-ui,sans-serif;background:var(--bg);color:var(--ink);line-height:1.7;-webkit-font-smoothing:antialiased;word-break:keep-all}
 a{color:inherit;text-decoration:none}
-.layout{display:grid;grid-template-columns:272px 1fr;min-height:100vh}
-aside{position:sticky;top:0;height:100vh;padding:34px 28px;border-right:1.5px solid var(--rule);display:flex;flex-direction:column;gap:26px;background:var(--paper)}
-.id{display:flex;align-items:center;gap:14px}
-.id img{width:64px;height:64px;border-radius:50%;object-fit:cover;object-position:50% 18%;border:1.5px solid var(--rule)}
-.id b{display:block;font-size:20px;letter-spacing:-.5px;line-height:1.2}
-.id span{font:12px var(--mono);color:var(--mute)}
-.idx{display:grid;gap:2px;margin-top:6px}
-.idx a{display:flex;gap:12px;align-items:baseline;padding:9px 0;border-bottom:1px solid var(--hair);font-size:15px;font-weight:600;color:var(--mute);transition:.15s}
-.idx a i{font:500 12px var(--mono);font-style:normal;color:var(--mute)}
-.idx a:hover,.idx a.on{color:var(--ink);padding-left:8px}
-.idx a.on i{color:var(--acc)}
-.side-foot{margin-top:auto;display:grid;gap:10px;font:12.5px var(--mono);color:var(--mute)}
-.side-foot a{color:var(--ink);border-bottom:1px dashed var(--mute);width:fit-content}
-#theme{font:12px var(--mono);border:1.5px solid var(--rule);background:transparent;color:var(--ink);padding:6px 12px;cursor:pointer;width:fit-content}
-#theme:hover{background:var(--ink);color:var(--paper)}
-main{padding:0 clamp(24px,5vw,72px)}
-section{padding:84px 0 70px;border-top:1.5px solid var(--rule)}
-section:first-child{border-top:0;padding-top:72px}
-.sh{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:44px;font:500 12.5px var(--mono);color:var(--mute);letter-spacing:.5px}
-.sh b{color:var(--acc);font-weight:600}
-h1{font-size:clamp(34px,5vw,60px);font-weight:700;letter-spacing:-2.2px;line-height:1.22;max-width:900px}
-h1 em{font-style:normal;background:linear-gradient(transparent 62%,var(--acc-soft) 62%);padding:0 2px}
-.lede{margin-top:28px;font-size:18px;color:var(--mute);max-width:640px}
-.inv{margin-top:56px;border-top:1.5px solid var(--rule)}
-.inv .r{display:grid;grid-template-columns:70px 1.3fr 1fr 150px;gap:18px;padding:22px 0;border-bottom:1px solid var(--hair);align-items:start}
-.inv .r.hd{font:500 11.5px var(--mono);color:var(--mute);padding:12px 0;letter-spacing:.8px}
-.inv .n{font:600 13px var(--mono);color:var(--acc)}
-.inv h3{font-size:18px;letter-spacing:-.4px;margin-bottom:4px}
-.inv p{font-size:14.5px;color:var(--mute)}
-.inv code{font:12.5px var(--mono);background:var(--card);border:1px solid var(--hair);padding:3px 8px;display:inline-block;margin:0 4px 4px 0}
-.inv .ev{font:600 22px var(--mono);letter-spacing:-1px;text-align:right}
-.inv .ev small{display:block;font:11.5px var(--mono);color:var(--mute);letter-spacing:0;font-weight:400}
-.pl{border-top:1.5px solid var(--rule)}
-details.p{border-bottom:1px solid var(--hair)}
-details.p summary{list-style:none;cursor:pointer;display:grid;grid-template-columns:70px 1fr 210px 30px;gap:18px;align-items:center;padding:24px 0}
-details.p summary::-webkit-details-marker{display:none}
-.p .no{font:600 13px var(--mono);color:var(--acc)}
-.p .t b{font-size:23px;letter-spacing:-.8px}
-.p .t span{display:block;font-size:14.5px;color:var(--mute);margin-top:2px}
-.p .y{font:12px var(--mono);color:var(--mute);text-align:right;line-height:1.5}
-.p .pm{font:20px var(--mono);text-align:center;transition:.2s}
-details[open] .pm{transform:rotate(45deg);color:var(--acc)}
-details.p summary:hover .t b{color:var(--acc)}
-.pb{display:grid;grid-template-columns:1.1fr .9fr;gap:34px;padding:6px 0 38px 88px}
-.pb img{width:100%;border:1.5px solid var(--rule);display:block}
-.pb .ph{border:1.5px dashed var(--mute);aspect-ratio:16/10;display:grid;place-items:center;font:500 14px var(--mono);color:var(--mute);text-align:center;padding:20px}
-.pb ul{list-style:none;display:grid;gap:10px;margin-bottom:20px}
-.pb li{font-size:15.5px;padding-left:22px;position:relative}
-.pb li:before{content:"→";position:absolute;left:0;color:var(--acc);font-family:var(--mono)}
-.tg span{display:inline-block;font:12px var(--mono);border:1px solid var(--ink);padding:2px 9px;margin:0 6px 6px 0}
-.ln{display:flex;gap:16px;margin-top:6px}
-.ln a{font:600 13px var(--mono);border-bottom:2px solid var(--acc);padding-bottom:1px}
-.log{border-top:1.5px solid var(--rule);font-family:var(--mono)}
-.log .l{display:grid;grid-template-columns:170px 80px 1fr;gap:18px;padding:16px 0;border-bottom:1px solid var(--hair);font-size:14px}
-.log .l .d{color:var(--mute)}
-.log .l .k{color:var(--acc);font-weight:600}
-.log .l .w b{display:block;font-family:Pretendard,sans-serif;font-size:16.5px;letter-spacing:-.3px;margin-bottom:2px}
-.log .l .w span{font-family:Pretendard,sans-serif;color:var(--mute);font-size:14.5px}
-.mx{width:100%;border-collapse:collapse;font-size:14.5px}
-.mx th,.mx td{padding:13px 10px;border-bottom:1px solid var(--hair);text-align:center}
-.mx thead th{font:500 11.5px var(--mono);color:var(--mute);border-bottom:1.5px solid var(--rule);letter-spacing:.5px;vertical-align:bottom}
-.mx tbody th{text-align:left;font-weight:600}
-.mx td{font-family:var(--mono);color:var(--acc);font-size:16px}
-.mx td.h{color:var(--mute);font-size:12px}
-.note{margin-top:18px;font:12.5px var(--mono);color:var(--mute)}
-.rc{max-width:560px;background:var(--card);border:1.5px solid var(--rule);padding:32px 34px;font-family:var(--mono);position:relative}
-.rc h3{font:600 14px var(--mono);letter-spacing:2px;text-align:center;margin-bottom:6px}
-.rc .sub{text-align:center;font-size:12px;color:var(--mute);margin-bottom:22px;border-bottom:1px dashed var(--mute);padding-bottom:18px}
-.rc a.row{display:flex;gap:10px;align-items:baseline;padding:8px 0;font-size:14px}
-.rc a.row .dots{flex:1;border-bottom:1px dotted var(--mute);transform:translateY(-4px)}
-.rc a.row b{font-weight:500}
-.rc a.row:hover b{color:var(--acc)}
-.rc .tot{margin-top:18px;padding-top:16px;border-top:1px dashed var(--mute);text-align:center;font-size:12px;color:var(--mute)}
-footer{padding:26px 0 40px;font:12px var(--mono);color:var(--mute);border-top:1.5px solid var(--rule)}
-@media(max-width:980px){
- .layout{grid-template-columns:1fr}
- aside{position:static;height:auto;border-right:0;border-bottom:1.5px solid var(--rule);padding:22px 20px;gap:16px}
- .idx{grid-template-columns:repeat(5,auto);gap:14px;justify-content:start}.idx a{border:0;padding:4px 0}
- .side-foot{margin-top:0;grid-auto-flow:column;justify-content:space-between;align-items:center;gap:12px}.side-foot span{display:none}.side-foot a{border:0;font-size:12px}
- .inv .r{grid-template-columns:44px 1fr}.inv .r>:nth-child(3),.inv .r>:nth-child(4){grid-column:2}.inv .ev{text-align:left}.inv .r.hd{display:none}
- details.p summary{grid-template-columns:44px 1fr 24px}.p .y{display:none}
- .pb{grid-template-columns:1fr;padding-left:0}
- .log .l{grid-template-columns:1fr;gap:4px}
- .mx{font-size:12.5px}.mx th,.mx td{padding:10px 4px}
- .rc{padding:26px 20px}
+.wrap{max-width:1160px;margin:0 auto;padding:0 28px}
+/* floating pill nav */
+.nav{position:fixed;top:16px;left:50%;transform:translateX(-50%);z-index:30;display:flex;align-items:center;gap:4px;padding:7px 8px 7px 20px;border-radius:999px;background:color-mix(in srgb,var(--card) 82%,transparent);backdrop-filter:blur(14px);border:1px solid var(--line);box-shadow:var(--shadow)}
+.nav b{font-size:15px;margin-right:14px;letter-spacing:-.3px}
+.nav a{padding:8px 15px;border-radius:999px;font-size:14px;font-weight:600;color:var(--sub);transition:.15s}
+.nav a:hover{color:var(--ink)}.nav a.on{background:var(--ink);color:var(--bg)}
+#theme{width:36px;height:36px;border-radius:50%;border:0;background:var(--line);color:var(--ink);cursor:pointer;font-size:15px;margin-left:6px}
+/* hero */
+.hero{margin-top:84px;border-radius:34px;background:radial-gradient(900px 420px at 85% -10%,rgba(45,212,191,.35),transparent 60%),radial-gradient(600px 360px at 0% 110%,rgba(245,158,11,.18),transparent 60%),linear-gradient(135deg,var(--dark),var(--dark2));color:#e9f5f2;padding:64px 60px 56px;display:grid;grid-template-columns:1.25fr .75fr;gap:40px;align-items:center;position:relative;overflow:hidden}
+.hero:before{content:"";position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.045) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.045) 1px,transparent 1px);background-size:44px 44px;-webkit-mask-image:linear-gradient(120deg,transparent 35%,#000 100%)}
+.hero>*{position:relative}
+.tag0{display:inline-flex;gap:10px;align-items:center;font:600 13px/1 Consolas,monospace;letter-spacing:1.5px;color:#5eead4;margin-bottom:22px}
+.tag0:before{content:"";width:8px;height:8px;border-radius:50%;background:#5eead4;box-shadow:0 0 0 5px rgba(94,234,212,.2)}
+.hero h1{font-size:clamp(34px,4.6vw,58px);line-height:1.2;letter-spacing:-2.2px;font-weight:800}
+.hero h1 em{font-style:normal;color:#5eead4}
+.hero p{margin-top:22px;color:#b6cdc8;font-size:17px;max-width:540px}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:34px}
+.stats div{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12);border-radius:16px;padding:16px 16px 14px;backdrop-filter:blur(6px)}
+.stats b{display:block;font-size:26px;letter-spacing:-1px;color:#fff;line-height:1.2}
+.stats span{display:block;font-size:12.5px;color:#9fbdb7;margin-top:6px;line-height:1.5}
+.who{justify-self:center;text-align:center}
+.who img{width:min(100%,300px);aspect-ratio:4/5;object-fit:cover;border-radius:28px;border:6px solid rgba(255,255,255,.14);box-shadow:0 24px 50px rgba(0,0,0,.4)}
+.who h2{margin-top:18px;font-size:26px;letter-spacing:-.5px}
+.who span{font:13px Consolas,monospace;color:#7fa8a1;letter-spacing:1px}
+/* sections */
+section{padding:92px 0 10px}
+.eb{font:700 12.5px Consolas,monospace;letter-spacing:2.5px;color:var(--acc);margin-bottom:10px}
+.h2{font-size:clamp(28px,3.6vw,42px);letter-spacing:-1.5px;font-weight:800;line-height:1.25}
+.sd{color:var(--sub);margin-top:10px;font-size:17px;max-width:640px}
+.head{margin-bottom:38px}
+/* bento */
+.bento{display:grid;grid-template-columns:repeat(6,1fr);gap:16px}
+.t{background:var(--card);border:1px solid var(--line);border-radius:24px;padding:28px;box-shadow:var(--shadow)}
+.t h3{font-size:19px;letter-spacing:-.5px;margin-bottom:8px}
+.t p{color:var(--sub);font-size:15px}
+.t .k{font:700 11.5px Consolas,monospace;letter-spacing:1.5px;color:var(--acc);margin-bottom:12px;display:block}
+.big{font-size:60px;font-weight:800;letter-spacing:-3px;line-height:1;color:var(--acc);margin:6px 0 10px}
+.big small{font-size:18px;letter-spacing:0;color:var(--sub);font-weight:600;margin-left:6px}
+.t.a{grid-column:span 3}.t.b{grid-column:span 3}.t.c{grid-column:span 2}.t.d{grid-column:span 2}.t.e{grid-column:span 2}.t.f{grid-column:span 6;display:grid;grid-template-columns:1fr 1fr;gap:28px;align-items:center}
+.t.dk{background:linear-gradient(135deg,var(--dark),var(--dark2));color:#e6f4f1;border-color:transparent}
+.t.dk p{color:#a7c4be}.t.dk .big{color:#5eead4}
+code.c{display:inline-block;font:12.5px Consolas,monospace;background:rgba(13,148,136,.1);color:var(--acc);border-radius:8px;padding:3px 9px;margin:2px 4px 2px 0}
+.t.dk code.c{background:rgba(94,234,212,.12);color:#5eead4}
+.chips span{display:inline-block;padding:6px 14px;border-radius:999px;background:var(--bg);border:1px solid var(--line);font-size:13.5px;font-weight:600;margin:0 6px 8px 0}
+.ledger{font:13px/1.9 Consolas,monospace;background:var(--bg);border-radius:14px;padding:16px 18px;border:1px dashed var(--line)}
+.ledger i{font-style:normal;color:var(--acc);font-weight:700}
+/* projects */
+.pg{display:grid;grid-template-columns:repeat(2,1fr);gap:22px}
+.pj{background:var(--card);border:1px solid var(--line);border-radius:26px;overflow:hidden;box-shadow:var(--shadow);display:flex;flex-direction:column;transition:.25s}
+.pj:hover{transform:translateY(-5px)}
+.pj.w{grid-column:span 2;flex-direction:row}
+.pj .im{background:#0b1220;aspect-ratio:16/10;overflow:hidden}
+.pj.w .im{flex:1.15;aspect-ratio:auto}
+.pj .im img{width:100%;height:100%;object-fit:cover;display:block}
+.pj .im.ph{display:grid;place-items:center;text-align:center;padding:24px;background:linear-gradient(135deg,color-mix(in srgb,var(--acc) 14%,var(--card)),var(--bg));color:var(--acc);font-weight:800;font-size:22px;line-height:1.4}
+.pj .bd{padding:28px 30px 30px;flex:1}
+.pj.w .bd{flex:1}
+.pj .kd{font:700 12px Consolas,monospace;letter-spacing:1.3px;color:var(--acc)}
+.pj h3{font-size:26px;letter-spacing:-.8px;margin:6px 0 8px}
+.pj .ds{color:var(--sub);font-size:15.5px}
+.pj ul{margin:14px 0 14px 18px;font-size:14.5px}.pj li{margin:3px 0}
+.pj .tg span{display:inline-block;padding:3px 11px;border-radius:999px;background:color-mix(in srgb,var(--acc) 12%,transparent);color:var(--acc);font-size:12.5px;font-weight:700;margin:0 5px 5px 0}
+.pj .ln{margin-top:10px;display:flex;gap:10px;flex-wrap:wrap}
+.pj .ln a{font-size:13.5px;font-weight:700;padding:7px 15px;border-radius:10px;border:1px solid var(--line)}
+.pj .ln a:hover{border-color:var(--acc);color:var(--acc)}
+/* journey */
+.jr{display:grid;grid-template-columns:repeat(5,1fr);gap:0;position:relative;margin-top:8px}
+.jr:before{content:"";position:absolute;left:0;right:0;top:11px;height:2px;background:linear-gradient(90deg,var(--acc),var(--line))}
+.st{position:relative;padding:34px 18px 0 0}
+.st:before{content:"";position:absolute;left:0;top:4px;width:16px;height:16px;border-radius:50%;background:var(--card);border:4px solid var(--acc)}
+.st .d{font:700 12px Consolas,monospace;color:var(--acc)}
+.st h4{font-size:16.5px;letter-spacing:-.4px;margin:4px 0 4px;line-height:1.4}
+.st p{font-size:13.5px;color:var(--sub);line-height:1.6}
+/* stack */
+.sk{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.sk .t{padding:24px}
+/* contact */
+.ct{border-radius:34px;background:radial-gradient(700px 360px at 100% 0,rgba(45,212,191,.3),transparent 60%),linear-gradient(135deg,var(--dark),var(--dark2));color:#e9f5f2;padding:56px;display:grid;grid-template-columns:1fr 1fr;gap:36px;align-items:center}
+.ct h2{font-size:clamp(28px,3.4vw,40px);letter-spacing:-1.5px;line-height:1.3}
+.ct h2 em{font-style:normal;color:#5eead4}
+.ct p{color:#a7c4be;margin-top:12px}
+.ct .ls{display:grid;gap:10px}
+.ct .ls a{display:flex;justify-content:space-between;align-items:center;padding:15px 20px;border-radius:14px;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12);font-size:15px;transition:.2s}
+.ct .ls a:hover{background:rgba(94,234,212,.16);border-color:#5eead4}
+.ct .ls span{font:600 12px Consolas,monospace;color:#7fc9bd;letter-spacing:1px}
+footer{text-align:center;color:var(--sub);font-size:13px;padding:48px 0 40px}
+@media(max-width:900px){
+ .nav{max-width:calc(100% - 20px);overflow-x:auto}.nav b{display:none}.nav a{padding:7px 10px;font-size:13px;white-space:nowrap}
+ .hero{grid-template-columns:1fr;padding:40px 24px;margin-top:76px;border-radius:26px}.who{order:-1}.who img{width:160px}.who h2{font-size:22px}
+ .stats{grid-template-columns:1fr}
+ .bento{grid-template-columns:1fr}.t.a,.t.b,.t.c,.t.d,.t.e,.t.f{grid-column:span 1}.t.f{grid-template-columns:1fr}
+ .pg{grid-template-columns:1fr}.pj.w{grid-column:span 1;flex-direction:column}.pj.w .im{aspect-ratio:16/10}
+ .jr{grid-template-columns:1fr;gap:22px}.jr:before{display:none}.st{padding:0 0 0 30px;border-left:2px solid var(--line);margin-left:7px}.st:before{left:-9px;top:2px}
+ .sk{grid-template-columns:1fr}.ct{grid-template-columns:1fr;padding:34px 24px}
 }
 </style>
 </head>
 <body>
-<div class="layout">
-<aside>
-  <div class="id"><img src="assets/profile.jpg" alt="장동근"><div><b>장동근</b><span>백엔드 개발자</span></div></div>
-  <nav class="idx">
-    <a href="#summary" class="on"><i>01</i>요약</a>
-    <a href="#projects"><i>02</i>프로젝트</a>
-    <a href="#career"><i>03</i>이력</a>
-    <a href="#stack"><i>04</i>기술</a>
-    <a href="#contact"><i>05</i>연락처</a>
-  </nav>
-  <div class="side-foot"><span>Java · Spring Boot<br>Python · Flask · MySQL</span><a href="mailto:j75390@gmail.com">j75390@gmail.com</a><button id="theme">DARK / LIGHT</button></div>
-</aside>
+<nav class="nav"><b>장동근</b><a href="#home" class="on">홈</a><a href="#about">핵심</a><a href="#projects">프로젝트</a><a href="#journey">이력</a><a href="#stack">기술</a><a href="#contact">연락처</a><button id="theme" aria-label="테마">◐</button></nav>
+<div class="wrap" id="home">
+<div class="hero">
+  <div>
+    <div class="tag0">BACKEND DEVELOPER · 2026</div>
+    <h1>같은 요청이 두 번 와도,<br>값은 <em>한 번만</em><br>바뀌게 만듭니다.</h1>
+    <p>Java·Spring Boot와 Python·Flask로 서버 기능을 개발합니다. 코드의 확인보다 DB 제약과 락에 기대어, 동시에 들어온 요청에도 데이터가 어긋나지 않는 구조를 설계합니다.</p>
+    <div class="stats">
+      <div><b>20 → 1</b><span>동시 예약 요청 중<br>성공 1건 보장</span></div>
+      <div><b>1~2% → 91%</b><span>추적 번호 부여율<br>PointTracker 교체</span></div>
+      <div><b>154</b><span>자동 시험·점검<br>40 + 60 + 54</span></div>
+    </div>
+  </div>
+  <div class="who"><img src="assets/profile.jpg" alt="장동근"><h2>장동근</h2><span>JANG DONGGEUN</span></div>
+</div>
+</div>
 
-<main>
-<section id="summary">
-  <div class="sh"><span><b>01</b> / SUMMARY</span><span>JANG DONGGEUN · 2026</span></div>
-  <h1>같은 요청이 두 번 와도,<br>값은 <em>한 번만</em> 바뀌어야 합니다.</h1>
-  <p class="lede">코드의 확인 로직은 동시에 들어온 요청 앞에서 쉽게 뚫립니다. 그래서 저는 지켜야 할 규칙(불변식)을 먼저 적고, 그 규칙을 DB 제약과 락이 마지막으로 막도록 설계합니다. 아래는 제 프로젝트에서 실제로 쓴 세 가지입니다.</p>
-
-  <div class="inv">
-    <div class="r hd"><span>NO</span><span>지키려는 규칙</span><span>막는 곳</span><span style="text-align:right">확인한 결과</span></div>
-    <div class="r"><span class="n">I-01</span><div><h3>한 좌석, 한 시간에는 한 명만</h3><p>예약을 1시간 슬롯 행으로 나눠 저장해서, 겹치는 요청은 DB가 거부합니다.</p></div><div><code>UNIQUE(seat_id, slot_start)</code></div><div class="ev">20 → 1<small>동시 예약 요청 → 성공</small></div></div>
-    <div class="r"><span class="n">I-02</span><div><h3>포인트는 두 번 빠지지도, 두 번 돌아오지도 않게</h3><p>잔액을 고치지 않고 원장에 쌓고, 한 회원의 요청은 회원 행 락으로 순서를 세웁니다.</p></div><div><code>회원 행 비관적 락</code><code>UNIQUE(예약, 사유)</code></div><div class="ev">40<small>자동 시험 통과 (H2)</small></div></div>
-    <div class="r"><span class="n">I-03</span><div><h3>꺼져 있던 시간의 통계도 비지 않게</h3><p>시간별 집계를 먼저, 그 위의 일별 집계를 나중에 복구해서 의존 순서를 지킵니다.</p></div><div><code>48h → 시간별 · 7d → 일별</code></div><div class="ev">120<small>중단 120초 → 재전송 120건</small></div></div>
+<div class="wrap">
+<section id="about">
+  <div class="head"><div class="eb">CORE</div><h2 class="h2">제가 믿는 설계 원칙</h2><p class="sd">규칙을 먼저 적고, 그 규칙을 코드가 아니라 DB가 마지막으로 지키게 합니다.</p></div>
+  <div class="bento">
+    <div class="t dk a"><span class="k">I-01 · CONCURRENCY</span><div class="big">20 → 1<small>동시 예약</small></div><h3>한 좌석, 한 시간에는 한 명만</h3><p>예약을 1시간 슬롯 행으로 나눠 저장하고, 겹치는 요청은 유니크 제약이 거부합니다.</p><div style="margin-top:12px"><code class="c">UNIQUE(seat_id, slot_start)</code></div></div>
+    <div class="t b"><span class="k">I-02 · LEDGER</span><h3>포인트는 덮어쓰지 않고 쌓습니다</h3><p>충전·사용·환불·적립을 원장에 쌓고 잔액은 합계로 계산합니다. 한 회원의 요청은 행 락으로 순서를 세웁니다.</p>
+      <div class="ledger" style="margin-top:14px"><i>+30,000</i> CHARGE<br><i>-6,000</i> RESERVE #1042<br><i>+6,000</i> REFUND #1042 <span style="color:var(--sub)">// (예약, 사유) UNIQUE</span><br>= 30,000</div></div>
+    <div class="t c"><span class="k">I-03 · RECOVERY</span><h3>빈 구간은 순서대로 복구</h3><p>시간별 48시간을 먼저, 일별 7일을 나중에 채워 의존 순서를 지킵니다.</p></div>
+    <div class="t d"><span class="k">VERIFY</span><div class="big" style="font-size:44px">40·60·54</div><p>StudySeat, AI 팀 관제, 잿빛 원정대의 자동 시험·점검 개수입니다.</p></div>
+    <div class="t e"><span class="k">STACK</span><div class="chips"><span>Java</span><span>Spring Boot</span><span>JPA</span><span>Python</span><span>Flask</span><span>MySQL</span></div></div>
+    <div class="t f"><div><span class="k">NOW</span><h3>DW아카데미 5기 · AIoT 기반 드론 영상 관제시스템</h3><p>2026.04.27 ~ 11.23 수료 예정. Java·Spring Boot·JPA, MySQL, Python·OpenCV·YOLO, Flask를 배우고, 팀 프로젝트로 분석 서버와 통계 서버를 만들었습니다.</p></div><div class="chips"><span>Controller·Service·DAO·DTO</span><span>Spring Security</span><span>YOLO 탐지·추적</span><span>영상 스트리밍</span></div></div>
   </div>
 </section>
 
 <section id="projects">
-  <div class="sh"><span><b>02</b> / PROJECTS</span><span>눌러서 펼치기 +</span></div>
-  <div class="pl">
-
-  <details class="p" open><summary><span class="no">P-01</span><div class="t"><b>StudySeat</b><span>스터디카페 좌석 예약 서비스</span></div><div class="y">PERSONAL<br>2026.11</div><span class="pm">+</span></summary>
-    <div class="pb"><div><img src="assets/studyseat-booking.jpg" alt="StudySeat 도면 예약 화면" loading="lazy"></div><div>
-      <ul><li>전국 지도에서 지점을 찾고 도면에서 좌석을 눌러 예약, QR로 입실</li><li>슬롯 UNIQUE 제약과 회원 행 락으로 이중 예약·이중 사용 방지</li><li>좌석 수만 주면 도면을 배치하는 엔진, 756개 조합에서 겹침 시험</li><li>혼잡도 통계, 꺼져 있던 구간 자동 보충</li></ul>
+  <div class="head"><div class="eb">PROJECTS</div><h2 class="h2">만든 것들</h2><p class="sd">개인 프로젝트 3개와 팀 프로젝트 2개입니다.</p></div>
+  <div class="pg">
+    <article class="pj w"><div class="im"><img src="assets/studyseat-booking.jpg" alt="StudySeat 도면 예약 화면" loading="lazy"></div>
+      <div class="bd"><div class="kd">PERSONAL · 2026.11</div><h3>StudySeat</h3><p class="ds">전국 지도에서 지점을 찾고 매장 도면에서 좌석을 직접 골라 예약한 뒤 QR로 입실하는 스터디카페 좌석 예약 서비스.</p>
+      <ul><li>슬롯 유니크 제약과 회원 행 락으로 이중 예약·이중 사용 방지</li><li>좌석 수만 주면 도면을 배치하는 엔진, 756개 조합 시험</li><li>혼잡도 통계와 꺼져 있던 구간 자동 보충</li></ul>
       <div class="tg"><span>Java 17</span><span>Spring Boot</span><span>JPA</span><span>Flyway</span><span>Thymeleaf</span></div>
-      <div class="ln"><a href="https://github.com/j75390/studyseat" target="_blank" rel="noopener">GITHUB ↗</a></div></div></div></details>
+      <div class="ln"><a href="https://github.com/j75390/studyseat" target="_blank" rel="noopener">GitHub ↗</a></div></div></article>
 
-  <details class="p"><summary><span class="no">P-02</span><div class="t"><b>AI 팀 관제</b><span>Codex·Gemini 동시 호출과 한도 확인 웹 앱</span></div><div class="y">PERSONAL<br>2026.11</div><span class="pm">+</span></summary>
-    <div class="pb"><div><img src="assets/ai-console.jpg" alt="AI 팀 관제 관제실 화면" loading="lazy"></div><div>
-      <ul><li>리뷰어를 스레드로 동시에 호출, Codex는 읽기 전용으로 실행</li><li>앱 로그인과 AI별 연동으로 토큰 보호, Gemini 키는 DPAPI 암호화</li><li>세 서비스의 한도 정보를 각각 읽어 카드로 표시</li><li>외부 패키지 없이 Python 표준 라이브러리만 사용</li></ul>
+    <article class="pj"><div class="im"><img src="assets/ai-console.jpg" alt="AI 팀 관제 관제실 화면" loading="lazy"></div>
+      <div class="bd"><div class="kd">PERSONAL · 2026.11</div><h3>AI 팀 관제</h3><p class="ds">Codex와 Gemini에 같은 요청을 동시에 보내고, AI별 결과와 남은 한도를 한 화면에서 확인하는 내 PC용 웹 앱.</p>
+      <ul><li>리뷰어를 스레드로 동시에 호출, 읽기 전용 실행</li><li>앱 로그인과 AI별 연동으로 토큰 보호</li></ul>
       <div class="tg"><span>Python</span><span>Canvas 2D</span><span>PBKDF2</span></div>
-      <div class="ln"><a href="https://github.com/j75390/ai-team-console" target="_blank" rel="noopener">GITHUB ↗</a></div></div></div></details>
+      <div class="ln"><a href="https://github.com/j75390/ai-team-console" target="_blank" rel="noopener">GitHub ↗</a></div></div></article>
 
-  <details class="p"><summary><span class="no">P-03</span><div class="t"><b>잿빛 원정대</b><span>다크 고딕 덱빌딩 로그라이크</span></div><div class="y">PERSONAL<br>2026.09 – 11</div><span class="pm">+</span></summary>
-    <div class="pb"><div><img src="assets/game-battle.jpg" alt="잿빛 원정대 전투 화면" loading="lazy"></div><div>
-      <ul><li>손패 전투, 독·맹독을 나눈 공통 상태 시스템, 안개 지도</li><li>카드·유물·몬스터·이벤트를 JSON으로 관리하는 콘텐츠 도구</li><li>지역 5 · 몬스터 46 · 이벤트 175 · 유물 115</li><li>점검 스크립트 54개</li></ul>
+    <article class="pj"><div class="im"><img src="assets/game-battle.jpg" alt="잿빛 원정대 전투 화면" loading="lazy"></div>
+      <div class="bd"><div class="kd">PERSONAL · 2026.09 – 11</div><h3>잿빛 원정대</h3><p class="ds">성화가 꺼진 왕국에서 불씨를 찾아 폐허로 들어가는 다크 고딕 덱빌딩 로그라이크.</p>
+      <ul><li>손패 전투, 독·맹독 공통 상태 시스템, 안개 지도</li><li>JSON 기반 콘텐츠 도구, 점검 스크립트 54개</li></ul>
       <div class="tg"><span>Godot 4</span><span>GDScript</span><span>Python</span></div>
-      <div class="ln"><a href="https://github.com/j75390/gametest" target="_blank" rel="noopener">GITHUB ↗</a></div></div></div></details>
+      <div class="ln"><a href="https://github.com/j75390/gametest" target="_blank" rel="noopener">GitHub ↗</a></div></div></article>
 
-  <details class="p"><summary><span class="no">P-04</span><div class="t"><b>white-eyes</b><span>영상 기반 혼잡도 분석 서비스 · 6인</span></div><div class="y">TEAM · DW아카데미<br>2026.10 – 11 예정</div><span class="pm">+</span></summary>
-    <div class="pb"><div><div class="ph">통계 집계와 누락 복구<br>화면 캡처 준비 중</div></div><div>
-      <ul><li>분석 서버: 사람 탐지·추적, 유입/유출·체류 계산</li><li>추적 번호 부여율 1~2% → 약 91% (PointTracker로 교체)</li><li>앱이 꺼진 구간을 시간별 48시간, 일별 7일 범위로 보충</li><li>전송 실패 결과를 5분간 보관했다가 재전송</li></ul>
+    <article class="pj"><div class="im ph">통계 집계와<br>누락 복구</div>
+      <div class="bd"><div class="kd">TEAM 6 · DW아카데미 · 2026.10 – 11 예정</div><h3>white-eyes</h3><p class="ds">드론·CCTV 영상에서 사람 수와 유입·유출·체류를 분석해 통계와 다시보기로 보여 주는 혼잡도 분석 서비스.</p>
+      <ul><li>추적 번호 부여율 1~2% → 약 91%</li><li>꺼진 구간을 시간별 48h, 일별 7d로 보충</li><li>전송 실패 결과 5분 보관 후 재전송</li></ul>
       <div class="tg"><span>Flask</span><span>Spring Boot</span><span>MySQL</span></div>
-      <div class="ln"><a href="https://github.com/white-eyes1/white-eyes-spring/pull/150" target="_blank" rel="noopener">집계 PR #150 ↗</a><a href="https://github.com/white-eyes1/white-eyes-spring/pull/155" target="_blank" rel="noopener">복구 PR #155 ↗</a></div></div></div></details>
+      <div class="ln"><a href="https://github.com/white-eyes1/white-eyes-spring/pull/150" target="_blank" rel="noopener">집계 PR #150 ↗</a><a href="https://github.com/white-eyes1/white-eyes-spring/pull/155" target="_blank" rel="noopener">복구 PR #155 ↗</a></div></div></article>
 
-  <details class="p"><summary><span class="no">P-05</span><div class="t"><b>Obsidian Shield</b><span>실시간 보행자 관제 시스템 · 5인</span></div><div class="y">TEAM · DW아카데미<br>2026.06 – 07</div><span class="pm">+</span></summary>
-    <div class="pb"><div><div class="ph">회원·권한 관리 · 통합 대시보드<br>화면 캡처 준비 중</div></div><div>
-      <ul><li>회원 검색·필터·정렬·페이지네이션, 가입 승인, 권한 변경</li><li>회원·카메라·탐지 대상·이벤트·지도를 한 화면에 모은 대시보드</li><li>유즈케이스와 UI/UX 설계</li></ul>
-      <div class="tg"><span>Flask</span><span>JSON</span></div></div></div></details>
+    <article class="pj"><div class="im ph">회원·권한 관리와<br>통합 관제 대시보드</div>
+      <div class="bd"><div class="kd">TEAM 5 · DW아카데미 · 2026.06 – 07</div><h3>Obsidian Shield</h3><p class="ds">드론·CCTV 영상에서 사람을 탐지하고 얼굴 식별·이동 추적·이벤트 기록까지 연결한 실시간 보행자 관제 시스템.</p>
+      <ul><li>회원 검색·필터·정렬, 가입 승인, 권한 변경</li><li>여러 정보를 한 화면에 모은 대시보드와 UI/UX 설계</li></ul>
+      <div class="tg"><span>Flask</span><span>JSON</span></div></div></article>
   </div>
 </section>
 
-<section id="career">
-  <div class="sh"><span><b>03</b> / CAREER LOG</span><span>최근순</span></div>
-  <div class="log">
-    <div class="l"><span class="d">2026.11.09 – 11.10</span><span class="k">BUILD</span><span class="w"><b>StudySeat · AI 팀 관제</b><span>개인 프로젝트 두 개를 이틀 동안 설계부터 시험, 공개까지 진행</span></span></div>
-    <div class="l"><span class="d">2026.10.06 – 11.23 예정</span><span class="k">TEAM 6</span><span class="w"><b>white-eyes</b><span>분석 서버, 시간별·일별 통계 집계와 누락 복구를 담당</span></span></div>
-    <div class="l"><span class="d">2026.09.30 – 11.12</span><span class="k">BUILD</span><span class="w"><b>잿빛 원정대</b><span>덱빌딩 로그라이크와 콘텐츠 도구를 개인으로 개발</span></span></div>
-    <div class="l"><span class="d">2026.06.25 – 07.24</span><span class="k">TEAM 5</span><span class="w"><b>Obsidian Shield</b><span>회원·권한 관리, 통합 관제 대시보드, UI/UX 설계를 담당</span></span></div>
-    <div class="l"><span class="d">2026.04.27 – 11.23 예정</span><span class="k">LEARN</span><span class="w"><b>DW아카데미 5기 · AIoT 기반 드론 영상 관제시스템</b><span>Java·Spring Boot·JPA, MySQL, Python·OpenCV·YOLO, Flask를 배우는 과정(수료 예정)</span></span></div>
+<section id="journey">
+  <div class="head"><div class="eb">JOURNEY</div><h2 class="h2">걸어온 순서</h2></div>
+  <div class="jr">
+    <div class="st"><div class="d">2026.04.27</div><h4>DW아카데미 입교</h4><p>Java·Spring Boot·Python·Flask 학습 시작</p></div>
+    <div class="st"><div class="d">2026.06.25 – 07.24</div><h4>Obsidian Shield</h4><p>팀 5인, 회원·권한 관리와 통합 대시보드</p></div>
+    <div class="st"><div class="d">2026.09.30 – 11.12</div><h4>잿빛 원정대</h4><p>덱빌딩 로그라이크와 콘텐츠 도구 개발</p></div>
+    <div class="st"><div class="d">2026.10.06 – 11.23</div><h4>white-eyes</h4><p>팀 6인, 분석 서버와 통계 집계·복구</p></div>
+    <div class="st"><div class="d">2026.11.09 – 11.10</div><h4>StudySeat · AI 팀 관제</h4><p>설계부터 시험, 공개까지 이틀에 진행</p></div>
   </div>
 </section>
 
 <section id="stack">
-  <div class="sh"><span><b>04</b> / STACK × PROJECT</span><span>● 사용</span></div>
-  <table class="mx">
-    <thead><tr><th></th><th>StudySeat</th><th>AI 팀 관제</th><th>잿빛 원정대</th><th>white-eyes</th><th>Obsidian</th></tr></thead>
-    <tbody>
-      <tr><th>Java · Spring Boot</th><td>●</td><td></td><td></td><td>●</td><td></td></tr>
-      <tr><th>JPA · Flyway</th><td>●</td><td></td><td></td><td></td><td></td></tr>
-      <tr><th>Python</th><td></td><td>●</td><td>●</td><td>●</td><td>●</td></tr>
-      <tr><th>Flask</th><td></td><td></td><td></td><td>●</td><td>●</td></tr>
-      <tr><th>MySQL</th><td class="h">MySQL 모드(H2)</td><td></td><td></td><td>●</td><td></td></tr>
-      <tr><th>JavaScript · 화면</th><td>●</td><td>●</td><td></td><td></td><td>●</td></tr>
-      <tr><th>Godot · GDScript</th><td></td><td></td><td>●</td><td></td><td></td></tr>
-      <tr><th>자동 시험 · 점검</th><td>40</td><td>60</td><td>54</td><td></td><td></td></tr>
-    </tbody>
-  </table>
-  <p class="note">MySQL 8 실서버에서의 검증은 아직 하지 못했습니다. StudySeat 시험은 H2(MySQL 모드) 기준입니다.</p>
+  <div class="head"><div class="eb">STACK</div><h2 class="h2">쓴 기술</h2><p class="sd">프로젝트에서 실제로 쓴 것만 적었습니다.</p></div>
+  <div class="sk">
+    <div class="t"><span class="k">BACKEND</span><div class="chips"><span>Java 17</span><span>Spring Boot</span><span>JPA</span><span>Spring Security</span><span>Python</span><span>Flask</span></div><p>StudySeat · white-eyes · AI 팀 관제</p></div>
+    <div class="t"><span class="k">DATABASE</span><div class="chips"><span>MySQL</span><span>H2</span><span>Flyway</span></div><p>유니크 제약·락·원장 설계. MySQL 8 실서버 검증은 아직 하지 못했습니다.</p></div>
+    <div class="t"><span class="k">FRONT · TOOLS</span><div class="chips"><span>HTML/CSS</span><span>JavaScript</span><span>Thymeleaf</span><span>Leaflet</span><span>Chart.js</span><span>Godot</span><span>Git</span></div><p>화면 구현, 지도·그래프, 이슈→PR 협업</p></div>
+  </div>
 </section>
 
 <section id="contact">
-  <div class="sh"><span><b>05</b> / CONTACT</span><span>2026.11</span></div>
-  <div class="rc">
-    <h3>JANG DONGGEUN</h3><div class="sub">BACKEND DEVELOPER · RECEIPT NO. 0001</div>
-    <a class="row" href="mailto:j75390@gmail.com"><span>EMAIL</span><i class="dots"></i><b>j75390@gmail.com</b></a>
-    <a class="row" href="https://github.com/j75390" target="_blank" rel="noopener"><span>GITHUB</span><i class="dots"></i><b>j75390</b></a>
-    <a class="row" href="https://gitlab.com/dijk3" target="_blank" rel="noopener"><span>GITLAB</span><i class="dots"></i><b>dijk3</b></a>
-    <a class="row" href="https://dijk.tistory.com/" target="_blank" rel="noopener"><span>BLOG</span><i class="dots"></i><b>tistory</b></a>
-    <a class="row" href="https://blog.naver.com/j75390" target="_blank" rel="noopener"><span>BLOG</span><i class="dots"></i><b>naver</b></a>
-    <a class="row" href="https://app.notion.com/p/410bd08dbbd2814988e5de95087e3166" target="_blank" rel="noopener"><span>NOTION</span><i class="dots"></i><b>portfolio</b></a>
-    <div class="tot">THANK YOU · 같은 요청은 한 번만 처리됩니다</div>
+  <div class="ct">
+    <div><div class="eb" style="color:#5eead4">CONTACT</div><h2>같은 요청은 한 번만,<br>연락은 <em>언제든</em> 환영합니다.</h2><p>프로젝트 코드는 GitHub에, 정리한 문서는 노션에 있습니다.</p></div>
+    <div class="ls">
+      <a href="mailto:j75390@gmail.com"><span>EMAIL</span>j75390@gmail.com</a>
+      <a href="https://github.com/j75390" target="_blank" rel="noopener"><span>GITHUB</span>j75390 ↗</a>
+      <a href="https://app.notion.com/p/410bd08dbbd2814988e5de95087e3166" target="_blank" rel="noopener"><span>NOTION</span>포트폴리오 ↗</a>
+      <a href="https://blog.naver.com/j75390" target="_blank" rel="noopener"><span>BLOG</span>네이버 블로그 ↗</a>
+      <a href="https://dijk.tistory.com/" target="_blank" rel="noopener"><span>BLOG</span>티스토리 ↗</a>
+      <a href="https://gitlab.com/dijk3" target="_blank" rel="noopener"><span>GITLAB</span>dijk3 ↗</a>
+    </div>
   </div>
 </section>
-<footer>© 2026 장동근</footer>
-</main>
+<footer>© 2026 장동근 · Backend Developer</footer>
 </div>
 <script>
 const root=document.documentElement,btn=document.getElementById('theme');
@@ -217,8 +217,8 @@ let t=null;try{t=localStorage.getItem('theme')}catch(e){}
 if(!t)t=matchMedia('(prefers-color-scheme:dark)').matches?'dark':'light';
 function apply(v){root.dataset.theme=v;try{localStorage.setItem('theme',v)}catch(e){}}
 apply(t);btn.onclick=()=>apply(root.dataset.theme==='dark'?'light':'dark');
-const links=[...document.querySelectorAll('.idx a')],secs=links.map(a=>document.querySelector(a.getAttribute('href')));
-addEventListener('scroll',()=>{let i=0;secs.forEach((s,k)=>{if(s.getBoundingClientRect().top<200)i=k});links.forEach((a,k)=>a.classList.toggle('on',k===i))},{passive:true});
+const links=[...document.querySelectorAll('.nav a')],secs=links.map(a=>document.querySelector(a.getAttribute('href')));
+addEventListener('scroll',()=>{let i=0;secs.forEach((s,k)=>{if(s.getBoundingClientRect().top<160)i=k});links.forEach((a,k)=>a.classList.toggle('on',k===i))},{passive:true});
 </script>
 </body>
 </html>
