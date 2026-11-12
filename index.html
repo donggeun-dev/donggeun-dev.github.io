@@ -114,6 +114,12 @@ footer{text-align:center;color:var(--sub);font-size:13px;padding:56px 0 44px}
 }
 
 /* detail */
+.gl{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:16px;margin-top:22px}
+.gl div{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:20px 22px;box-shadow:var(--shadow)}
+.gl small{display:block;font-size:12.5px;font-weight:800;letter-spacing:.5px;color:var(--p1);margin-bottom:6px}
+.gl p{font-size:14.5px;line-height:1.65}
+.cc h4 em{font-style:normal;font-size:11.5px;font-weight:800;color:#fff;background:var(--grad);border-radius:999px;padding:2px 9px;margin-left:8px;vertical-align:2px}
+
 .ds{margin-top:12px;font-size:15px;line-height:1.7}
 .fl{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:14px;position:relative}
 .fl div{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:20px 14px;text-align:center;box-shadow:var(--shadow)}
@@ -258,47 +264,68 @@ const P=[
 "period": "2026.06 – 07",
 "title": "Obsidian Shield",
 "one": "실시간 보행자 관제 시스템",
-"desc": "회원·권한 관리와 통합 관제 대시보드를 맡았습니다.",
+"desc": "카메라 영상에서 사람을 찾고, 등록해 둔 탐지 대상이 나타나면 위치와 장면을 관제 화면에 알려주는 시스템입니다.",
 "tags": [
+"Python",
 "Flask",
+"YOLO",
+"InsightFace",
 "JSON"
 ],
 "flow": [
-"회원 조회",
-"검색·필터·정렬",
-"가입 승인",
-"권한 변경",
-"관제 대시보드"
+"카메라 등록",
+"사람 탐지·추적",
+"얼굴 대조",
+"이벤트 기록·알림",
+"지도·로그 확인"
 ],
 "core": [
 [
-"회원 관리",
-"회원 목록을 검색·필터·정렬로 조회"
+"사람 탐지·추적",
+"YOLO로 영상 속 사람을 찾고 프레임마다 추적"
 ],
 [
-"가입 승인",
-"승인 대기 회원을 확인하고 승인"
+"얼굴 대조",
+"InsightFace로 얼굴 특징을 뽑아 등록한 탐지 대상과 비교"
 ],
 [
-"권한 변경",
-"회원별 권한을 바꾸고 화면에 반영"
+"이벤트 로그 · 실시간 알림",
+"일치하면 시각·위치 좌표·캡처 이미지를 기록하고 관제 화면에 알림"
+],
+[
+"위치추적 지도",
+"이벤트가 발생한 위치를 탐지 대상별로 지도에 표시"
+],
+[
+"회원·권한 관리",
+"검색·필터·정렬로 회원 조회, 가입 승인, 관리자·관제 요원 권한 부여",
+1
 ],
 [
 "통합 관제 대시보드",
-"UI/UX 설계와 화면 구현"
+"등록 대상·미확인 이벤트·승인 사용자·실시간 영상·최근 탐지를 한 화면에 모음 (UI/UX 설계)",
+1
 ]
 ],
 "res": [
 [
-"회원 검색·필터·정렬",
-"사용자 관리 화면에서 한 번에 조회"
+"한 화면 관제",
+"탐지 대상·미확인 이벤트·승인 사용자·실시간 영상을 대시보드에 함께 표시"
 ],
 [
-"가입 승인 · 권한 변경",
-"관리자 화면에서 바로 처리"
+"이벤트 기록",
+"시각·좌표·캡처 이미지를 남기고 읽음 처리"
+],
+[
+"권한 분리",
+"관리자와 관제 요원의 권한을 나눠 부여"
 ]
 ],
 "shots": [
+[
+"assets/obsidian-dashboard.jpg",
+"통합 관제 대시보드"
+],
 [
 "assets/obsidian-members.jpg",
 "사용자 관리 화면 (샘플 데이터)"
@@ -313,6 +340,24 @@ const P=[
 "노션",
 "https://app.notion.com/p/410bd08dbbd28139b33bd769f4a63d4b"
 ]
+],
+"gl": [
+[
+"해결하려는 문제",
+"여러 카메라 영상을 사람이 계속 지켜보며 특정 인물을 찾아야 한다."
+],
+[
+"동작 방식",
+"영상 속 사람을 탐지·추적하고, 얼굴을 등록한 탐지 대상과 대조해 일치하면 이벤트로 기록한다."
+],
+[
+"사용자",
+"관리자(회원·카메라·탐지 대상 관리)와 관제 요원(실시간 관제·이벤트 확인)"
+],
+[
+"내 역할",
+"회원·권한 관리, 통합 관제 대시보드 UI/UX"
+]
 ]
 },
 {
@@ -321,7 +366,7 @@ const P=[
 "period": "2026.10 – 11 예정",
 "title": "white-eyes",
 "one": "영상 기반 혼잡도 분석 서비스",
-"desc": "드론·CCTV 영상에서 사람을 세고, 구역별 혼잡을 한눈에 보여주는 군중 관제 서비스입니다. 분석 서버와 시간별·일별 통계 집계를 맡았습니다.",
+"desc": "드론·CCTV 영상에서 사람을 세고, 구역별 혼잡을 한눈에 보여주는 군중 관제 서비스입니다.",
 "tags": [
 "Flask",
 "Spring Boot",
@@ -339,19 +384,23 @@ const P=[
 "core": [
 [
 "분석 서버",
-"사람 탐지(YOLOv8m)와 추적, 유입/유출 판정, 체류 시간 계산. 결과를 1초마다 관리자 앱에 전송"
+"사람 탐지(YOLOv8m)와 추적, 유입/유출 판정, 체류 시간 계산. 결과를 1초마다 관리자 앱에 전송",
+1
 ],
 [
 "시간별·일별 통계 집계",
-"분석 결과를 1분·시간별·일별로 쌓아 통계 화면에서 조회"
+"분석 결과를 1분·시간별·일별로 쌓아 통계 화면에서 조회",
+1
 ],
 [
 "누락 복구",
-"서버가 꺼져 있던 구간의 집계 누락을 찾아 다시 채움"
+"서버가 꺼져 있던 구간의 집계 누락을 찾아 다시 채움",
+1
 ],
 [
 "전송 실패 보관 · 재전송",
-"전송에 실패한 결과를 보관했다가 다시 전송"
+"전송에 실패한 결과를 보관했다가 다시 전송",
+1
 ],
 [
 "서비스 구성",
@@ -410,6 +459,24 @@ const P=[
 [
 "노션",
 "https://app.notion.com/p/410bd08dbbd281978c38ec7c854cdea0"
+]
+],
+"gl": [
+[
+"해결하려는 문제",
+"인파가 몰려도 위험을 일찍 알아차리기 어렵고, 실제 보행 수요를 알기 어렵다."
+],
+[
+"동작 방식",
+"영상에서 사람을 찾아 따라가며 구역별 인원·밀집도·유입/유출·체류 시간을 쌓고 지도·그래프로 보여준다."
+],
+[
+"사용자",
+"통계를 보는 고객(사용자 앱)과 서비스를 운영하는 관리자(관리자 앱)"
+],
+[
+"내 역할",
+"분석 서버(탐지·추적·유입/유출), 시간별·일별 통계 집계"
 ]
 ]
 },
@@ -486,6 +553,24 @@ const P=[
 [
 "노션",
 "https://app.notion.com/p/416bd08dbbd281128167dfdc0989405b"
+]
+],
+"gl": [
+[
+"무엇",
+"카드 손패로 싸우며 지도를 따라 나아가는 다크 고딕 덱빌딩 로그라이크 게임"
+],
+[
+"만든 이유",
+"카드·유물·이벤트·지도·상점이 맞물려 돌아가는 한 판의 구조 전체를 직접 만들어 보려고"
+],
+[
+"방식",
+"Godot 4(GDScript)로 게임을, 콘텐츠는 JSON과 Python 도구로 검증·내보내기"
+],
+[
+"내 역할",
+"기획과 구현 전체 (개인)"
 ]
 ]
 },
@@ -565,6 +650,24 @@ const P=[
 "노션",
 "https://app.notion.com/p/414bd08dbbd281cb9c76de38d90cff32"
 ]
+],
+"gl": [
+[
+"해결하려는 문제",
+"스터디카페는 가 보기 전에는 자리가 있는지, 어떤 자리인지 알기 어렵고 미리 정해 둘 수도 없다."
+],
+[
+"동작 방식",
+"지도에서 지점을 찾고, 도면에서 좌석을 골라 포인트로 결제하면 QR이 발급된다."
+],
+[
+"핵심 과제",
+"같은 좌석에 동시에 요청이 들어와도 한 명만 예약되고, 포인트가 어긋나지 않아야 한다."
+],
+[
+"내 역할",
+"기획·설계·구현 전체 (개인)"
+]
 ]
 },
 {
@@ -629,6 +732,24 @@ const P=[
 "노션",
 "https://app.notion.com/p/414bd08dbbd281feb70dd7434209a903"
 ]
+],
+"gl": [
+[
+"해결하려는 문제",
+"AI를 역할별로 나눠 쓰면 창이 흩어지고, 한도 확인 방식도 AI마다 달라 한눈에 보기 어렵다."
+],
+[
+"동작 방식",
+"Codex와 Gemini에 같은 요청을 동시에 보내고, 결과와 남은 한도를 카드로 모아 보여준다."
+],
+[
+"안전장치",
+"리뷰어는 읽기 전용으로 호출하고, 앱 로그인과 AI별 연동으로 내 토큰을 보호한다."
+],
+[
+"내 역할",
+"기획·설계·구현 전체 (개인)"
+]
 ]
 }
 ];
@@ -637,8 +758,9 @@ const E=x=>x.replace(/&/g,'&amp;').replace(/</g,'&lt;');
 function card(q,lab,cls){return '<a class="'+cls+'" href="#/projects/'+q.id+'"><small>'+lab+'</small><b>'+E(q.title)+'</b><span>'+E(q.one)+'</span></a>'}
 function render(k){const q=P[k],pv=P[(k+P.length-1)%P.length],nx=P[(k+1)%P.length];
  detV.innerHTML='<div class="dv"><a class="back" href="#projects">← 프로젝트</a><div class="dh"><div><div class="kd">'+q.kind+' · '+q.period+'</div><h1>'+E(q.title)+'</h1><p class="one">'+E(q.one)+'</p><p class="ds">'+E(q.desc)+'</p><div class="tg">'+q.tags.map(t=>'<span>'+t+'</span>').join('')+'</div><div class="ln"><a class="dt" href="'+q.links[0][1]+'" target="_blank" rel="noopener">'+GH+'GitHub ↗</a><a href="'+q.links[1][1]+'" target="_blank" rel="noopener">노션 ↗</a></div></div><img src="'+q.shots[0][0]+'" alt="'+E(q.title)+'"></div>'
+ +'<div class="gl">'+q.gl.map(g=>'<div><small>'+E(g[0])+'</small><p>'+E(g[1])+'</p></div>').join('')+'</div>'
  +'<h2 class="s2">핵심 흐름</h2><div class="fl">'+q.flow.map((f,i)=>'<div><i>'+(i+1)+'</i><span>'+E(f)+'</span></div>').join('')+'</div>'
- +'<h2 class="s2">핵심 설계</h2><div class="cg">'+q.core.map(c=>'<div class="cc"><h4>'+E(c[0])+'</h4><p>'+E(c[1])+'</p></div>').join('')+'</div>'
+ +'<h2 class="s2">핵심 설계</h2><div class="cg">'+q.core.map(c=>'<div class="cc"><h4>'+E(c[0])+(c[2]?'<em>내 담당</em>':'')+'</h4><p>'+E(c[1])+'</p></div>').join('')+'</div>'
  +'<h2 class="s2">주요 결과</h2><div class="rg">'+q.res.map(r=>'<div class="rc"><b>'+E(r[0])+'</b><p>'+E(r[1])+'</p></div>').join('')+'</div>'
  +(q.shots.length>1?'<h2 class="s2">화면</h2><div class="sg">'+(q.shots.length>2?q.shots.slice(1):q.shots).map(i=>'<figure><img src="'+i[0]+'" alt="'+E(i[1])+'" loading="lazy"><figcaption>'+E(i[1])+'</figcaption></figure>').join('')+'</div>':'')
  +'<h2 class="s2">근거 자료</h2><div class="lk">'+q.links.map(l=>'<a href="'+l[1]+'" target="_blank" rel="noopener"><span>'+E(l[0])+'</span><span>↗</span></a>').join('')+'</div>'
