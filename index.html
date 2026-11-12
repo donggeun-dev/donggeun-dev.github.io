@@ -112,11 +112,41 @@ footer{text-align:center;color:var(--sub);font-size:13px;padding:56px 0 44px}
  .pr,.sk{grid-template-columns:1fr}.pj{grid-template-columns:1fr}.pj:nth-of-type(even){direction:ltr}.pj .bd{padding:30px 24px}.pj .vis{padding:20px}
  .jr{grid-template-columns:1fr}.ct{grid-template-columns:1fr;padding:40px 26px;border-radius:30px}
 }
+
+/* detail */
+.dv{padding:130px 28px 40px;max-width:1100px;margin:0 auto}
+.back{display:inline-block;font-size:14px;font-weight:700;color:var(--sub);margin-bottom:22px}.back:hover{color:var(--p1)}
+.dh{display:grid;grid-template-columns:1fr 1.05fr;gap:40px;align-items:center;background:var(--card);border:1px solid var(--line);border-radius:32px;box-shadow:var(--shadow);padding:44px}
+.dh .kd{font-size:13px}
+.dh h1{font-size:clamp(30px,4vw,44px);letter-spacing:-1.6px;line-height:1.25;margin:8px 0 12px;font-weight:800}
+.dh .one{color:var(--sub);font-size:17px}
+.dh .tg{margin-top:18px}
+.dh .ln{margin-top:14px}
+.dh img{width:100%;border-radius:18px;box-shadow:0 14px 34px rgba(30,32,70,.22);display:block}
+.dv h2.s2{font-size:clamp(24px,3vw,32px);letter-spacing:-1.2px;text-align:center;font-weight:800;margin:70px 0 30px}
+.cg{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:18px}
+.cc{background:var(--card);border:1px solid var(--line);border-radius:22px;padding:26px 24px;box-shadow:var(--shadow)}
+.cc h4{font-size:17px;letter-spacing:-.5px;margin-bottom:8px}.cc p{font-size:14.5px;color:var(--sub);line-height:1.65}
+.rs{display:grid;gap:12px;max-width:640px;margin:0 auto}
+.rs div{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:15px 22px;font-weight:700;font-size:15.5px}
+.rs div:before{content:"✓";color:#34d399;margin-right:10px;font-weight:800}
+.sg{align-items:start;display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:22px}
+.sg figure{background:var(--card);border:1px solid var(--line);border-radius:20px;overflow:hidden;box-shadow:var(--shadow);line-height:0}
+.sg img{width:100%;display:block}
+.sg figcaption{line-height:1.5;font-size:13.5px;color:var(--sub);padding:13px 18px;border-top:1px solid var(--line)}
+.lk{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:14px}
+.lk a{display:flex;justify-content:space-between;background:var(--card);border:1px solid var(--line);border-radius:999px;padding:15px 24px;font-weight:700;font-size:14.5px;transition:.2s}.lk a:hover{border-color:var(--p1);color:var(--p1)}
+.pn{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.pn a{background:var(--card);border:1px solid var(--line);border-radius:22px;padding:24px 28px;box-shadow:var(--shadow);transition:.2s}.pn a:hover{transform:translateY(-3px)}
+.pn small{display:block;color:var(--p1);font-weight:800;font-size:13px;margin-bottom:4px}.pn b{font-size:18px;letter-spacing:-.5px}.pn span{display:block;font-size:13.5px;color:var(--sub)}
+.pn a.nx{text-align:right}
+@media(max-width:900px){.dv{padding:96px 16px 30px}.dh{grid-template-columns:1fr;padding:26px 22px}.pn{grid-template-columns:1fr}.sg{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
 <nav class="nav"><b>장동근</b><a href="#home" class="on">홈</a><a href="#projects">프로젝트</a><a href="#journey">이력</a><a href="#stack">기술</a><a href="#contact">연락처</a><button id="theme" aria-label="테마">◐</button></nav>
 
+<div id="homeView">
 <section id="home"><div class="wrap hero">
   <div>
     <span class="pill"><i></i>Backend Developer · Java / Spring Boot</span>
@@ -132,37 +162,37 @@ footer{text-align:center;color:var(--sub);font-size:13px;padding:56px 0 44px}
 <section id="projects">
   <div class="head"><div class="eb">PROJECTS</div><h2 class="h2">프로젝트</h2></div>
 
-  <article class="pj"><div class="vis"><div class="hov"><img src="assets/obsidian-members.jpg" alt="Obsidian Shield 사용자 관리 화면" loading="lazy"><div class="ov"><a href="https://github.com/Kanabig/obsidian-shield" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor"><path d="M12 .5a11.5 11.5 0 0 0-3.64 22.41c.58.1.79-.25.79-.56v-2c-3.2.7-3.88-1.37-3.88-1.37-.52-1.33-1.28-1.69-1.28-1.69-1.04-.71.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.76 2.7 1.25 3.36.96.1-.75.4-1.25.73-1.54-2.55-.29-5.24-1.28-5.24-5.69 0-1.26.45-2.28 1.19-3.08-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.17 1.18a11 11 0 0 1 5.77 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.05.74.8 1.19 1.82 1.19 3.08 0 4.42-2.69 5.39-5.25 5.68.41.36.78 1.06.78 2.14v3.17c0 .31.21.67.8.56A11.5 11.5 0 0 0 12 .5Z"/></svg></a><a href="https://app.notion.com/p/410bd08dbbd28139b33bd769f4a63d4b" target="_blank" rel="noopener" aria-label="상세보기"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M8 7h9v9"/></svg></a></div></div></div>
+  <article class="pj"><div class="vis"><div class="hov"><img src="assets/obsidian-members.jpg" alt="Obsidian Shield 사용자 관리 화면" loading="lazy"><div class="ov"><a href="https://github.com/Kanabig/obsidian-shield" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor"><path d="M12 .5a11.5 11.5 0 0 0-3.64 22.41c.58.1.79-.25.79-.56v-2c-3.2.7-3.88-1.37-3.88-1.37-.52-1.33-1.28-1.69-1.28-1.69-1.04-.71.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.76 2.7 1.25 3.36.96.1-.75.4-1.25.73-1.54-2.55-.29-5.24-1.28-5.24-5.69 0-1.26.45-2.28 1.19-3.08-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.17 1.18a11 11 0 0 1 5.77 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.05.74.8 1.19 1.82 1.19 3.08 0 4.42-2.69 5.39-5.25 5.68.41.36.78 1.06.78 2.14v3.17c0 .31.21.67.8.56A11.5 11.5 0 0 0 12 .5Z"/></svg></a><a href="#/projects/obsidian-shield" aria-label="상세보기"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M8 7h9v9"/></svg></a></div></div></div>
     <div class="bd"><div class="kd">TEAM 1차 · 5인 · DW아카데미 · 2026.06 – 07</div><h3>Obsidian Shield</h3><p class="one">실시간 보행자 관제 시스템</p>
     <ul class="bl"><li>회원 검색·필터·정렬, 가입 승인, 권한 변경</li><li>통합 관제 대시보드, UI/UX 설계</li></ul>
-    <div class="tg"><span>Flask</span><span>JSON</span></div><div class="ln"><a class="dt" href="https://app.notion.com/p/410bd08dbbd28139b33bd769f4a63d4b" target="_blank" rel="noopener">상세보기 ↗</a><a href="https://github.com/Kanabig/obsidian-shield" target="_blank" rel="noopener">GitHub ↗</a></div></div></article>
+    <div class="tg"><span>Flask</span><span>JSON</span></div><div class="ln"><a class="dt" href="#/projects/obsidian-shield">상세보기 ↗</a><a href="https://github.com/Kanabig/obsidian-shield" target="_blank" rel="noopener">GitHub ↗</a></div></div></article>
 
-  <article class="pj"><div class="vis"><div class="hov"><img src="assets/white-eyes-dashboard.jpg" alt="white-eyes 관리자 대시보드" loading="lazy"><div class="ov"><a href="https://github.com/white-eyes1/white-eyes-introduce" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor"><path d="M12 .5a11.5 11.5 0 0 0-3.64 22.41c.58.1.79-.25.79-.56v-2c-3.2.7-3.88-1.37-3.88-1.37-.52-1.33-1.28-1.69-1.28-1.69-1.04-.71.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.76 2.7 1.25 3.36.96.1-.75.4-1.25.73-1.54-2.55-.29-5.24-1.28-5.24-5.69 0-1.26.45-2.28 1.19-3.08-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.17 1.18a11 11 0 0 1 5.77 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.05.74.8 1.19 1.82 1.19 3.08 0 4.42-2.69 5.39-5.25 5.68.41.36.78 1.06.78 2.14v3.17c0 .31.21.67.8.56A11.5 11.5 0 0 0 12 .5Z"/></svg></a><a href="https://app.notion.com/p/410bd08dbbd281978c38ec7c854cdea0" target="_blank" rel="noopener" aria-label="상세보기"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M8 7h9v9"/></svg></a></div></div></div>
+  <article class="pj"><div class="vis"><div class="hov"><img src="assets/white-eyes-dashboard.jpg" alt="white-eyes 관리자 대시보드" loading="lazy"><div class="ov"><a href="https://github.com/white-eyes1/white-eyes-introduce" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor"><path d="M12 .5a11.5 11.5 0 0 0-3.64 22.41c.58.1.79-.25.79-.56v-2c-3.2.7-3.88-1.37-3.88-1.37-.52-1.33-1.28-1.69-1.28-1.69-1.04-.71.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.76 2.7 1.25 3.36.96.1-.75.4-1.25.73-1.54-2.55-.29-5.24-1.28-5.24-5.69 0-1.26.45-2.28 1.19-3.08-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.17 1.18a11 11 0 0 1 5.77 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.05.74.8 1.19 1.82 1.19 3.08 0 4.42-2.69 5.39-5.25 5.68.41.36.78 1.06.78 2.14v3.17c0 .31.21.67.8.56A11.5 11.5 0 0 0 12 .5Z"/></svg></a><a href="#/projects/white-eyes" aria-label="상세보기"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M8 7h9v9"/></svg></a></div></div></div>
     <div class="bd"><div class="kd">TEAM 2차 · 6인 · DW아카데미 · 2026.10 – 11 예정</div><h3>white-eyes</h3><p class="one">영상 기반 혼잡도 분석 서비스</p>
     <ul class="bl"><li>분석 서버 · 시간별·일별 통계 집계와 누락 복구</li><li>추적 번호 부여율 1~2% → 약 91%</li><li>전송 실패 결과 보관·재전송 (120건 확인)</li></ul>
     <div class="tg"><span>Flask</span><span>Spring Boot</span><span>MySQL</span></div>
     
-    <div class="ln"><a class="dt" href="https://app.notion.com/p/410bd08dbbd281978c38ec7c854cdea0" target="_blank" rel="noopener">상세보기 ↗</a><a href="https://github.com/white-eyes1/white-eyes-introduce" target="_blank" rel="noopener">소개 저장소 ↗</a><a href="https://github.com/white-eyes1/white-eyes-spring" target="_blank" rel="noopener">Spring 저장소 ↗</a><a href="https://github.com/white-eyes1/white-eyes-flask" target="_blank" rel="noopener">Flask 저장소 ↗</a><a href="https://github.com/white-eyes1/white-eyes-spring/pull/150" target="_blank" rel="noopener">집계 PR #150 ↗</a><a href="https://github.com/white-eyes1/white-eyes-spring/pull/155" target="_blank" rel="noopener">복구 PR #155 ↗</a></div></div></article>
+    <div class="ln"><a class="dt" href="#/projects/white-eyes">상세보기 ↗</a><a href="https://github.com/white-eyes1/white-eyes-introduce" target="_blank" rel="noopener">소개 저장소 ↗</a><a href="https://github.com/white-eyes1/white-eyes-spring" target="_blank" rel="noopener">Spring 저장소 ↗</a><a href="https://github.com/white-eyes1/white-eyes-flask" target="_blank" rel="noopener">Flask 저장소 ↗</a><a href="https://github.com/white-eyes1/white-eyes-spring/pull/150" target="_blank" rel="noopener">집계 PR #150 ↗</a><a href="https://github.com/white-eyes1/white-eyes-spring/pull/155" target="_blank" rel="noopener">복구 PR #155 ↗</a></div></div></article>
 
-  <article class="pj"><div class="vis"><div class="hov"><img src="assets/game-battle.jpg" alt="잿빛 원정대 전투 화면" loading="lazy"><div class="ov"><a href="https://github.com/j75390/gametest" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor"><path d="M12 .5a11.5 11.5 0 0 0-3.64 22.41c.58.1.79-.25.79-.56v-2c-3.2.7-3.88-1.37-3.88-1.37-.52-1.33-1.28-1.69-1.28-1.69-1.04-.71.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.76 2.7 1.25 3.36.96.1-.75.4-1.25.73-1.54-2.55-.29-5.24-1.28-5.24-5.69 0-1.26.45-2.28 1.19-3.08-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.17 1.18a11 11 0 0 1 5.77 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.05.74.8 1.19 1.82 1.19 3.08 0 4.42-2.69 5.39-5.25 5.68.41.36.78 1.06.78 2.14v3.17c0 .31.21.67.8.56A11.5 11.5 0 0 0 12 .5Z"/></svg></a><a href="https://app.notion.com/p/416bd08dbbd281128167dfdc0989405b" target="_blank" rel="noopener" aria-label="상세보기"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M8 7h9v9"/></svg></a></div></div></div>
+  <article class="pj"><div class="vis"><div class="hov"><img src="assets/game-battle.jpg" alt="잿빛 원정대 전투 화면" loading="lazy"><div class="ov"><a href="https://github.com/j75390/gametest" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor"><path d="M12 .5a11.5 11.5 0 0 0-3.64 22.41c.58.1.79-.25.79-.56v-2c-3.2.7-3.88-1.37-3.88-1.37-.52-1.33-1.28-1.69-1.28-1.69-1.04-.71.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.76 2.7 1.25 3.36.96.1-.75.4-1.25.73-1.54-2.55-.29-5.24-1.28-5.24-5.69 0-1.26.45-2.28 1.19-3.08-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.17 1.18a11 11 0 0 1 5.77 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.05.74.8 1.19 1.82 1.19 3.08 0 4.42-2.69 5.39-5.25 5.68.41.36.78 1.06.78 2.14v3.17c0 .31.21.67.8.56A11.5 11.5 0 0 0 12 .5Z"/></svg></a><a href="#/projects/gray-expedition" aria-label="상세보기"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M8 7h9v9"/></svg></a></div></div></div>
     <div class="bd"><div class="kd">PERSONAL · 2026.09 – 11</div><h3>잿빛 원정대</h3><p class="one">다크 고딕 덱빌딩 로그라이크</p>
     <ul class="bl"><li>손패 전투, 독·맹독 상태 시스템, 안개 지도</li><li>JSON 콘텐츠 도구 (몬스터 46 · 이벤트 175 · 유물 115)</li><li>점검 스크립트 54개</li></ul>
     <div class="tg"><span>Godot 4</span><span>GDScript</span><span>Python</span></div>
-    <div class="ln"><a class="dt" href="https://app.notion.com/p/416bd08dbbd281128167dfdc0989405b" target="_blank" rel="noopener">상세보기 ↗</a><a href="https://github.com/j75390/gametest" target="_blank" rel="noopener">GitHub ↗</a></div></div></article>
+    <div class="ln"><a class="dt" href="#/projects/gray-expedition">상세보기 ↗</a><a href="https://github.com/j75390/gametest" target="_blank" rel="noopener">GitHub ↗</a></div></div></article>
 
-  <article class="pj"><div class="vis"><div class="hov"><img src="assets/studyseat-booking.jpg" alt="StudySeat 도면 예약 화면" loading="lazy"><div class="ov"><a href="https://github.com/j75390/studyseat" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor"><path d="M12 .5a11.5 11.5 0 0 0-3.64 22.41c.58.1.79-.25.79-.56v-2c-3.2.7-3.88-1.37-3.88-1.37-.52-1.33-1.28-1.69-1.28-1.69-1.04-.71.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.76 2.7 1.25 3.36.96.1-.75.4-1.25.73-1.54-2.55-.29-5.24-1.28-5.24-5.69 0-1.26.45-2.28 1.19-3.08-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.17 1.18a11 11 0 0 1 5.77 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.05.74.8 1.19 1.82 1.19 3.08 0 4.42-2.69 5.39-5.25 5.68.41.36.78 1.06.78 2.14v3.17c0 .31.21.67.8.56A11.5 11.5 0 0 0 12 .5Z"/></svg></a><a href="https://app.notion.com/p/414bd08dbbd281cb9c76de38d90cff32" target="_blank" rel="noopener" aria-label="상세보기"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M8 7h9v9"/></svg></a></div></div></div>
+  <article class="pj"><div class="vis"><div class="hov"><img src="assets/studyseat-booking.jpg" alt="StudySeat 도면 예약 화면" loading="lazy"><div class="ov"><a href="https://github.com/j75390/studyseat" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor"><path d="M12 .5a11.5 11.5 0 0 0-3.64 22.41c.58.1.79-.25.79-.56v-2c-3.2.7-3.88-1.37-3.88-1.37-.52-1.33-1.28-1.69-1.28-1.69-1.04-.71.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.76 2.7 1.25 3.36.96.1-.75.4-1.25.73-1.54-2.55-.29-5.24-1.28-5.24-5.69 0-1.26.45-2.28 1.19-3.08-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.17 1.18a11 11 0 0 1 5.77 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.05.74.8 1.19 1.82 1.19 3.08 0 4.42-2.69 5.39-5.25 5.68.41.36.78 1.06.78 2.14v3.17c0 .31.21.67.8.56A11.5 11.5 0 0 0 12 .5Z"/></svg></a><a href="#/projects/studyseat" aria-label="상세보기"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M8 7h9v9"/></svg></a></div></div></div>
     <div class="bd"><div class="kd">PERSONAL · 2026.11</div><h3>StudySeat</h3><p class="one">스터디카페 좌석 예약 서비스</p>
     <ul class="bl"><li>지도에서 지점을 찾고 도면에서 좌석을 골라 예약, QR 입실</li><li>슬롯 유니크 제약·회원 행 락으로 이중 예약 방지 (20명 동시 → 1명 성공)</li><li>포인트 원장, 도면 배치 엔진, 시험 40개</li></ul>
     <div class="tg"><span>Java 17</span><span>Spring Boot</span><span>JPA</span><span>Flyway</span><span>Thymeleaf</span></div>
     
-    <div class="ln"><a class="dt" href="https://app.notion.com/p/414bd08dbbd281cb9c76de38d90cff32" target="_blank" rel="noopener">상세보기 ↗</a><a href="https://github.com/j75390/studyseat" target="_blank" rel="noopener">GitHub ↗</a></div></div></article>
+    <div class="ln"><a class="dt" href="#/projects/studyseat">상세보기 ↗</a><a href="https://github.com/j75390/studyseat" target="_blank" rel="noopener">GitHub ↗</a></div></div></article>
 
-  <article class="pj"><div class="vis"><div class="hov"><img src="assets/ai-console.jpg" alt="AI 팀 관제 관제실 화면" loading="lazy"><div class="ov"><a href="https://github.com/j75390/ai-team-console" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor"><path d="M12 .5a11.5 11.5 0 0 0-3.64 22.41c.58.1.79-.25.79-.56v-2c-3.2.7-3.88-1.37-3.88-1.37-.52-1.33-1.28-1.69-1.28-1.69-1.04-.71.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.76 2.7 1.25 3.36.96.1-.75.4-1.25.73-1.54-2.55-.29-5.24-1.28-5.24-5.69 0-1.26.45-2.28 1.19-3.08-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.17 1.18a11 11 0 0 1 5.77 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.05.74.8 1.19 1.82 1.19 3.08 0 4.42-2.69 5.39-5.25 5.68.41.36.78 1.06.78 2.14v3.17c0 .31.21.67.8.56A11.5 11.5 0 0 0 12 .5Z"/></svg></a><a href="https://app.notion.com/p/414bd08dbbd281feb70dd7434209a903" target="_blank" rel="noopener" aria-label="상세보기"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M8 7h9v9"/></svg></a></div></div></div>
+  <article class="pj"><div class="vis"><div class="hov"><img src="assets/ai-console.jpg" alt="AI 팀 관제 관제실 화면" loading="lazy"><div class="ov"><a href="https://github.com/j75390/ai-team-console" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor"><path d="M12 .5a11.5 11.5 0 0 0-3.64 22.41c.58.1.79-.25.79-.56v-2c-3.2.7-3.88-1.37-3.88-1.37-.52-1.33-1.28-1.69-1.28-1.69-1.04-.71.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.76 2.7 1.25 3.36.96.1-.75.4-1.25.73-1.54-2.55-.29-5.24-1.28-5.24-5.69 0-1.26.45-2.28 1.19-3.08-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.17 1.18a11 11 0 0 1 5.77 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.05.74.8 1.19 1.82 1.19 3.08 0 4.42-2.69 5.39-5.25 5.68.41.36.78 1.06.78 2.14v3.17c0 .31.21.67.8.56A11.5 11.5 0 0 0 12 .5Z"/></svg></a><a href="#/projects/ai-team-console" aria-label="상세보기"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M8 7h9v9"/></svg></a></div></div></div>
     <div class="bd"><div class="kd">PERSONAL · 2026.11</div><h3>AI 팀 관제</h3><p class="one">AI 리뷰어 호출·한도 확인 웹 앱</p>
     <ul class="bl"><li>Codex·Gemini 동시 호출(읽기 전용)과 한도 표시</li><li>앱 로그인 + AI별 연동으로 토큰 보호</li><li>시험 60개</li></ul>
     <div class="tg"><span>Python</span><span>Canvas 2D</span><span>PBKDF2</span></div>
     
-    <div class="ln"><a class="dt" href="https://app.notion.com/p/414bd08dbbd281feb70dd7434209a903" target="_blank" rel="noopener">상세보기 ↗</a><a href="https://github.com/j75390/ai-team-console" target="_blank" rel="noopener">GitHub ↗</a></div></div></article>
+    <div class="ln"><a class="dt" href="#/projects/ai-team-console">상세보기 ↗</a><a href="https://github.com/j75390/ai-team-console" target="_blank" rel="noopener">GitHub ↗</a></div></div></article>
 </section>
 
 <section id="journey">
@@ -199,6 +229,8 @@ footer{text-align:center;color:var(--sub);font-size:13px;padding:56px 0 44px}
 </section>
 <footer>© 2026 장동근 · Backend Developer</footer>
 </div>
+</div>
+<main id="detailView" hidden></main>
 <script>
 const root=document.documentElement,btn=document.getElementById('theme');
 let t=null;try{t=localStorage.getItem('theme')}catch(e){}
@@ -206,7 +238,50 @@ if(!t)t=matchMedia('(prefers-color-scheme:dark)').matches?'dark':'light';
 function apply(v){root.dataset.theme=v;try{localStorage.setItem('theme',v)}catch(e){}}
 apply(t);btn.onclick=()=>apply(root.dataset.theme==='dark'?'light':'dark');
 const links=[...document.querySelectorAll('.nav a')],secs=links.map(a=>document.querySelector(a.getAttribute('href')));
-addEventListener('scroll',()=>{let i=0;secs.forEach((s,k)=>{if(s.getBoundingClientRect().top<160)i=k});links.forEach((a,k)=>a.classList.toggle('on',k===i))},{passive:true});
+addEventListener('scroll',()=>{if(inDetail)return;let i=0;secs.forEach((s,k)=>{if(s.getBoundingClientRect().top<160)i=k});links.forEach((a,k)=>a.classList.toggle('on',k===i))},{passive:true});
+
+const GH='<svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" style="vertical-align:-3px;margin-right:6px"><path d="M12 .5a11.5 11.5 0 0 0-3.64 22.41c.58.1.79-.25.79-.56v-2c-3.2.7-3.88-1.37-3.88-1.37-.52-1.33-1.28-1.69-1.28-1.69-1.04-.71.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.76 2.7 1.25 3.36.96.1-.75.4-1.25.73-1.54-2.55-.29-5.24-1.28-5.24-5.69 0-1.26.45-2.28 1.19-3.08-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.17 1.18a11 11 0 0 1 5.77 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.05.74.8 1.19 1.82 1.19 3.08 0 4.42-2.69 5.39-5.25 5.68.41.36.78 1.06.78 2.14v3.17c0 .31.21.67.8.56A11.5 11.5 0 0 0 12 .5Z"/></svg>';
+const P=[
+{id:'obsidian-shield',kind:'TEAM 1차 · 5인 · DW아카데미',period:'2026.06 – 07',title:'Obsidian Shield',one:'실시간 보행자 관제 시스템',tags:['Flask','JSON'],
+ imgs:[['assets/obsidian-members.jpg','사용자 관리 화면 (샘플 데이터)']],
+ core:[['회원 관리','검색·필터·정렬로 회원 목록을 조회'],['가입 승인 · 권한 변경','승인 대기 회원 처리와 권한 변경'],['통합 관제 대시보드','UI/UX 설계와 화면 구현']],res:[],
+ links:[['GitHub','https://github.com/Kanabig/obsidian-shield']]},
+{id:'white-eyes',kind:'TEAM 2차 · 6인 · DW아카데미',period:'2026.10 – 11 예정',title:'white-eyes',one:'영상 기반 혼잡도 분석 서비스',tags:['Flask','Spring Boot','MySQL'],
+ imgs:[['assets/white-eyes-dashboard.jpg','관리자 대시보드']],
+ core:[['통계 집계','분석 서버에서 시간별·일별 통계를 집계'],['누락 복구','집계에서 빠진 구간을 찾아 다시 채움'],['전송 실패 보관 · 재전송','전송에 실패한 결과를 보관하고 다시 전송']],
+ res:['추적 번호 부여율 1~2% → 약 91%','전송 실패 결과 재전송 120건 확인'],
+ links:[['소개 저장소','https://github.com/white-eyes1/white-eyes-introduce'],['Spring 저장소','https://github.com/white-eyes1/white-eyes-spring'],['Flask 저장소','https://github.com/white-eyes1/white-eyes-flask'],['집계 PR #150','https://github.com/white-eyes1/white-eyes-spring/pull/150'],['복구 PR #155','https://github.com/white-eyes1/white-eyes-spring/pull/155']]},
+{id:'gray-expedition',kind:'PERSONAL',period:'2026.09 – 11',title:'잿빛 원정대',one:'다크 고딕 덱빌딩 로그라이크',tags:['Godot 4','GDScript','Python'],
+ imgs:[['assets/game-battle.jpg','전투 화면'],['assets/game-map.jpg','안개 지도']],
+ core:[['손패 전투','카드 손패로 진행하는 전투'],['상태 시스템','독·맹독 상태 이상'],['안개 지도','탐험하며 밝혀지는 지도'],['JSON 콘텐츠 도구','몬스터 46 · 이벤트 175 · 유물 115종을 JSON으로 관리']],
+ res:['점검 스크립트 54개'],links:[['GitHub','https://github.com/j75390/gametest']]},
+{id:'studyseat',kind:'PERSONAL',period:'2026.11',title:'StudySeat',one:'스터디카페 좌석 예약 서비스',tags:['Java 17','Spring Boot','JPA','Flyway','Thymeleaf'],
+ imgs:[['assets/studyseat-booking.jpg','도면 좌석 예약 화면'],['assets/studyseat-admin.jpg','관리자 화면']],
+ core:[['예약 흐름','지도에서 지점을 찾고 도면에서 좌석을 골라 예약, QR 입실'],['이중 예약 방지','슬롯 유니크 제약과 회원 행 락'],['포인트 원장','포인트 내역을 원장으로 기록'],['도면 배치 엔진','지점별 도면에 좌석을 배치']],
+ res:['20명 동시 예약 → 1명 성공','시험 40개'],links:[['GitHub','https://github.com/j75390/studyseat']]},
+{id:'ai-team-console',kind:'PERSONAL',period:'2026.11',title:'AI 팀 관제',one:'AI 리뷰어 호출·한도 확인 웹 앱',tags:['Python','Canvas 2D','PBKDF2'],
+ imgs:[['assets/ai-console.jpg','관제실 화면']],
+ core:[['동시 호출','Codex·Gemini를 읽기 전용으로 동시에 호출'],['한도 표시','AI별 사용 한도를 화면에 표시'],['토큰 보호','앱 로그인과 AI별 연동으로 토큰 보호']],
+ res:['시험 60개'],links:[['GitHub','https://github.com/j75390/ai-team-console']]}
+];
+const homeV=document.getElementById('homeView'),detV=document.getElementById('detailView');let inDetail=false;
+const E=x=>x.replace(/&/g,'&amp;').replace(/</g,'&lt;');
+function card(q,lab,cls){return '<a class="'+cls+'" href="#/projects/'+q.id+'"><small>'+lab+'</small><b>'+E(q.title)+'</b><span>'+E(q.one)+'</span></a>'}
+function render(k){const q=P[k],pv=P[(k+P.length-1)%P.length],nx=P[(k+1)%P.length];
+ const gh=q.links[0][1];
+ detV.innerHTML='<div class="dv"><a class="back" href="#projects">← 프로젝트</a><div class="dh"><div><div class="kd">'+q.kind+' · '+q.period+'</div><h1>'+E(q.title)+'</h1><p class="one">'+E(q.one)+'</p><div class="tg">'+q.tags.map(t=>'<span>'+t+'</span>').join('')+'</div><div class="ln"><a class="dt" href="'+gh+'" target="_blank" rel="noopener">'+GH+'GitHub ↗</a></div></div><img src="'+q.imgs[0][0]+'" alt="'+E(q.title)+'"></div>'
+ +'<h2 class="s2">핵심 구현</h2><div class="cg">'+q.core.map(c=>'<div class="cc"><h4>'+E(c[0])+'</h4><p>'+E(c[1])+'</p></div>').join('')+'</div>'
+ +(q.res.length?'<h2 class="s2">주요 결과</h2><div class="rs">'+q.res.map(r=>'<div>'+E(r)+'</div>').join('')+'</div>':'')
+ +(q.imgs.length>1?'<h2 class="s2">화면</h2><div class="sg">'+q.imgs.map(i=>'<figure><img src="'+i[0]+'" alt="'+E(i[1])+'" loading="lazy"><figcaption>'+E(i[1])+'</figcaption></figure>').join('')+'</div>':'')
+ +'<h2 class="s2">링크</h2><div class="lk">'+q.links.map(l=>'<a href="'+l[1]+'" target="_blank" rel="noopener"><span>'+E(l[0])+'</span><span>↗</span></a>').join('')+'</div>'
+ +'<h2 class="s2">다른 프로젝트</h2><div class="pn">'+card(pv,'← 이전 프로젝트','pv')+card(nx,'다음 프로젝트 →','nx')+'</div></div>'
+ +'<footer>© 2026 장동근 · Backend Developer</footer>';
+ document.title=q.title+' | 장동근';}
+function route(){const m=location.hash.match(/^#\/projects\/([\w-]+)/),k=m?P.findIndex(x=>x.id===m[1]):-1;
+ if(k>=0){render(k);homeV.hidden=true;detV.hidden=false;inDetail=true;links.forEach(a=>a.classList.toggle('on',a.getAttribute('href')==='#projects'));scrollTo({top:0,behavior:'instant'});return}
+ document.title='장동근 | 백엔드 개발자';
+ if(inDetail){inDetail=false;detV.hidden=true;homeV.hidden=false;const el=location.hash.length>1&&document.querySelector(location.hash);if(el)el.scrollIntoView({behavior:'instant'});else scrollTo({top:0,behavior:'instant'})}}
+addEventListener('hashchange',route);route();
 </script>
 </body>
 </html>
