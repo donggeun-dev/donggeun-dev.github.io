@@ -114,6 +114,16 @@ footer{text-align:center;color:var(--sub);font-size:13px;padding:56px 0 44px}
 }
 
 /* detail */
+.ds{margin-top:12px;font-size:15px;line-height:1.7}
+.fl{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:14px;position:relative}
+.fl div{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:20px 14px;text-align:center;box-shadow:var(--shadow)}
+.fl i{display:grid;place-items:center;width:34px;height:34px;margin:0 auto 10px;border-radius:50%;background:var(--grad);color:#fff;font-style:normal;font-weight:800;font-size:14px}
+.fl span{font-size:14.5px;font-weight:700;line-height:1.4;display:block}
+.rg{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:18px}
+.rc{background:var(--card);border:1px solid var(--line);border-radius:22px;padding:24px;box-shadow:var(--shadow);text-align:center}
+.rc b{display:block;font-size:17px;letter-spacing:-.5px;background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent;margin-bottom:6px}
+.rc p{font-size:13.5px;color:var(--sub)}
+
 .dv{padding:130px 28px 40px;max-width:1100px;margin:0 auto}
 .back{display:inline-block;font-size:14px;font-weight:700;color:var(--sub);margin-bottom:22px}.back:hover{color:var(--p1)}
 .dh{display:grid;grid-template-columns:1fr 1.05fr;gap:40px;align-items:center;background:var(--card);border:1px solid var(--line);border-radius:32px;box-shadow:var(--shadow);padding:44px}
@@ -130,7 +140,7 @@ footer{text-align:center;color:var(--sub);font-size:13px;padding:56px 0 44px}
 .rs{display:grid;gap:12px;max-width:640px;margin:0 auto}
 .rs div{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:15px 22px;font-weight:700;font-size:15.5px}
 .rs div:before{content:"✓";color:#34d399;margin-right:10px;font-weight:800}
-.sg{align-items:start;display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:22px}
+.sg{align-items:start;display:grid;grid-template-columns:repeat(auto-fit,minmax(420px,1fr));gap:22px}
 .sg figure{background:var(--card);border:1px solid var(--line);border-radius:20px;overflow:hidden;box-shadow:var(--shadow);line-height:0}
 .sg img{width:100%;display:block}
 .sg figcaption{line-height:1.5;font-size:13.5px;color:var(--sub);padding:13px 18px;border-top:1px solid var(--line)}
@@ -242,38 +252,396 @@ addEventListener('scroll',()=>{if(inDetail)return;let i=0;secs.forEach((s,k)=>{i
 
 const GH='<svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" style="vertical-align:-3px;margin-right:6px"><path d="M12 .5a11.5 11.5 0 0 0-3.64 22.41c.58.1.79-.25.79-.56v-2c-3.2.7-3.88-1.37-3.88-1.37-.52-1.33-1.28-1.69-1.28-1.69-1.04-.71.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.76 2.7 1.25 3.36.96.1-.75.4-1.25.73-1.54-2.55-.29-5.24-1.28-5.24-5.69 0-1.26.45-2.28 1.19-3.08-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.17 1.18a11 11 0 0 1 5.77 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.05.74.8 1.19 1.82 1.19 3.08 0 4.42-2.69 5.39-5.25 5.68.41.36.78 1.06.78 2.14v3.17c0 .31.21.67.8.56A11.5 11.5 0 0 0 12 .5Z"/></svg>';
 const P=[
-{id:'obsidian-shield',kind:'TEAM 1차 · 5인 · DW아카데미',period:'2026.06 – 07',title:'Obsidian Shield',one:'실시간 보행자 관제 시스템',tags:['Flask','JSON'],
- imgs:[['assets/obsidian-members.jpg','사용자 관리 화면 (샘플 데이터)']],
- core:[['회원 관리','검색·필터·정렬로 회원 목록을 조회'],['가입 승인 · 권한 변경','승인 대기 회원 처리와 권한 변경'],['통합 관제 대시보드','UI/UX 설계와 화면 구현']],res:[],
- links:[['GitHub','https://github.com/Kanabig/obsidian-shield'],['노션','https://app.notion.com/p/410bd08dbbd28139b33bd769f4a63d4b']]},
-{id:'white-eyes',kind:'TEAM 2차 · 6인 · DW아카데미',period:'2026.10 – 11 예정',title:'white-eyes',one:'영상 기반 혼잡도 분석 서비스',tags:['Flask','Spring Boot','MySQL'],
- imgs:[['assets/white-eyes-dashboard.jpg','관리자 대시보드']],
- core:[['통계 집계','분석 서버에서 시간별·일별 통계를 집계'],['누락 복구','집계에서 빠진 구간을 찾아 다시 채움'],['전송 실패 보관 · 재전송','전송에 실패한 결과를 보관하고 다시 전송']],
- res:['추적 번호 부여율 1~2% → 약 91%','전송 실패 결과 재전송 120건 확인'],
- links:[['GitHub','https://github.com/white-eyes1/white-eyes-introduce'],['노션','https://app.notion.com/p/410bd08dbbd281978c38ec7c854cdea0'],['Spring 저장소','https://github.com/white-eyes1/white-eyes-spring'],['Flask 저장소','https://github.com/white-eyes1/white-eyes-flask'],['집계 PR #150','https://github.com/white-eyes1/white-eyes-spring/pull/150'],['복구 PR #155','https://github.com/white-eyes1/white-eyes-spring/pull/155']]},
-{id:'gray-expedition',kind:'PERSONAL',period:'2026.09 – 11',title:'잿빛 원정대',one:'다크 고딕 덱빌딩 로그라이크',tags:['Godot 4','GDScript','Python'],
- imgs:[['assets/game-battle.jpg','전투 화면'],['assets/game-map.jpg','안개 지도']],
- core:[['손패 전투','카드 손패로 진행하는 전투'],['상태 시스템','독·맹독 상태 이상'],['안개 지도','탐험하며 밝혀지는 지도'],['JSON 콘텐츠 도구','몬스터 46 · 이벤트 175 · 유물 115종을 JSON으로 관리']],
- res:['점검 스크립트 54개'],links:[['GitHub','https://github.com/j75390/gametest'],['노션','https://app.notion.com/p/416bd08dbbd281128167dfdc0989405b']]},
-{id:'studyseat',kind:'PERSONAL',period:'2026.11',title:'StudySeat',one:'스터디카페 좌석 예약 서비스',tags:['Java 17','Spring Boot','JPA','Flyway','Thymeleaf'],
- imgs:[['assets/studyseat-booking.jpg','도면 좌석 예약 화면'],['assets/studyseat-admin.jpg','관리자 화면']],
- core:[['예약 흐름','지도에서 지점을 찾고 도면에서 좌석을 골라 예약, QR 입실'],['이중 예약 방지','슬롯 유니크 제약과 회원 행 락'],['포인트 원장','포인트 내역을 원장으로 기록'],['도면 배치 엔진','지점별 도면에 좌석을 배치']],
- res:['20명 동시 예약 → 1명 성공','시험 40개'],links:[['GitHub','https://github.com/j75390/studyseat'],['노션','https://app.notion.com/p/414bd08dbbd281cb9c76de38d90cff32']]},
-{id:'ai-team-console',kind:'PERSONAL',period:'2026.11',title:'AI 팀 관제',one:'AI 리뷰어 호출·한도 확인 웹 앱',tags:['Python','Canvas 2D','PBKDF2'],
- imgs:[['assets/ai-console.jpg','관제실 화면']],
- core:[['동시 호출','Codex·Gemini를 읽기 전용으로 동시에 호출'],['한도 표시','AI별 사용 한도를 화면에 표시'],['토큰 보호','앱 로그인과 AI별 연동으로 토큰 보호']],
- res:['시험 60개'],links:[['GitHub','https://github.com/j75390/ai-team-console'],['노션','https://app.notion.com/p/414bd08dbbd281feb70dd7434209a903']]}
+{
+"id": "obsidian-shield",
+"kind": "TEAM 1차 · 5인 · DW아카데미",
+"period": "2026.06 – 07",
+"title": "Obsidian Shield",
+"one": "실시간 보행자 관제 시스템",
+"desc": "회원·권한 관리와 통합 관제 대시보드를 맡았습니다.",
+"tags": [
+"Flask",
+"JSON"
+],
+"flow": [
+"회원 조회",
+"검색·필터·정렬",
+"가입 승인",
+"권한 변경",
+"관제 대시보드"
+],
+"core": [
+[
+"회원 관리",
+"회원 목록을 검색·필터·정렬로 조회"
+],
+[
+"가입 승인",
+"승인 대기 회원을 확인하고 승인"
+],
+[
+"권한 변경",
+"회원별 권한을 바꾸고 화면에 반영"
+],
+[
+"통합 관제 대시보드",
+"UI/UX 설계와 화면 구현"
+]
+],
+"res": [
+[
+"회원 검색·필터·정렬",
+"사용자 관리 화면에서 한 번에 조회"
+],
+[
+"가입 승인 · 권한 변경",
+"관리자 화면에서 바로 처리"
+]
+],
+"shots": [
+[
+"assets/obsidian-members.jpg",
+"사용자 관리 화면 (샘플 데이터)"
+]
+],
+"links": [
+[
+"GitHub",
+"https://github.com/Kanabig/obsidian-shield"
+],
+[
+"노션",
+"https://app.notion.com/p/410bd08dbbd28139b33bd769f4a63d4b"
+]
+]
+},
+{
+"id": "white-eyes",
+"kind": "TEAM 2차 · 6인 · DW아카데미",
+"period": "2026.10 – 11 예정",
+"title": "white-eyes",
+"one": "영상 기반 혼잡도 분석 서비스",
+"desc": "드론·CCTV 영상에서 사람을 세고, 구역별 혼잡을 한눈에 보여주는 군중 관제 서비스입니다. 분석 서버와 시간별·일별 통계 집계를 맡았습니다.",
+"tags": [
+"Flask",
+"Spring Boot",
+"MySQL",
+"YOLOv8",
+"Docker"
+],
+"flow": [
+"영상 입력",
+"사람 탐지·추적",
+"결과 전송 (1초)",
+"시간별·일별 집계",
+"지도·그래프 화면"
+],
+"core": [
+[
+"분석 서버",
+"사람 탐지(YOLOv8m)와 추적, 유입/유출 판정, 체류 시간 계산. 결과를 1초마다 관리자 앱에 전송"
+],
+[
+"시간별·일별 통계 집계",
+"분석 결과를 1분·시간별·일별로 쌓아 통계 화면에서 조회"
+],
+[
+"누락 복구",
+"서버가 꺼져 있던 구간의 집계 누락을 찾아 다시 채움"
+],
+[
+"전송 실패 보관 · 재전송",
+"전송에 실패한 결과를 보관했다가 다시 전송"
+],
+[
+"서비스 구성",
+"nginx 하나를 입구로 사용자 앱·관리자 앱(Spring)·분석 서버(Flask)·MySQL을 docker compose로 구성"
+]
+],
+"res": [
+[
+"추적 번호 부여율 1~2% → 약 91%",
+"추적이 끊기지 않고 이어지도록 개선"
+],
+[
+"전송 실패 결과 120건 재전송 확인",
+"보관한 결과가 빠짐없이 다시 전송됨"
+],
+[
+"사람 수는 실제의 약 60~65%",
+"사진 120장으로 측정, 화면에서는 '추정 인원'으로 표시"
+]
+],
+"shots": [
+[
+"assets/white-eyes-dashboard.jpg",
+"관리자 대시보드"
+],
+[
+"assets/we-admin-heatmap.jpg",
+"대시보드 + 히트맵"
+],
+[
+"assets/we-admin-graph.jpg",
+"통계 그래프"
+],
+[
+"assets/we-admin-zones.jpg",
+"구역 관리 (지도에서 구역 그리기)"
+],
+[
+"assets/we-admin-cameras.jpg",
+"캠 관리"
+],
+[
+"assets/we-user-dashboard.jpg",
+"사용자 대시보드"
+],
+[
+"assets/we-user-graph.jpg",
+"사용자 통계 그래프"
+]
+],
+"links": [
+[
+"GitHub",
+"https://github.com/white-eyes1/white-eyes-introduce"
+],
+[
+"노션",
+"https://app.notion.com/p/410bd08dbbd281978c38ec7c854cdea0"
+]
+]
+},
+{
+"id": "gray-expedition",
+"kind": "PERSONAL",
+"period": "2026.09 – 11",
+"title": "잿빛 원정대",
+"one": "다크 고딕 덱빌딩 로그라이크",
+"desc": "성화가 꺼진 왕국에서 원정대가 불씨를 찾아 폐허로 들어가는 이야기를 카드 전투로 풀었습니다.",
+"tags": [
+"Godot 4",
+"GDScript",
+"Python"
+],
+"flow": [
+"원정대원 선택",
+"안개 지도 이동",
+"전투 · 이벤트",
+"보상 · 상점",
+"보스"
+],
+"core": [
+[
+"손패 전투",
+"에너지 3으로 손패를 운영하는 턴제 전투. 카드를 끌어 적을 조준하고 명중 타이밍에 맞춰 연출 재생"
+],
+[
+"공통 상태 시스템",
+"독은 중첩만큼 방어를 무시하고 피해, 맹독은 최대 HP의 8%. 플레이어와 몬스터가 같은 UnitStatus 사용"
+],
+[
+"안개 지도",
+"연결선 기준 두 칸까지만 공개, 지나온 길은 유지"
+],
+[
+"데이터 중심 콘텐츠",
+"카드·유물·몬스터·이벤트를 JSON으로 관리하고 Python 도구가 검증 후 내보냄"
+],
+[
+"도감 · 자동 저장",
+"만나지 못한 항목은 실루엣만 표시, 방과 방 사이마다 자동 저장"
+]
+],
+"res": [
+[
+"몬스터 46종 · 이벤트 175개",
+"5개 지역, 보스 5종"
+],
+[
+"유물 115종 · 포션 15종",
+"원정대원 4명 전용 카드 풀"
+],
+[
+"점검 스크립트 54개",
+"콘텐츠·저장·BGM 에셋 점검"
+]
+],
+"shots": [
+[
+"assets/game-battle.jpg",
+"전투 화면"
+],
+[
+"assets/game-map.jpg",
+"안개 지도"
+]
+],
+"links": [
+[
+"GitHub",
+"https://github.com/j75390/gametest"
+],
+[
+"노션",
+"https://app.notion.com/p/416bd08dbbd281128167dfdc0989405b"
+]
+]
+},
+{
+"id": "studyseat",
+"kind": "PERSONAL",
+"period": "2026.11",
+"title": "StudySeat",
+"one": "스터디카페 좌석 예약 서비스",
+"desc": "전국 스터디카페를 지도에서 찾고, 매장 도면에서 좌석을 직접 골라 예약합니다.",
+"tags": [
+"Java 17",
+"Spring Boot",
+"JPA",
+"Flyway",
+"Thymeleaf"
+],
+"flow": [
+"지점 찾기",
+"도면에서 좌석 선택",
+"포인트 결제",
+"QR 입실",
+"연장 · 후기"
+],
+"core": [
+[
+"이중 예약 방지",
+"예약을 1시간 슬롯 행으로 나누고 (seat_id, slot_start) 유니크 제약으로 겹치는 요청을 DB가 거부"
+],
+[
+"포인트 원장",
+"잔액을 고치지 않고 충전·사용·환불·적립을 원장에 쌓아 합계로 계산, 회원 행 비관적 락"
+],
+[
+"도면 엔진",
+"좌석 수와 옵션만 주면 벽·스터디룸·사물함·키오스크까지 배치"
+],
+[
+"혼잡도 통계",
+"예약을 시간·일 단위로 집계, 서버가 꺼졌던 구간은 시작 시 채움"
+],
+[
+"전국 지점 데이터",
+"256개 시·군·구에 지점을 배치해 약 720곳, 좌석 약 1만 5천 석을 JDBC 배치로 생성"
+]
+],
+"res": [
+[
+"20명 동시 예약 → 1명 성공",
+"같은 좌석 동시 요청 시험"
+],
+[
+"도면 756가지 조합 검증",
+"요소가 겹치지 않는지 시험"
+],
+[
+"자동 시험 40개 통과",
+"동시성·포인트·도면"
+]
+],
+"shots": [
+[
+"assets/studyseat-booking.jpg",
+"도면 좌석 예약 화면"
+],
+[
+"assets/studyseat-admin.jpg",
+"관리자 · 전국 현황과 혼잡도"
+]
+],
+"links": [
+[
+"GitHub",
+"https://github.com/j75390/studyseat"
+],
+[
+"노션",
+"https://app.notion.com/p/414bd08dbbd281cb9c76de38d90cff32"
+]
+]
+},
+{
+"id": "ai-team-console",
+"kind": "PERSONAL",
+"period": "2026.11",
+"title": "AI 팀 관제",
+"one": "AI 리뷰어 호출·한도 확인 웹 앱",
+"desc": "Codex와 Gemini에게 같은 요청을 동시에 보내고, 결과와 남은 한도를 한 화면에서 봅니다.",
+"tags": [
+"Python",
+"Canvas 2D",
+"PBKDF2"
+],
+"flow": [
+"요청 입력",
+"리뷰어 동시 호출",
+"결과 · 한도 카드",
+"관제실 신호",
+"추적 · 재시도 · 해소"
+],
+"core": [
+[
+"리뷰어 병렬 호출",
+"스레드로 동시에 호출해 한쪽이 느리거나 실패해도 다른 결과는 바로 표시. Codex는 읽기 전용 샌드박스"
+],
+[
+"한도 표시",
+"Codex는 응답 문구, Gemini는 429 응답, Claude는 5시간·주간 한도를 읽어 AI별 카드에 표시"
+],
+[
+"관제실 신호",
+"호출 실패·한도 소진을 레이더 신호로 띄우고 추적·재시도·해소 선택"
+],
+[
+"토큰 보호",
+"PBKDF2 로그인, 5회 실패 시 잠금, Gemini 키는 DPAPI 암호화"
+]
+],
+"res": [
+[
+"자동 시험 60개 통과",
+"호출·한도·로그인"
+],
+[
+"외부 패키지 없이 구현",
+"Python 표준 라이브러리만 사용"
+]
+],
+"shots": [
+[
+"assets/ai-console.jpg",
+"관제실 화면"
+]
+],
+"links": [
+[
+"GitHub",
+"https://github.com/j75390/ai-team-console"
+],
+[
+"노션",
+"https://app.notion.com/p/414bd08dbbd281feb70dd7434209a903"
+]
+]
+}
 ];
 const homeV=document.getElementById('homeView'),detV=document.getElementById('detailView');let inDetail=false;
 const E=x=>x.replace(/&/g,'&amp;').replace(/</g,'&lt;');
 function card(q,lab,cls){return '<a class="'+cls+'" href="#/projects/'+q.id+'"><small>'+lab+'</small><b>'+E(q.title)+'</b><span>'+E(q.one)+'</span></a>'}
 function render(k){const q=P[k],pv=P[(k+P.length-1)%P.length],nx=P[(k+1)%P.length];
- const gh=q.links[0][1],nt=q.links.find(l=>l[0]==='노션')[1];
- detV.innerHTML='<div class="dv"><a class="back" href="#projects">← 프로젝트</a><div class="dh"><div><div class="kd">'+q.kind+' · '+q.period+'</div><h1>'+E(q.title)+'</h1><p class="one">'+E(q.one)+'</p><div class="tg">'+q.tags.map(t=>'<span>'+t+'</span>').join('')+'</div><div class="ln"><a class="dt" href="'+gh+'" target="_blank" rel="noopener">'+GH+'GitHub ↗</a><a href="'+nt+'" target="_blank" rel="noopener">노션 ↗</a></div></div><img src="'+q.imgs[0][0]+'" alt="'+E(q.title)+'"></div>'
- +'<h2 class="s2">핵심 구현</h2><div class="cg">'+q.core.map(c=>'<div class="cc"><h4>'+E(c[0])+'</h4><p>'+E(c[1])+'</p></div>').join('')+'</div>'
- +(q.res.length?'<h2 class="s2">주요 결과</h2><div class="rs">'+q.res.map(r=>'<div>'+E(r)+'</div>').join('')+'</div>':'')
- +(q.imgs.length>1?'<h2 class="s2">화면</h2><div class="sg">'+q.imgs.map(i=>'<figure><img src="'+i[0]+'" alt="'+E(i[1])+'" loading="lazy"><figcaption>'+E(i[1])+'</figcaption></figure>').join('')+'</div>':'')
- +'<h2 class="s2">링크</h2><div class="lk">'+q.links.map(l=>'<a href="'+l[1]+'" target="_blank" rel="noopener"><span>'+E(l[0])+'</span><span>↗</span></a>').join('')+'</div>'
+ detV.innerHTML='<div class="dv"><a class="back" href="#projects">← 프로젝트</a><div class="dh"><div><div class="kd">'+q.kind+' · '+q.period+'</div><h1>'+E(q.title)+'</h1><p class="one">'+E(q.one)+'</p><p class="ds">'+E(q.desc)+'</p><div class="tg">'+q.tags.map(t=>'<span>'+t+'</span>').join('')+'</div><div class="ln"><a class="dt" href="'+q.links[0][1]+'" target="_blank" rel="noopener">'+GH+'GitHub ↗</a><a href="'+q.links[1][1]+'" target="_blank" rel="noopener">노션 ↗</a></div></div><img src="'+q.shots[0][0]+'" alt="'+E(q.title)+'"></div>'
+ +'<h2 class="s2">핵심 흐름</h2><div class="fl">'+q.flow.map((f,i)=>'<div><i>'+(i+1)+'</i><span>'+E(f)+'</span></div>').join('')+'</div>'
+ +'<h2 class="s2">핵심 설계</h2><div class="cg">'+q.core.map(c=>'<div class="cc"><h4>'+E(c[0])+'</h4><p>'+E(c[1])+'</p></div>').join('')+'</div>'
+ +'<h2 class="s2">주요 결과</h2><div class="rg">'+q.res.map(r=>'<div class="rc"><b>'+E(r[0])+'</b><p>'+E(r[1])+'</p></div>').join('')+'</div>'
+ +(q.shots.length>1?'<h2 class="s2">화면</h2><div class="sg">'+(q.shots.length>2?q.shots.slice(1):q.shots).map(i=>'<figure><img src="'+i[0]+'" alt="'+E(i[1])+'" loading="lazy"><figcaption>'+E(i[1])+'</figcaption></figure>').join('')+'</div>':'')
+ +'<h2 class="s2">근거 자료</h2><div class="lk">'+q.links.map(l=>'<a href="'+l[1]+'" target="_blank" rel="noopener"><span>'+E(l[0])+'</span><span>↗</span></a>').join('')+'</div>'
  +'<h2 class="s2">다른 프로젝트</h2><div class="pn">'+card(pv,'← 이전 프로젝트','pv')+card(nx,'다음 프로젝트 →','nx')+'</div></div>'
  +'<footer>© 2026 장동근 · Backend Developer</footer>';
  document.title=q.title+' | 장동근';}
