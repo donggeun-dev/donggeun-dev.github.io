@@ -74,6 +74,7 @@ section{padding:96px 0 6px}
 .kd{font-size:12.5px;font-weight:800;letter-spacing:1.2px;color:var(--p1)}
 .pj h3{font-size:30px;letter-spacing:-1.2px;margin:6px 0 6px}
 .pj .one{color:var(--sub);font-size:16px;margin-bottom:22px}
+.bl{list-style:none;display:grid;gap:9px;margin-bottom:4px}.bl li{font-size:15.5px;padding-left:20px;position:relative}.bl li:before{content:"";position:absolute;left:2px;top:.78em;width:7px;height:7px;border-radius:50%;background:var(--grad)}
 .rows{display:grid;gap:14px}
 .rw{display:grid;grid-template-columns:54px 1fr;gap:14px}
 .rw b{font-size:12.5px;font-weight:800;color:#fff;background:var(--grad);border-radius:9px;height:26px;display:grid;place-items:center;margin-top:2px}
@@ -114,13 +115,13 @@ footer{text-align:center;color:var(--sub);font-size:13px;padding:56px 0 44px}
 </style>
 </head>
 <body>
-<nav class="nav"><b>장동근</b><a href="#home" class="on">홈</a><a href="#approach">일하는 방식</a><a href="#projects">프로젝트</a><a href="#journey">이력</a><a href="#stack">기술</a><a href="#contact">연락처</a><button id="theme" aria-label="테마">◐</button></nav>
+<nav class="nav"><b>장동근</b><a href="#home" class="on">홈</a><a href="#projects">프로젝트</a><a href="#journey">이력</a><a href="#stack">기술</a><a href="#contact">연락처</a><button id="theme" aria-label="테마">◐</button></nav>
 
 <section id="home"><div class="wrap hero">
   <div>
     <span class="pill"><i></i>Backend Developer · Java / Spring Boot</span>
-    <h1>데이터가 <span class="g">어긋나지 않는</span><br>서버를 만듭니다</h1>
-    <p class="lead">동시에 몰리는 요청, 꺼졌다 켜지는 서버, 중간에 끊기는 전송. 서비스는 늘 예상하지 못한 순간에 흔들립니다. 저는 그 순간에도 값이 맞도록 DB 제약과 락, 기록을 쌓는 설계로 받쳐 두는 일을 좋아합니다.</p>
+    <h1>데이터가 <span class="g">어긋나지 않는</span><br>백엔드 개발자</h1>
+    <p class="lead">Java · Spring Boot, Python · Flask로 서버를 개발합니다.</p>
     <div class="btns"><a class="btn p" href="#projects">프로젝트 보기</a><a class="btn" href="https://github.com/j75390" target="_blank" rel="noopener">GitHub</a><a class="btn" href="#contact">연락하기</a></div>
     <div class="nums"><div><b>20 → 1</b><span>동시 예약, 성공은 한 건</span></div><div><b>91%</b><span>추적 번호 부여율 (1~2%에서)</span></div><div><b>154</b><span>자동 시험·점검</span></div></div>
   </div>
@@ -128,88 +129,59 @@ footer{text-align:center;color:var(--sub);font-size:13px;padding:56px 0 44px}
 </div></section>
 
 <div class="wrap">
-<section id="approach">
-  <div class="head"><div class="eb">APPROACH</div><h2 class="h2">이런 방식으로 일합니다</h2><p class="sd">기능을 만드는 것만큼, 기능이 틀어졌을 때 어떻게 되는지를 먼저 생각합니다.</p></div>
-  <div class="pr">
-    <div class="pc"><div class="n">1</div><h3>규칙을 먼저 적고, DB가 지키게 합니다</h3><p>"한 좌석은 한 시간에 한 명"처럼 깨지면 안 되는 규칙부터 정합니다. 코드에서 확인하면 동시에 온 요청이 같은 확인을 통과하므로, 마지막 방어선은 DB 제약으로 둡니다.</p><code>UNIQUE(seat_id, slot_start)</code></div>
-    <div class="pc"><div class="n">2</div><h3>덮어쓰지 않고 쌓아 둡니다</h3><p>포인트 잔액을 고치는 대신 충전·사용·환불을 원장에 차례로 남기고, 잔액은 합계로 구합니다. 같은 예약의 환불이 두 번 기록되지 않도록 제약도 걸어 두었습니다.</p><code>UNIQUE(예약, 사유)</code></div>
-    <div class="pc"><div class="n">3</div><h3>확인한 것과 못 한 것을 나눠 적습니다</h3><p>자동 시험을 돌린 범위와 아직 못 해 본 범위를 문서에 함께 적습니다. 예를 들어 StudySeat는 H2에서 시험했고 MySQL 8 실서버 검증은 남아 있다고 밝혀 둡니다.</p><code>40 · 60 · 54 tests</code></div>
-  </div>
-</section>
-
 <section id="projects">
-  <div class="head"><div class="eb">PROJECTS</div><h2 class="h2">문제를 정하고, 풀고, 확인했습니다</h2><p class="sd">개인 프로젝트 3개와 팀 프로젝트 2개입니다.</p></div>
+  <div class="head"><div class="eb">PROJECTS</div><h2 class="h2">프로젝트</h2></div>
 
   <article class="pj"><div class="vis"><div class="hov"><img src="assets/studyseat-booking.jpg" alt="StudySeat 도면 예약 화면" loading="lazy"><div class="ov"><a href="https://github.com/j75390/studyseat" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor"><path d="M12 .5a11.5 11.5 0 0 0-3.64 22.41c.58.1.79-.25.79-.56v-2c-3.2.7-3.88-1.37-3.88-1.37-.52-1.33-1.28-1.69-1.28-1.69-1.04-.71.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.76 2.7 1.25 3.36.96.1-.75.4-1.25.73-1.54-2.55-.29-5.24-1.28-5.24-5.69 0-1.26.45-2.28 1.19-3.08-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.17 1.18a11 11 0 0 1 5.77 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.05.74.8 1.19 1.82 1.19 3.08 0 4.42-2.69 5.39-5.25 5.68.41.36.78 1.06.78 2.14v3.17c0 .31.21.67.8.56A11.5 11.5 0 0 0 12 .5Z"/></svg></a><a href="https://app.notion.com/p/414bd08dbbd281cb9c76de38d90cff32" target="_blank" rel="noopener" aria-label="상세보기"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M8 7h9v9"/></svg></a></div></div></div>
-    <div class="bd"><div class="kd">PERSONAL · 2026.11</div><h3>StudySeat</h3><p class="one">전국 지도에서 지점을 찾고 도면에서 좌석을 눌러 예약하는 스터디카페 서비스</p>
-    <div class="rows">
-      <div class="rw"><b>문제</b><p>같은 좌석에 여러 요청이 동시에 오면 둘 다 "비어 있다"고 확인하고 예약될 수 있습니다. 포인트도 겹친 요청에 두 번 빠질 수 있습니다.</p></div>
-      <div class="rw r2"><b>해결</b><p>예약을 1시간 슬롯 행으로 나눠 유니크 제약을 걸고, 포인트는 원장에 쌓으며 회원 행에 락을 걸어 순서대로 처리했습니다. 좌석 수만 주면 도면을 배치하는 엔진도 만들었습니다.</p></div>
-      <div class="rw r3"><b>결과</b><p>20명이 동시에 예약해도 1명만 성공합니다. 자동 시험 40개와 도면 756개 조합 시험을 통과했습니다.</p></div>
-    </div>
+    <div class="bd"><div class="kd">PERSONAL · 2026.11</div><h3>StudySeat</h3><p class="one">스터디카페 좌석 예약 서비스</p>
+    <ul class="bl"><li>지도에서 지점을 찾고 도면에서 좌석을 골라 예약, QR 입실</li><li>슬롯 유니크 제약·회원 행 락으로 이중 예약 방지 (20명 동시 → 1명 성공)</li><li>포인트 원장, 도면 배치 엔진, 시험 40개</li></ul>
     <div class="tg"><span>Java 17</span><span>Spring Boot</span><span>JPA</span><span>Flyway</span><span>Thymeleaf</span></div>
-    <div class="lim">시험은 H2(MySQL 모드)에서 했고, MySQL 8 실서버 검증은 남아 있습니다.</div>
+    
     <div class="ln"><a class="dt" href="https://app.notion.com/p/414bd08dbbd281cb9c76de38d90cff32" target="_blank" rel="noopener">상세보기 ↗</a><a href="https://github.com/j75390/studyseat" target="_blank" rel="noopener">GitHub ↗</a></div></div></article>
 
   <article class="pj"><div class="vis"><div class="hov"><img src="assets/ai-console.jpg" alt="AI 팀 관제 관제실 화면" loading="lazy"><div class="ov"><a href="https://github.com/j75390/ai-team-console" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor"><path d="M12 .5a11.5 11.5 0 0 0-3.64 22.41c.58.1.79-.25.79-.56v-2c-3.2.7-3.88-1.37-3.88-1.37-.52-1.33-1.28-1.69-1.28-1.69-1.04-.71.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.76 2.7 1.25 3.36.96.1-.75.4-1.25.73-1.54-2.55-.29-5.24-1.28-5.24-5.69 0-1.26.45-2.28 1.19-3.08-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.17 1.18a11 11 0 0 1 5.77 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.05.74.8 1.19 1.82 1.19 3.08 0 4.42-2.69 5.39-5.25 5.68.41.36.78 1.06.78 2.14v3.17c0 .31.21.67.8.56A11.5 11.5 0 0 0 12 .5Z"/></svg></a><a href="https://app.notion.com/p/414bd08dbbd281feb70dd7434209a903" target="_blank" rel="noopener" aria-label="상세보기"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M8 7h9v9"/></svg></a></div></div></div>
-    <div class="bd"><div class="kd">PERSONAL · 2026.11</div><h3>AI 팀 관제</h3><p class="one">Codex·Gemini를 동시에 부르고 남은 한도를 한 화면에서 보는 내 PC용 웹 앱</p>
-    <div class="rows">
-      <div class="rw"><b>문제</b><p>AI를 역할별로 나눠 쓰면 창이 흩어지고, 한도 정보도 서비스마다 다른 곳에 들어 있습니다. 내 계정의 토큰이 쓰이는 앱이라 보호도 필요했습니다.</p></div>
-      <div class="rw r2"><b>해결</b><p>리뷰어를 스레드로 동시에 호출하고 읽기 전용으로 실행했습니다. 한도는 서비스별 응답을 각각 읽어 카드로 보이고, 앱 로그인과 AI별 연동 두 겹으로 잠갔습니다.</p></div>
-      <div class="rw r3"><b>결과</b><p>외부 패키지 없이 Python 표준 라이브러리만으로 만들었고 자동 시험 60개를 통과했습니다.</p></div>
-    </div>
+    <div class="bd"><div class="kd">PERSONAL · 2026.11</div><h3>AI 팀 관제</h3><p class="one">AI 리뷰어 호출·한도 확인 웹 앱</p>
+    <ul class="bl"><li>Codex·Gemini 동시 호출(읽기 전용)과 한도 표시</li><li>앱 로그인 + AI별 연동으로 토큰 보호</li><li>시험 60개</li></ul>
     <div class="tg"><span>Python</span><span>Canvas 2D</span><span>PBKDF2</span></div>
-    <div class="lim">실제 계정으로 Codex 로그인과 Gemini 키를 연결하는 과정은 확인하지 못했습니다.</div>
+    
     <div class="ln"><a class="dt" href="https://app.notion.com/p/414bd08dbbd281feb70dd7434209a903" target="_blank" rel="noopener">상세보기 ↗</a><a href="https://github.com/j75390/ai-team-console" target="_blank" rel="noopener">GitHub ↗</a></div></div></article>
 
   <article class="pj"><div class="vis"><div class="hov"><img src="assets/game-battle.jpg" alt="잿빛 원정대 전투 화면" loading="lazy"><div class="ov"><a href="https://github.com/j75390/gametest" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor"><path d="M12 .5a11.5 11.5 0 0 0-3.64 22.41c.58.1.79-.25.79-.56v-2c-3.2.7-3.88-1.37-3.88-1.37-.52-1.33-1.28-1.69-1.28-1.69-1.04-.71.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.76 2.7 1.25 3.36.96.1-.75.4-1.25.73-1.54-2.55-.29-5.24-1.28-5.24-5.69 0-1.26.45-2.28 1.19-3.08-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.17 1.18a11 11 0 0 1 5.77 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.05.74.8 1.19 1.82 1.19 3.08 0 4.42-2.69 5.39-5.25 5.68.41.36.78 1.06.78 2.14v3.17c0 .31.21.67.8.56A11.5 11.5 0 0 0 12 .5Z"/></svg></a><a href="https://app.notion.com/p/416bd08dbbd281128167dfdc0989405b" target="_blank" rel="noopener" aria-label="상세보기"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M8 7h9v9"/></svg></a></div></div></div>
-    <div class="bd"><div class="kd">PERSONAL · 2026.09 – 11</div><h3>잿빛 원정대</h3><p class="one">성화가 꺼진 왕국에서 불씨를 찾아 들어가는 다크 고딕 덱빌딩 로그라이크</p>
-    <div class="rows">
-      <div class="rw"><b>문제</b><p>카드·유물·몬스터·이벤트가 수백 개로 늘어나면 코드에 직접 적을 수 없고, 독처럼 서로 다른 상태 이상을 한 규칙에 담기도 어렵습니다.</p></div>
-      <div class="rw r2"><b>해결</b><p>콘텐츠를 JSON으로 두고 검증·내보내기 도구를 만들었습니다. 독(고정 피해)과 맹독(비율 피해)을 별개 상태로 나누고 플레이어와 몬스터가 같은 시스템을 쓰게 했습니다.</p></div>
-      <div class="rw r3"><b>결과</b><p>지역 5, 몬스터 46, 이벤트 175, 유물 115를 담았고 점검 스크립트 54개로 기능을 확인합니다.</p></div>
-    </div>
+    <div class="bd"><div class="kd">PERSONAL · 2026.09 – 11</div><h3>잿빛 원정대</h3><p class="one">다크 고딕 덱빌딩 로그라이크</p>
+    <ul class="bl"><li>손패 전투, 독·맹독 상태 시스템, 안개 지도</li><li>JSON 콘텐츠 도구 (몬스터 46 · 이벤트 175 · 유물 115)</li><li>점검 스크립트 54개</li></ul>
     <div class="tg"><span>Godot 4</span><span>GDScript</span><span>Python</span></div>
     <div class="ln"><a class="dt" href="https://app.notion.com/p/416bd08dbbd281128167dfdc0989405b" target="_blank" rel="noopener">상세보기 ↗</a><a href="https://github.com/j75390/gametest" target="_blank" rel="noopener">GitHub ↗</a></div></div></article>
 
   <article class="pj"><div class="vis"><div class="hov"><div class="ph2">통계 집계와<br>누락 복구</div><div class="ov"><a href="https://github.com/white-eyes1/white-eyes-spring/pull/150" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor"><path d="M12 .5a11.5 11.5 0 0 0-3.64 22.41c.58.1.79-.25.79-.56v-2c-3.2.7-3.88-1.37-3.88-1.37-.52-1.33-1.28-1.69-1.28-1.69-1.04-.71.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.76 2.7 1.25 3.36.96.1-.75.4-1.25.73-1.54-2.55-.29-5.24-1.28-5.24-5.69 0-1.26.45-2.28 1.19-3.08-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.17 1.18a11 11 0 0 1 5.77 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.05.74.8 1.19 1.82 1.19 3.08 0 4.42-2.69 5.39-5.25 5.68.41.36.78 1.06.78 2.14v3.17c0 .31.21.67.8.56A11.5 11.5 0 0 0 12 .5Z"/></svg></a><a href="https://app.notion.com/p/410bd08dbbd281978c38ec7c854cdea0" target="_blank" rel="noopener" aria-label="상세보기"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M8 7h9v9"/></svg></a></div></div></div>
-    <div class="bd"><div class="kd">TEAM 6 · DW아카데미 · 2026.10 – 11 예정</div><h3>white-eyes</h3><p class="one">드론·CCTV 영상으로 구역별 인원을 분석해 통계와 다시보기로 보여 주는 서비스</p>
-    <div class="rows">
-      <div class="rw"><b>문제</b><p>처음 쓴 추적 방식은 추적 번호가 붙는 박스가 1~2%뿐이어서 체류 시간을 계산할 수 없었고, 앱이 꺼진 시간대는 통계가 비었습니다.</p></div>
-      <div class="rw r2"><b>해결</b><p>중심점 거리로 이어 붙이는 추적 방식으로 바꿨습니다. 앱이 켜질 때 시간별 48시간을 먼저, 일별 7일을 나중에 채우고, 전송에 실패한 결과는 5분간 보관했다 다시 보냅니다.</p></div>
-      <div class="rw r3"><b>결과</b><p>추적 번호 부여율 약 91%, 서버를 120초 중단한 시험에서 보관한 120건 재전송을 확인했습니다.</p></div>
-    </div>
+    <div class="bd"><div class="kd">TEAM 6 · DW아카데미 · 2026.10 – 11 예정</div><h3>white-eyes</h3><p class="one">영상 기반 혼잡도 분석 서비스</p>
+    <ul class="bl"><li>분석 서버 · 시간별·일별 통계 집계와 누락 복구</li><li>추적 번호 부여율 1~2% → 약 91%</li><li>전송 실패 결과 보관·재전송 (120건 확인)</li></ul>
     <div class="tg"><span>Flask</span><span>Spring Boot</span><span>MySQL</span></div>
-    <div class="lim">같은 사람을 끝까지 맞게 추적하는지, 5분을 넘는 중단은 아직 검증하지 못했습니다.</div>
+    
     <div class="ln"><a class="dt" href="https://app.notion.com/p/410bd08dbbd281978c38ec7c854cdea0" target="_blank" rel="noopener">상세보기 ↗</a><a href="https://github.com/white-eyes1/white-eyes-spring/pull/150" target="_blank" rel="noopener">집계 PR #150 ↗</a><a href="https://github.com/white-eyes1/white-eyes-spring/pull/155" target="_blank" rel="noopener">복구 PR #155 ↗</a></div></div></article>
 
   <article class="pj"><div class="vis"><div class="hov"><div class="ph2">회원·권한 관리와<br>통합 관제 대시보드</div><div class="ov"><a href="https://app.notion.com/p/410bd08dbbd28139b33bd769f4a63d4b" target="_blank" rel="noopener" aria-label="상세보기"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M8 7h9v9"/></svg></a></div></div></div>
-    <div class="bd"><div class="kd">TEAM 5 · DW아카데미 · 2026.06 – 07</div><h3>Obsidian Shield</h3><p class="one">드론·CCTV 영상에서 사람을 찾고 얼굴 식별·이동 추적까지 연결한 관제 시스템</p>
-    <div class="rows">
-      <div class="rw"><b>문제</b><p>관리자가 회원과 승인 대기 계정을 빠르게 찾고, 관제에 필요한 정보를 한 화면에서 봐야 했습니다.</p></div>
-      <div class="rw r2"><b>해결</b><p>ID·이름 검색, 권한·승인 상태 필터, 정렬, 페이지네이션, 가입 승인과 권한 변경을 한 화면에 모았습니다. 회원·카메라·탐지 대상·이벤트·지도를 한눈에 보는 대시보드와 UI/UX를 설계했습니다.</p></div>
-      <div class="rw r3"><b>개선점</b><p>회원 데이터를 JSON 파일에 저장해, 데이터가 늘면 데이터베이스로 옮겨야 한다는 한계를 회고에 남겼습니다.</p></div>
-    </div>
+    <div class="bd"><div class="kd">TEAM 5 · DW아카데미 · 2026.06 – 07</div><h3>Obsidian Shield</h3><p class="one">실시간 보행자 관제 시스템</p>
+    <ul class="bl"><li>회원 검색·필터·정렬, 가입 승인, 권한 변경</li><li>통합 관제 대시보드, UI/UX 설계</li></ul>
     <div class="tg"><span>Flask</span><span>JSON</span></div><div class="ln"><a class="dt" href="https://app.notion.com/p/410bd08dbbd28139b33bd769f4a63d4b" target="_blank" rel="noopener">상세보기 ↗</a></div></div></article>
 </section>
 
 <section id="journey">
   <div class="head"><div class="eb">JOURNEY</div><h2 class="h2">걸어온 순서</h2></div>
   <div class="jr">
-    <div class="st"><div class="d">2026.04.27</div><h4>DW아카데미 입교</h4><p>Java·Spring Boot, Python, Flask를 배우기 시작</p></div>
-    <div class="st"><div class="d">2026.06.25 – 07.24</div><h4>Obsidian Shield</h4><p>팀 5인 · 회원·권한 관리와 통합 대시보드</p></div>
-    <div class="st"><div class="d">2026.09.30 – 11.12</div><h4>잿빛 원정대</h4><p>덱빌딩 로그라이크와 콘텐츠 도구 개발</p></div>
-    <div class="st"><div class="d">2026.10.06 – 11.23 예정</div><h4>white-eyes</h4><p>팀 6인 · 분석 서버와 통계 집계·복구</p></div>
-    <div class="st"><div class="d">2026.11.09 – 11.10</div><h4>StudySeat · AI 팀 관제</h4><p>설계부터 시험, 공개까지 이틀에 진행</p></div>
+    <div class="st"><div class="d">2026.04.27</div><h4>DW아카데미 입교</h4><p>AIoT 기반 드론 영상 관제시스템</p></div>
+    <div class="st"><div class="d">2026.06.25 – 07.24</div><h4>Obsidian Shield</h4><p>팀 5인 · 회원·권한 관리</p></div>
+    <div class="st"><div class="d">2026.09.30 – 11.12</div><h4>잿빛 원정대</h4><p>개인 · 덱빌딩 로그라이크</p></div>
+    <div class="st"><div class="d">2026.10.06 – 11.23 예정</div><h4>white-eyes</h4><p>팀 6인 · 통계 집계·복구</p></div>
+    <div class="st"><div class="d">2026.11.09 – 11.10</div><h4>StudySeat · AI 팀 관제</h4><p>개인 · 2개 프로젝트</p></div>
   </div>
 </section>
 
 <section id="stack">
-  <div class="head"><div class="eb">STACK</div><h2 class="h2">쓴 기술</h2><p class="sd">프로젝트에서 실제로 쓴 것만 적었습니다.</p></div>
+  <div class="head"><div class="eb">STACK</div><h2 class="h2">쓴 기술</h2></div>
   <div class="sk">
-    <div class="sb"><h4>BACKEND</h4><span>Java 17</span><span>Spring Boot</span><span>JPA</span><span>Spring Security</span><span>Python</span><span>Flask</span><p>StudySeat · white-eyes · AI 팀 관제</p></div>
-    <div class="sb"><h4>DATABASE</h4><span>MySQL</span><span>H2</span><span>Flyway</span><p>유니크 제약, 락, 원장 설계와 마이그레이션 관리</p></div>
-    <div class="sb"><h4>FRONT · TOOLS</h4><span>HTML/CSS</span><span>JavaScript</span><span>Thymeleaf</span><span>Leaflet</span><span>Chart.js</span><span>Godot</span><span>Git</span><p>화면 구현, 지도·그래프, 이슈→PR 협업</p></div>
+    <div class="sb"><h4>BACKEND</h4><span>Java 17</span><span>Spring Boot</span><span>JPA</span><span>Spring Security</span><span>Python</span><span>Flask</span></div>
+    <div class="sb"><h4>DATABASE</h4><span>MySQL</span><span>H2</span><span>Flyway</span></div>
+    <div class="sb"><h4>FRONT · TOOLS</h4><span>HTML/CSS</span><span>JavaScript</span><span>Thymeleaf</span><span>Leaflet</span><span>Chart.js</span><span>Godot</span><span>Git</span></div>
   </div>
 </section>
 
