@@ -4,185 +4,192 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>장동근 | 백엔드 개발자</title>
-<meta name="description" content="같은 요청이 두 번 와도 값은 한 번만 바뀌게 만드는 백엔드 개발자 장동근의 포트폴리오">
+<meta name="description" content="동시에 몰리는 요청, 꺼졌다 켜지는 서버에서도 데이터가 어긋나지 않는 구조를 만드는 백엔드 개발자 장동근의 포트폴리오">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
 <style>
-:root{--bg:#f2f5f4;--card:#fff;--ink:#0f1c1a;--sub:#5b6b68;--line:#e1e8e6;--acc:#0d9488;--acc2:#14b8a6;--dark:#0b2321;--dark2:#0f3a36;--warm:#f59e0b;--shadow:0 12px 34px rgba(11,35,33,.08)}
-:root[data-theme=dark]{--bg:#0a1211;--card:#101c1a;--ink:#e8f1ef;--sub:#93a8a4;--line:#1d2f2c;--acc:#2dd4bf;--acc2:#14b8a6;--dark:#0b2321;--dark2:#0f3a36;--shadow:0 12px 34px rgba(0,0,0,.4)}
+:root{--bg:#fbfaf7;--soft:#f3f1fb;--card:#fff;--ink:#1d2033;--sub:#666b85;--line:#ebe9f3;--p1:#5b5bd6;--p2:#22b8cf;--p3:#ff8f7a;--grad:linear-gradient(120deg,#5b5bd6,#22b8cf);--shadow:0 18px 50px rgba(70,72,140,.10)}
+:root[data-theme=dark]{--bg:#0f1120;--soft:#151833;--card:#171a30;--ink:#eceefb;--sub:#9ea3c4;--line:#262a4a;--p1:#8b8bff;--p2:#4dd4e8;--p3:#ff9d8a;--grad:linear-gradient(120deg,#8b8bff,#4dd4e8);--shadow:0 18px 50px rgba(0,0,0,.35)}
 *{box-sizing:border-box;margin:0}
 html{scroll-behavior:smooth;scroll-padding-top:90px}
-body{font-family:Pretendard,'Malgun Gothic',system-ui,sans-serif;background:var(--bg);color:var(--ink);line-height:1.7;-webkit-font-smoothing:antialiased;word-break:keep-all}
+body{font-family:Pretendard,'Malgun Gothic',system-ui,sans-serif;background:var(--bg);color:var(--ink);line-height:1.75;-webkit-font-smoothing:antialiased;word-break:keep-all}
 a{color:inherit;text-decoration:none}
-.wrap{max-width:1160px;margin:0 auto;padding:0 28px}
-/* floating pill nav */
-.nav{position:fixed;top:16px;left:50%;transform:translateX(-50%);z-index:30;display:flex;align-items:center;gap:4px;padding:7px 8px 7px 20px;border-radius:999px;background:color-mix(in srgb,var(--card) 82%,transparent);backdrop-filter:blur(14px);border:1px solid var(--line);box-shadow:var(--shadow)}
-.nav b{font-size:15px;margin-right:14px;letter-spacing:-.3px}
+.wrap{max-width:1100px;margin:0 auto;padding:0 28px}
+.nav{position:fixed;top:18px;left:50%;transform:translateX(-50%);z-index:30;display:flex;align-items:center;gap:2px;padding:6px 8px 6px 22px;border-radius:999px;background:color-mix(in srgb,var(--card) 80%,transparent);backdrop-filter:blur(16px);border:1px solid var(--line);box-shadow:0 8px 30px rgba(70,72,140,.10)}
+.nav b{font-size:15px;margin-right:16px;letter-spacing:-.3px}
 .nav a{padding:8px 15px;border-radius:999px;font-size:14px;font-weight:600;color:var(--sub);transition:.15s}
-.nav a:hover{color:var(--ink)}.nav a.on{background:var(--ink);color:var(--bg)}
-#theme{width:36px;height:36px;border-radius:50%;border:0;background:var(--line);color:var(--ink);cursor:pointer;font-size:15px;margin-left:6px}
+.nav a:hover{color:var(--ink)}.nav a.on{background:var(--grad);color:#fff}
+#theme{width:34px;height:34px;border-radius:50%;border:0;background:var(--soft);color:var(--ink);cursor:pointer;font-size:14px;margin-left:6px}
 /* hero */
-.hero{margin-top:84px;border-radius:34px;background:radial-gradient(900px 420px at 85% -10%,rgba(45,212,191,.35),transparent 60%),radial-gradient(600px 360px at 0% 110%,rgba(245,158,11,.18),transparent 60%),linear-gradient(135deg,var(--dark),var(--dark2));color:#e9f5f2;padding:64px 60px 56px;display:grid;grid-template-columns:1.25fr .75fr;gap:40px;align-items:center;position:relative;overflow:hidden}
-.hero:before{content:"";position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.045) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.045) 1px,transparent 1px);background-size:44px 44px;-webkit-mask-image:linear-gradient(120deg,transparent 35%,#000 100%)}
-.hero>*{position:relative}
-.tag0{display:inline-flex;gap:10px;align-items:center;font:600 13px/1 Consolas,monospace;letter-spacing:1.5px;color:#5eead4;margin-bottom:22px}
-.tag0:before{content:"";width:8px;height:8px;border-radius:50%;background:#5eead4;box-shadow:0 0 0 5px rgba(94,234,212,.2)}
-.hero h1{font-size:clamp(34px,4.6vw,58px);line-height:1.2;letter-spacing:-2.2px;font-weight:800}
-.hero h1 em{font-style:normal;color:#5eead4}
-.hero p{margin-top:22px;color:#b6cdc8;font-size:17px;max-width:540px}
-.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:34px}
-.stats div{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12);border-radius:16px;padding:16px 16px 14px;backdrop-filter:blur(6px)}
-.stats b{display:block;font-size:26px;letter-spacing:-1px;color:#fff;line-height:1.2}
-.stats span{display:block;font-size:12.5px;color:#9fbdb7;margin-top:6px;line-height:1.5}
-.who{justify-self:center;text-align:center}
-.who img{width:min(100%,300px);aspect-ratio:4/5;object-fit:cover;border-radius:28px;border:6px solid rgba(255,255,255,.14);box-shadow:0 24px 50px rgba(0,0,0,.4)}
-.who h2{margin-top:18px;font-size:26px;letter-spacing:-.5px}
-.who span{font:13px Consolas,monospace;color:#7fa8a1;letter-spacing:1px}
-/* sections */
-section{padding:92px 0 10px}
-.eb{font:700 12.5px Consolas,monospace;letter-spacing:2.5px;color:var(--acc);margin-bottom:10px}
-.h2{font-size:clamp(28px,3.6vw,42px);letter-spacing:-1.5px;font-weight:800;line-height:1.25}
-.sd{color:var(--sub);margin-top:10px;font-size:17px;max-width:640px}
-.head{margin-bottom:38px}
-/* bento */
-.bento{display:grid;grid-template-columns:repeat(6,1fr);gap:16px}
-.t{background:var(--card);border:1px solid var(--line);border-radius:24px;padding:28px;box-shadow:var(--shadow)}
-.t h3{font-size:19px;letter-spacing:-.5px;margin-bottom:8px}
-.t p{color:var(--sub);font-size:15px}
-.t .k{font:700 11.5px Consolas,monospace;letter-spacing:1.5px;color:var(--acc);margin-bottom:12px;display:block}
-.big{font-size:60px;font-weight:800;letter-spacing:-3px;line-height:1;color:var(--acc);margin:6px 0 10px}
-.big small{font-size:18px;letter-spacing:0;color:var(--sub);font-weight:600;margin-left:6px}
-.t.a{grid-column:span 3}.t.b{grid-column:span 3}.t.c{grid-column:span 2}.t.d{grid-column:span 2}.t.e{grid-column:span 2}.t.f{grid-column:span 6;display:grid;grid-template-columns:1fr 1fr;gap:28px;align-items:center}
-.t.dk{background:linear-gradient(135deg,var(--dark),var(--dark2));color:#e6f4f1;border-color:transparent}
-.t.dk p{color:#a7c4be}.t.dk .big{color:#5eead4}
-code.c{display:inline-block;font:12.5px Consolas,monospace;background:rgba(13,148,136,.1);color:var(--acc);border-radius:8px;padding:3px 9px;margin:2px 4px 2px 0}
-.t.dk code.c{background:rgba(94,234,212,.12);color:#5eead4}
-.chips span{display:inline-block;padding:6px 14px;border-radius:999px;background:var(--bg);border:1px solid var(--line);font-size:13.5px;font-weight:600;margin:0 6px 8px 0}
-.ledger{font:13px/1.9 Consolas,monospace;background:var(--bg);border-radius:14px;padding:16px 18px;border:1px dashed var(--line)}
-.ledger i{font-style:normal;color:var(--acc);font-weight:700}
+#home{position:relative;padding:150px 0 90px;overflow:hidden}
+#home:before{content:"";position:absolute;width:640px;height:640px;right:-160px;top:-120px;border-radius:50%;background:radial-gradient(circle,rgba(91,91,214,.22),transparent 65%)}
+#home:after{content:"";position:absolute;width:520px;height:520px;left:-200px;bottom:-200px;border-radius:50%;background:radial-gradient(circle,rgba(34,184,207,.2),transparent 65%)}
+.hero{position:relative;z-index:1;display:grid;grid-template-columns:1.2fr .8fr;gap:56px;align-items:center}
+.pill{display:inline-flex;align-items:center;gap:9px;padding:7px 16px;border-radius:999px;background:var(--card);border:1px solid var(--line);font-size:13.5px;font-weight:600;color:var(--sub);box-shadow:0 4px 14px rgba(70,72,140,.06)}
+.pill i{width:8px;height:8px;border-radius:50%;background:#34d399;box-shadow:0 0 0 4px rgba(52,211,153,.2)}
+.hero h1{font-size:clamp(36px,5vw,60px);line-height:1.22;letter-spacing:-2.4px;font-weight:800;margin:24px 0 22px}
+.g{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+.hero p.lead{font-size:18.5px;color:var(--sub);max-width:560px}
+.btns{display:flex;gap:12px;margin-top:34px;flex-wrap:wrap}
+.btn{padding:14px 26px;border-radius:14px;font-weight:700;font-size:15px;border:1px solid var(--line);background:var(--card);transition:.2s}
+.btn.p{background:var(--grad);color:#fff;border:0;box-shadow:0 10px 26px rgba(91,91,214,.32)}
+.btn:hover{transform:translateY(-3px)}
+.nums{display:flex;gap:34px;margin-top:46px;flex-wrap:wrap}
+.nums div b{display:block;font-size:30px;font-weight:800;letter-spacing:-1.2px;background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+.nums div span{font-size:13.5px;color:var(--sub)}
+.ph{position:relative;justify-self:center;width:min(100%,340px)}
+.ph:before{content:"";position:absolute;inset:-14px;border-radius:44px;background:var(--grad);opacity:.9;transform:rotate(4deg)}
+.ph img{position:relative;width:100%;aspect-ratio:4/5;object-fit:cover;border-radius:36px;border:6px solid var(--card);display:block;box-shadow:var(--shadow)}
+.ph .tag{position:absolute;left:-26px;bottom:34px;background:var(--card);border-radius:16px;padding:12px 18px;box-shadow:var(--shadow);font-size:13.5px;font-weight:700;border:1px solid var(--line)}
+.ph .tag small{display:block;font-weight:500;color:var(--sub);font-size:12px}
+/* generic */
+section{padding:96px 0 6px}
+.eb{display:inline-block;font-size:13px;font-weight:800;letter-spacing:1.5px;background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent;margin-bottom:10px}
+.h2{font-size:clamp(28px,3.6vw,42px);letter-spacing:-1.6px;font-weight:800;line-height:1.3}
+.sd{margin-top:14px;color:var(--sub);font-size:17.5px;max-width:640px}
+.head{margin-bottom:46px}
+/* principles */
+.pr{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.pc{background:var(--card);border:1px solid var(--line);border-radius:28px;padding:34px 30px;box-shadow:var(--shadow)}
+.pc .n{width:44px;height:44px;border-radius:14px;background:var(--grad);color:#fff;display:grid;place-items:center;font-weight:800;margin-bottom:20px}
+.pc h3{font-size:20px;letter-spacing:-.6px;margin-bottom:10px;line-height:1.4}
+.pc p{color:var(--sub);font-size:15.5px}
+.pc code{display:inline-block;margin-top:14px;font:12.5px Consolas,monospace;background:var(--soft);color:var(--p1);padding:4px 11px;border-radius:9px}
 /* projects */
-.pg{display:grid;grid-template-columns:repeat(2,1fr);gap:22px}
-.pj{background:var(--card);border:1px solid var(--line);border-radius:26px;overflow:hidden;box-shadow:var(--shadow);display:flex;flex-direction:column;transition:.25s}
-.pj:hover{transform:translateY(-5px)}
-.pj.w{grid-column:span 2;flex-direction:row}
-.pj .im{background:#0b1220;aspect-ratio:16/10;overflow:hidden}
-.pj.w .im{flex:1.15;aspect-ratio:auto}
-.pj .im img{width:100%;height:100%;object-fit:cover;display:block}
-.pj .im.ph{display:grid;place-items:center;text-align:center;padding:24px;background:linear-gradient(135deg,color-mix(in srgb,var(--acc) 14%,var(--card)),var(--bg));color:var(--acc);font-weight:800;font-size:22px;line-height:1.4}
-.pj .bd{padding:28px 30px 30px;flex:1}
-.pj.w .bd{flex:1}
-.pj .kd{font:700 12px Consolas,monospace;letter-spacing:1.3px;color:var(--acc)}
-.pj h3{font-size:26px;letter-spacing:-.8px;margin:6px 0 8px}
-.pj .ds{color:var(--sub);font-size:15.5px}
-.pj ul{margin:14px 0 14px 18px;font-size:14.5px}.pj li{margin:3px 0}
-.pj .tg span{display:inline-block;padding:3px 11px;border-radius:999px;background:color-mix(in srgb,var(--acc) 12%,transparent);color:var(--acc);font-size:12.5px;font-weight:700;margin:0 5px 5px 0}
-.pj .ln{margin-top:10px;display:flex;gap:10px;flex-wrap:wrap}
-.pj .ln a{font-size:13.5px;font-weight:700;padding:7px 15px;border-radius:10px;border:1px solid var(--line)}
-.pj .ln a:hover{border-color:var(--acc);color:var(--acc)}
+.pj{background:var(--card);border:1px solid var(--line);border-radius:32px;box-shadow:var(--shadow);overflow:hidden;margin-bottom:30px;display:grid;grid-template-columns:1fr 1fr}
+.pj:nth-of-type(even){direction:rtl}.pj:nth-of-type(even)>*{direction:ltr}
+.pj .vis{background:var(--soft);padding:34px;display:grid;place-items:center}
+.pj .vis img{width:100%;border-radius:18px;box-shadow:0 14px 34px rgba(30,32,70,.22);display:block}
+.pj .vis .ph2{width:100%;aspect-ratio:16/11;border-radius:22px;background:var(--grad);color:#fff;display:grid;place-items:center;text-align:center;font-weight:800;font-size:24px;line-height:1.45;padding:24px;letter-spacing:-.6px}
+.pj .bd{padding:42px 42px 38px}
+.kd{font-size:12.5px;font-weight:800;letter-spacing:1.2px;color:var(--p1)}
+.pj h3{font-size:30px;letter-spacing:-1.2px;margin:6px 0 6px}
+.pj .one{color:var(--sub);font-size:16px;margin-bottom:22px}
+.rows{display:grid;gap:14px}
+.rw{display:grid;grid-template-columns:54px 1fr;gap:14px}
+.rw b{font-size:12.5px;font-weight:800;color:#fff;background:var(--grad);border-radius:9px;height:26px;display:grid;place-items:center;margin-top:2px}
+.rw.r2 b{background:linear-gradient(120deg,var(--p2),#34d399)}.rw.r3 b{background:linear-gradient(120deg,var(--p3),#fbbf24)}
+.rw p{font-size:15px}
+.tg{margin-top:20px}.tg span{display:inline-block;padding:4px 12px;border-radius:999px;background:var(--soft);color:var(--p1);font-size:12.5px;font-weight:700;margin:0 6px 6px 0}
+.ln{margin-top:8px;display:flex;gap:10px;flex-wrap:wrap}.ln a{font-size:13.5px;font-weight:700;padding:8px 16px;border-radius:11px;border:1px solid var(--line)}.ln a:hover{border-color:var(--p1);color:var(--p1)}
+.lim{margin-top:14px;font-size:13px;color:var(--sub);padding:11px 14px;background:var(--soft);border-radius:12px}
 /* journey */
-.jr{display:grid;grid-template-columns:repeat(5,1fr);gap:0;position:relative;margin-top:8px}
-.jr:before{content:"";position:absolute;left:0;right:0;top:11px;height:2px;background:linear-gradient(90deg,var(--acc),var(--line))}
-.st{position:relative;padding:34px 18px 0 0}
-.st:before{content:"";position:absolute;left:0;top:4px;width:16px;height:16px;border-radius:50%;background:var(--card);border:4px solid var(--acc)}
-.st .d{font:700 12px Consolas,monospace;color:var(--acc)}
-.st h4{font-size:16.5px;letter-spacing:-.4px;margin:4px 0 4px;line-height:1.4}
+.jr{display:grid;grid-template-columns:repeat(5,1fr);gap:16px}
+.st{background:var(--card);border:1px solid var(--line);border-radius:22px;padding:24px 20px;box-shadow:var(--shadow)}
+.st .d{font-size:12px;font-weight:800;color:var(--p1);letter-spacing:.3px}
+.st h4{font-size:16.5px;letter-spacing:-.5px;margin:8px 0 6px;line-height:1.4}
 .st p{font-size:13.5px;color:var(--sub);line-height:1.6}
 /* stack */
-.sk{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
-.sk .t{padding:24px}
+.sk{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.sb{background:var(--card);border:1px solid var(--line);border-radius:26px;padding:30px;box-shadow:var(--shadow)}
+.sb h4{font-size:13px;font-weight:800;letter-spacing:1.3px;color:var(--p1);margin-bottom:16px}
+.sb span{display:inline-block;padding:7px 15px;border-radius:12px;background:var(--soft);font-size:14px;font-weight:600;margin:0 7px 9px 0}
+.sb p{font-size:13.5px;color:var(--sub);margin-top:8px}
 /* contact */
-.ct{border-radius:34px;background:radial-gradient(700px 360px at 100% 0,rgba(45,212,191,.3),transparent 60%),linear-gradient(135deg,var(--dark),var(--dark2));color:#e9f5f2;padding:56px;display:grid;grid-template-columns:1fr 1fr;gap:36px;align-items:center}
-.ct h2{font-size:clamp(28px,3.4vw,40px);letter-spacing:-1.5px;line-height:1.3}
-.ct h2 em{font-style:normal;color:#5eead4}
-.ct p{color:#a7c4be;margin-top:12px}
+.ct{border-radius:40px;background:var(--grad);color:#fff;padding:64px 60px;display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center;position:relative;overflow:hidden;box-shadow:0 26px 60px rgba(91,91,214,.35)}
+.ct:before{content:"";position:absolute;width:420px;height:420px;border-radius:50%;background:rgba(255,255,255,.14);right:-120px;top:-160px}
+.ct>*{position:relative}
+.ct h2{font-size:clamp(28px,3.4vw,42px);letter-spacing:-1.6px;line-height:1.3}
+.ct p{margin-top:14px;opacity:.9}
 .ct .ls{display:grid;gap:10px}
-.ct .ls a{display:flex;justify-content:space-between;align-items:center;padding:15px 20px;border-radius:14px;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12);font-size:15px;transition:.2s}
-.ct .ls a:hover{background:rgba(94,234,212,.16);border-color:#5eead4}
-.ct .ls span{font:600 12px Consolas,monospace;color:#7fc9bd;letter-spacing:1px}
-footer{text-align:center;color:var(--sub);font-size:13px;padding:48px 0 40px}
+.ct .ls a{display:flex;justify-content:space-between;padding:16px 22px;border-radius:16px;background:rgba(255,255,255,.18);border:1px solid rgba(255,255,255,.3);font-weight:600;font-size:15px;transition:.2s;backdrop-filter:blur(6px)}
+.ct .ls a:hover{background:#fff;color:var(--p1)}
+.ct .ls span{opacity:.85;font-size:12.5px;letter-spacing:1px;font-weight:700}
+footer{text-align:center;color:var(--sub);font-size:13px;padding:56px 0 44px}
 @media(max-width:900px){
- .nav{max-width:calc(100% - 20px);overflow-x:auto}.nav b{display:none}.nav a{padding:7px 10px;font-size:13px;white-space:nowrap}
- .hero{grid-template-columns:1fr;padding:40px 24px;margin-top:76px;border-radius:26px}.who{order:-1}.who img{width:160px}.who h2{font-size:22px}
- .stats{grid-template-columns:1fr}
- .bento{grid-template-columns:1fr}.t.a,.t.b,.t.c,.t.d,.t.e,.t.f{grid-column:span 1}.t.f{grid-template-columns:1fr}
- .pg{grid-template-columns:1fr}.pj.w{grid-column:span 1;flex-direction:column}.pj.w .im{aspect-ratio:16/10}
- .jr{grid-template-columns:1fr;gap:22px}.jr:before{display:none}.st{padding:0 0 0 30px;border-left:2px solid var(--line);margin-left:7px}.st:before{left:-9px;top:2px}
- .sk{grid-template-columns:1fr}.ct{grid-template-columns:1fr;padding:34px 24px}
+ .nav{max-width:calc(100% - 16px);overflow-x:auto}.nav b{display:none}.nav a{padding:7px 10px;font-size:13px;white-space:nowrap}
+ #home{padding:110px 0 60px}.hero{grid-template-columns:1fr;gap:44px}.ph{order:-1;width:220px}.ph .tag{left:-10px}
+ .pr,.sk{grid-template-columns:1fr}.pj{grid-template-columns:1fr}.pj:nth-of-type(even){direction:ltr}.pj .bd{padding:30px 24px}.pj .vis{padding:20px}
+ .jr{grid-template-columns:1fr}.ct{grid-template-columns:1fr;padding:40px 26px;border-radius:30px}
 }
 </style>
 </head>
 <body>
-<nav class="nav"><b>장동근</b><a href="#home" class="on">홈</a><a href="#about">핵심</a><a href="#projects">프로젝트</a><a href="#journey">이력</a><a href="#stack">기술</a><a href="#contact">연락처</a><button id="theme" aria-label="테마">◐</button></nav>
-<div class="wrap" id="home">
-<div class="hero">
+<nav class="nav"><b>장동근</b><a href="#home" class="on">홈</a><a href="#approach">일하는 방식</a><a href="#projects">프로젝트</a><a href="#journey">이력</a><a href="#stack">기술</a><a href="#contact">연락처</a><button id="theme" aria-label="테마">◐</button></nav>
+
+<section id="home"><div class="wrap hero">
   <div>
-    <div class="tag0">BACKEND DEVELOPER · 2026</div>
-    <h1>같은 요청이 두 번 와도,<br>값은 <em>한 번만</em><br>바뀌게 만듭니다.</h1>
-    <p>Java·Spring Boot와 Python·Flask로 서버 기능을 개발합니다. 코드의 확인보다 DB 제약과 락에 기대어, 동시에 들어온 요청에도 데이터가 어긋나지 않는 구조를 설계합니다.</p>
-    <div class="stats">
-      <div><b>20 → 1</b><span>동시 예약 요청 중<br>성공 1건 보장</span></div>
-      <div><b>1~2% → 91%</b><span>추적 번호 부여율<br>PointTracker 교체</span></div>
-      <div><b>154</b><span>자동 시험·점검<br>40 + 60 + 54</span></div>
-    </div>
+    <span class="pill"><i></i>Backend Developer · Java / Spring Boot</span>
+    <h1>데이터가 <span class="g">어긋나지 않는</span><br>서버를 만듭니다</h1>
+    <p class="lead">동시에 몰리는 요청, 꺼졌다 켜지는 서버, 중간에 끊기는 전송. 서비스는 늘 예상하지 못한 순간에 흔들립니다. 저는 그 순간에도 값이 맞도록 DB 제약과 락, 기록을 쌓는 설계로 받쳐 두는 일을 좋아합니다.</p>
+    <div class="btns"><a class="btn p" href="#projects">프로젝트 보기</a><a class="btn" href="https://github.com/j75390" target="_blank" rel="noopener">GitHub</a><a class="btn" href="#contact">연락하기</a></div>
+    <div class="nums"><div><b>20 → 1</b><span>동시 예약, 성공은 한 건</span></div><div><b>91%</b><span>추적 번호 부여율 (1~2%에서)</span></div><div><b>154</b><span>자동 시험·점검</span></div></div>
   </div>
-  <div class="who"><img src="assets/profile.jpg" alt="장동근"><h2>장동근</h2><span>JANG DONGGEUN</span></div>
-</div>
-</div>
+  <div class="ph"><img src="assets/profile.jpg" alt="장동근"><div class="tag">장동근<small>JANG DONGGEUN</small></div></div>
+</div></section>
 
 <div class="wrap">
-<section id="about">
-  <div class="head"><div class="eb">CORE</div><h2 class="h2">제가 믿는 설계 원칙</h2><p class="sd">규칙을 먼저 적고, 그 규칙을 코드가 아니라 DB가 마지막으로 지키게 합니다.</p></div>
-  <div class="bento">
-    <div class="t dk a"><span class="k">I-01 · CONCURRENCY</span><div class="big">20 → 1<small>동시 예약</small></div><h3>한 좌석, 한 시간에는 한 명만</h3><p>예약을 1시간 슬롯 행으로 나눠 저장하고, 겹치는 요청은 유니크 제약이 거부합니다.</p><div style="margin-top:12px"><code class="c">UNIQUE(seat_id, slot_start)</code></div></div>
-    <div class="t b"><span class="k">I-02 · LEDGER</span><h3>포인트는 덮어쓰지 않고 쌓습니다</h3><p>충전·사용·환불·적립을 원장에 쌓고 잔액은 합계로 계산합니다. 한 회원의 요청은 행 락으로 순서를 세웁니다.</p>
-      <div class="ledger" style="margin-top:14px"><i>+30,000</i> CHARGE<br><i>-6,000</i> RESERVE #1042<br><i>+6,000</i> REFUND #1042 <span style="color:var(--sub)">// (예약, 사유) UNIQUE</span><br>= 30,000</div></div>
-    <div class="t c"><span class="k">I-03 · RECOVERY</span><h3>빈 구간은 순서대로 복구</h3><p>시간별 48시간을 먼저, 일별 7일을 나중에 채워 의존 순서를 지킵니다.</p></div>
-    <div class="t d"><span class="k">VERIFY</span><div class="big" style="font-size:44px">40·60·54</div><p>StudySeat, AI 팀 관제, 잿빛 원정대의 자동 시험·점검 개수입니다.</p></div>
-    <div class="t e"><span class="k">STACK</span><div class="chips"><span>Java</span><span>Spring Boot</span><span>JPA</span><span>Python</span><span>Flask</span><span>MySQL</span></div></div>
-    <div class="t f"><div><span class="k">NOW</span><h3>DW아카데미 5기 · AIoT 기반 드론 영상 관제시스템</h3><p>2026.04.27 ~ 11.23 수료 예정. Java·Spring Boot·JPA, MySQL, Python·OpenCV·YOLO, Flask를 배우고, 팀 프로젝트로 분석 서버와 통계 서버를 만들었습니다.</p></div><div class="chips"><span>Controller·Service·DAO·DTO</span><span>Spring Security</span><span>YOLO 탐지·추적</span><span>영상 스트리밍</span></div></div>
+<section id="approach">
+  <div class="head"><div class="eb">APPROACH</div><h2 class="h2">이런 방식으로 일합니다</h2><p class="sd">기능을 만드는 것만큼, 기능이 틀어졌을 때 어떻게 되는지를 먼저 생각합니다.</p></div>
+  <div class="pr">
+    <div class="pc"><div class="n">1</div><h3>규칙을 먼저 적고, DB가 지키게 합니다</h3><p>"한 좌석은 한 시간에 한 명"처럼 깨지면 안 되는 규칙부터 정합니다. 코드에서 확인하면 동시에 온 요청이 같은 확인을 통과하므로, 마지막 방어선은 DB 제약으로 둡니다.</p><code>UNIQUE(seat_id, slot_start)</code></div>
+    <div class="pc"><div class="n">2</div><h3>덮어쓰지 않고 쌓아 둡니다</h3><p>포인트 잔액을 고치는 대신 충전·사용·환불을 원장에 차례로 남기고, 잔액은 합계로 구합니다. 같은 예약의 환불이 두 번 기록되지 않도록 제약도 걸어 두었습니다.</p><code>UNIQUE(예약, 사유)</code></div>
+    <div class="pc"><div class="n">3</div><h3>확인한 것과 못 한 것을 나눠 적습니다</h3><p>자동 시험을 돌린 범위와 아직 못 해 본 범위를 문서에 함께 적습니다. 예를 들어 StudySeat는 H2에서 시험했고 MySQL 8 실서버 검증은 남아 있다고 밝혀 둡니다.</p><code>40 · 60 · 54 tests</code></div>
   </div>
 </section>
 
 <section id="projects">
-  <div class="head"><div class="eb">PROJECTS</div><h2 class="h2">만든 것들</h2><p class="sd">개인 프로젝트 3개와 팀 프로젝트 2개입니다.</p></div>
-  <div class="pg">
-    <article class="pj w"><div class="im"><img src="assets/studyseat-booking.jpg" alt="StudySeat 도면 예약 화면" loading="lazy"></div>
-      <div class="bd"><div class="kd">PERSONAL · 2026.11</div><h3>StudySeat</h3><p class="ds">전국 지도에서 지점을 찾고 매장 도면에서 좌석을 직접 골라 예약한 뒤 QR로 입실하는 스터디카페 좌석 예약 서비스.</p>
-      <ul><li>슬롯 유니크 제약과 회원 행 락으로 이중 예약·이중 사용 방지</li><li>좌석 수만 주면 도면을 배치하는 엔진, 756개 조합 시험</li><li>혼잡도 통계와 꺼져 있던 구간 자동 보충</li></ul>
-      <div class="tg"><span>Java 17</span><span>Spring Boot</span><span>JPA</span><span>Flyway</span><span>Thymeleaf</span></div>
-      <div class="ln"><a href="https://github.com/j75390/studyseat" target="_blank" rel="noopener">GitHub ↗</a></div></div></article>
+  <div class="head"><div class="eb">PROJECTS</div><h2 class="h2">문제를 정하고, 풀고, 확인했습니다</h2><p class="sd">개인 프로젝트 3개와 팀 프로젝트 2개입니다.</p></div>
 
-    <article class="pj"><div class="im"><img src="assets/ai-console.jpg" alt="AI 팀 관제 관제실 화면" loading="lazy"></div>
-      <div class="bd"><div class="kd">PERSONAL · 2026.11</div><h3>AI 팀 관제</h3><p class="ds">Codex와 Gemini에 같은 요청을 동시에 보내고, AI별 결과와 남은 한도를 한 화면에서 확인하는 내 PC용 웹 앱.</p>
-      <ul><li>리뷰어를 스레드로 동시에 호출, 읽기 전용 실행</li><li>앱 로그인과 AI별 연동으로 토큰 보호</li></ul>
-      <div class="tg"><span>Python</span><span>Canvas 2D</span><span>PBKDF2</span></div>
-      <div class="ln"><a href="https://github.com/j75390/ai-team-console" target="_blank" rel="noopener">GitHub ↗</a></div></div></article>
+  <article class="pj"><div class="vis"><img src="assets/studyseat-booking.jpg" alt="StudySeat 도면 예약 화면" loading="lazy"></div>
+    <div class="bd"><div class="kd">PERSONAL · 2026.11</div><h3>StudySeat</h3><p class="one">전국 지도에서 지점을 찾고 도면에서 좌석을 눌러 예약하는 스터디카페 서비스</p>
+    <div class="rows">
+      <div class="rw"><b>문제</b><p>같은 좌석에 여러 요청이 동시에 오면 둘 다 "비어 있다"고 확인하고 예약될 수 있습니다. 포인트도 겹친 요청에 두 번 빠질 수 있습니다.</p></div>
+      <div class="rw r2"><b>해결</b><p>예약을 1시간 슬롯 행으로 나눠 유니크 제약을 걸고, 포인트는 원장에 쌓으며 회원 행에 락을 걸어 순서대로 처리했습니다. 좌석 수만 주면 도면을 배치하는 엔진도 만들었습니다.</p></div>
+      <div class="rw r3"><b>결과</b><p>20명이 동시에 예약해도 1명만 성공합니다. 자동 시험 40개와 도면 756개 조합 시험을 통과했습니다.</p></div>
+    </div>
+    <div class="tg"><span>Java 17</span><span>Spring Boot</span><span>JPA</span><span>Flyway</span><span>Thymeleaf</span></div>
+    <div class="lim">시험은 H2(MySQL 모드)에서 했고, MySQL 8 실서버 검증은 남아 있습니다.</div>
+    <div class="ln"><a href="https://github.com/j75390/studyseat" target="_blank" rel="noopener">GitHub ↗</a></div></div></article>
 
-    <article class="pj"><div class="im"><img src="assets/game-battle.jpg" alt="잿빛 원정대 전투 화면" loading="lazy"></div>
-      <div class="bd"><div class="kd">PERSONAL · 2026.09 – 11</div><h3>잿빛 원정대</h3><p class="ds">성화가 꺼진 왕국에서 불씨를 찾아 폐허로 들어가는 다크 고딕 덱빌딩 로그라이크.</p>
-      <ul><li>손패 전투, 독·맹독 공통 상태 시스템, 안개 지도</li><li>JSON 기반 콘텐츠 도구, 점검 스크립트 54개</li></ul>
-      <div class="tg"><span>Godot 4</span><span>GDScript</span><span>Python</span></div>
-      <div class="ln"><a href="https://github.com/j75390/gametest" target="_blank" rel="noopener">GitHub ↗</a></div></div></article>
+  <article class="pj"><div class="vis"><img src="assets/ai-console.jpg" alt="AI 팀 관제 관제실 화면" loading="lazy"></div>
+    <div class="bd"><div class="kd">PERSONAL · 2026.11</div><h3>AI 팀 관제</h3><p class="one">Codex·Gemini를 동시에 부르고 남은 한도를 한 화면에서 보는 내 PC용 웹 앱</p>
+    <div class="rows">
+      <div class="rw"><b>문제</b><p>AI를 역할별로 나눠 쓰면 창이 흩어지고, 한도 정보도 서비스마다 다른 곳에 들어 있습니다. 내 계정의 토큰이 쓰이는 앱이라 보호도 필요했습니다.</p></div>
+      <div class="rw r2"><b>해결</b><p>리뷰어를 스레드로 동시에 호출하고 읽기 전용으로 실행했습니다. 한도는 서비스별 응답을 각각 읽어 카드로 보이고, 앱 로그인과 AI별 연동 두 겹으로 잠갔습니다.</p></div>
+      <div class="rw r3"><b>결과</b><p>외부 패키지 없이 Python 표준 라이브러리만으로 만들었고 자동 시험 60개를 통과했습니다.</p></div>
+    </div>
+    <div class="tg"><span>Python</span><span>Canvas 2D</span><span>PBKDF2</span></div>
+    <div class="lim">실제 계정으로 Codex 로그인과 Gemini 키를 연결하는 과정은 확인하지 못했습니다.</div>
+    <div class="ln"><a href="https://github.com/j75390/ai-team-console" target="_blank" rel="noopener">GitHub ↗</a></div></div></article>
 
-    <article class="pj"><div class="im ph">통계 집계와<br>누락 복구</div>
-      <div class="bd"><div class="kd">TEAM 6 · DW아카데미 · 2026.10 – 11 예정</div><h3>white-eyes</h3><p class="ds">드론·CCTV 영상에서 사람 수와 유입·유출·체류를 분석해 통계와 다시보기로 보여 주는 혼잡도 분석 서비스.</p>
-      <ul><li>추적 번호 부여율 1~2% → 약 91%</li><li>꺼진 구간을 시간별 48h, 일별 7d로 보충</li><li>전송 실패 결과 5분 보관 후 재전송</li></ul>
-      <div class="tg"><span>Flask</span><span>Spring Boot</span><span>MySQL</span></div>
-      <div class="ln"><a href="https://github.com/white-eyes1/white-eyes-spring/pull/150" target="_blank" rel="noopener">집계 PR #150 ↗</a><a href="https://github.com/white-eyes1/white-eyes-spring/pull/155" target="_blank" rel="noopener">복구 PR #155 ↗</a></div></div></article>
+  <article class="pj"><div class="vis"><img src="assets/game-battle.jpg" alt="잿빛 원정대 전투 화면" loading="lazy"></div>
+    <div class="bd"><div class="kd">PERSONAL · 2026.09 – 11</div><h3>잿빛 원정대</h3><p class="one">성화가 꺼진 왕국에서 불씨를 찾아 들어가는 다크 고딕 덱빌딩 로그라이크</p>
+    <div class="rows">
+      <div class="rw"><b>문제</b><p>카드·유물·몬스터·이벤트가 수백 개로 늘어나면 코드에 직접 적을 수 없고, 독처럼 서로 다른 상태 이상을 한 규칙에 담기도 어렵습니다.</p></div>
+      <div class="rw r2"><b>해결</b><p>콘텐츠를 JSON으로 두고 검증·내보내기 도구를 만들었습니다. 독(고정 피해)과 맹독(비율 피해)을 별개 상태로 나누고 플레이어와 몬스터가 같은 시스템을 쓰게 했습니다.</p></div>
+      <div class="rw r3"><b>결과</b><p>지역 5, 몬스터 46, 이벤트 175, 유물 115를 담았고 점검 스크립트 54개로 기능을 확인합니다.</p></div>
+    </div>
+    <div class="tg"><span>Godot 4</span><span>GDScript</span><span>Python</span></div>
+    <div class="ln"><a href="https://github.com/j75390/gametest" target="_blank" rel="noopener">GitHub ↗</a></div></div></article>
 
-    <article class="pj"><div class="im ph">회원·권한 관리와<br>통합 관제 대시보드</div>
-      <div class="bd"><div class="kd">TEAM 5 · DW아카데미 · 2026.06 – 07</div><h3>Obsidian Shield</h3><p class="ds">드론·CCTV 영상에서 사람을 탐지하고 얼굴 식별·이동 추적·이벤트 기록까지 연결한 실시간 보행자 관제 시스템.</p>
-      <ul><li>회원 검색·필터·정렬, 가입 승인, 권한 변경</li><li>여러 정보를 한 화면에 모은 대시보드와 UI/UX 설계</li></ul>
-      <div class="tg"><span>Flask</span><span>JSON</span></div></div></article>
-  </div>
+  <article class="pj"><div class="vis"><div class="ph2">통계 집계와<br>누락 복구</div></div>
+    <div class="bd"><div class="kd">TEAM 6 · DW아카데미 · 2026.10 – 11 예정</div><h3>white-eyes</h3><p class="one">드론·CCTV 영상으로 구역별 인원을 분석해 통계와 다시보기로 보여 주는 서비스</p>
+    <div class="rows">
+      <div class="rw"><b>문제</b><p>처음 쓴 추적 방식은 추적 번호가 붙는 박스가 1~2%뿐이어서 체류 시간을 계산할 수 없었고, 앱이 꺼진 시간대는 통계가 비었습니다.</p></div>
+      <div class="rw r2"><b>해결</b><p>중심점 거리로 이어 붙이는 추적 방식으로 바꿨습니다. 앱이 켜질 때 시간별 48시간을 먼저, 일별 7일을 나중에 채우고, 전송에 실패한 결과는 5분간 보관했다 다시 보냅니다.</p></div>
+      <div class="rw r3"><b>결과</b><p>추적 번호 부여율 약 91%, 서버를 120초 중단한 시험에서 보관한 120건 재전송을 확인했습니다.</p></div>
+    </div>
+    <div class="tg"><span>Flask</span><span>Spring Boot</span><span>MySQL</span></div>
+    <div class="lim">같은 사람을 끝까지 맞게 추적하는지, 5분을 넘는 중단은 아직 검증하지 못했습니다.</div>
+    <div class="ln"><a href="https://github.com/white-eyes1/white-eyes-spring/pull/150" target="_blank" rel="noopener">집계 PR #150 ↗</a><a href="https://github.com/white-eyes1/white-eyes-spring/pull/155" target="_blank" rel="noopener">복구 PR #155 ↗</a></div></div></article>
+
+  <article class="pj"><div class="vis"><div class="ph2">회원·권한 관리와<br>통합 관제 대시보드</div></div>
+    <div class="bd"><div class="kd">TEAM 5 · DW아카데미 · 2026.06 – 07</div><h3>Obsidian Shield</h3><p class="one">드론·CCTV 영상에서 사람을 찾고 얼굴 식별·이동 추적까지 연결한 관제 시스템</p>
+    <div class="rows">
+      <div class="rw"><b>문제</b><p>관리자가 회원과 승인 대기 계정을 빠르게 찾고, 관제에 필요한 정보를 한 화면에서 봐야 했습니다.</p></div>
+      <div class="rw r2"><b>해결</b><p>ID·이름 검색, 권한·승인 상태 필터, 정렬, 페이지네이션, 가입 승인과 권한 변경을 한 화면에 모았습니다. 회원·카메라·탐지 대상·이벤트·지도를 한눈에 보는 대시보드와 UI/UX를 설계했습니다.</p></div>
+      <div class="rw r3"><b>개선점</b><p>회원 데이터를 JSON 파일에 저장해, 데이터가 늘면 데이터베이스로 옮겨야 한다는 한계를 회고에 남겼습니다.</p></div>
+    </div>
+    <div class="tg"><span>Flask</span><span>JSON</span></div></div></article>
 </section>
 
 <section id="journey">
   <div class="head"><div class="eb">JOURNEY</div><h2 class="h2">걸어온 순서</h2></div>
   <div class="jr">
-    <div class="st"><div class="d">2026.04.27</div><h4>DW아카데미 입교</h4><p>Java·Spring Boot·Python·Flask 학습 시작</p></div>
-    <div class="st"><div class="d">2026.06.25 – 07.24</div><h4>Obsidian Shield</h4><p>팀 5인, 회원·권한 관리와 통합 대시보드</p></div>
+    <div class="st"><div class="d">2026.04.27</div><h4>DW아카데미 입교</h4><p>Java·Spring Boot, Python, Flask를 배우기 시작</p></div>
+    <div class="st"><div class="d">2026.06.25 – 07.24</div><h4>Obsidian Shield</h4><p>팀 5인 · 회원·권한 관리와 통합 대시보드</p></div>
     <div class="st"><div class="d">2026.09.30 – 11.12</div><h4>잿빛 원정대</h4><p>덱빌딩 로그라이크와 콘텐츠 도구 개발</p></div>
-    <div class="st"><div class="d">2026.10.06 – 11.23</div><h4>white-eyes</h4><p>팀 6인, 분석 서버와 통계 집계·복구</p></div>
+    <div class="st"><div class="d">2026.10.06 – 11.23 예정</div><h4>white-eyes</h4><p>팀 6인 · 분석 서버와 통계 집계·복구</p></div>
     <div class="st"><div class="d">2026.11.09 – 11.10</div><h4>StudySeat · AI 팀 관제</h4><p>설계부터 시험, 공개까지 이틀에 진행</p></div>
   </div>
 </section>
@@ -190,22 +197,21 @@ footer{text-align:center;color:var(--sub);font-size:13px;padding:48px 0 40px}
 <section id="stack">
   <div class="head"><div class="eb">STACK</div><h2 class="h2">쓴 기술</h2><p class="sd">프로젝트에서 실제로 쓴 것만 적었습니다.</p></div>
   <div class="sk">
-    <div class="t"><span class="k">BACKEND</span><div class="chips"><span>Java 17</span><span>Spring Boot</span><span>JPA</span><span>Spring Security</span><span>Python</span><span>Flask</span></div><p>StudySeat · white-eyes · AI 팀 관제</p></div>
-    <div class="t"><span class="k">DATABASE</span><div class="chips"><span>MySQL</span><span>H2</span><span>Flyway</span></div><p>유니크 제약·락·원장 설계. MySQL 8 실서버 검증은 아직 하지 못했습니다.</p></div>
-    <div class="t"><span class="k">FRONT · TOOLS</span><div class="chips"><span>HTML/CSS</span><span>JavaScript</span><span>Thymeleaf</span><span>Leaflet</span><span>Chart.js</span><span>Godot</span><span>Git</span></div><p>화면 구현, 지도·그래프, 이슈→PR 협업</p></div>
+    <div class="sb"><h4>BACKEND</h4><span>Java 17</span><span>Spring Boot</span><span>JPA</span><span>Spring Security</span><span>Python</span><span>Flask</span><p>StudySeat · white-eyes · AI 팀 관제</p></div>
+    <div class="sb"><h4>DATABASE</h4><span>MySQL</span><span>H2</span><span>Flyway</span><p>유니크 제약, 락, 원장 설계와 마이그레이션 관리</p></div>
+    <div class="sb"><h4>FRONT · TOOLS</h4><span>HTML/CSS</span><span>JavaScript</span><span>Thymeleaf</span><span>Leaflet</span><span>Chart.js</span><span>Godot</span><span>Git</span><p>화면 구현, 지도·그래프, 이슈→PR 협업</p></div>
   </div>
 </section>
 
 <section id="contact">
   <div class="ct">
-    <div><div class="eb" style="color:#5eead4">CONTACT</div><h2>같은 요청은 한 번만,<br>연락은 <em>언제든</em> 환영합니다.</h2><p>프로젝트 코드는 GitHub에, 정리한 문서는 노션에 있습니다.</p></div>
+    <div><div class="eb" style="-webkit-text-fill-color:#fff;color:#fff;background:none">CONTACT</div><h2>함께 일할 기회를<br>기다립니다</h2><p>코드는 GitHub에, 정리한 문서는 노션에 있습니다. 편하게 연락 주세요.</p></div>
     <div class="ls">
       <a href="mailto:j75390@gmail.com"><span>EMAIL</span>j75390@gmail.com</a>
       <a href="https://github.com/j75390" target="_blank" rel="noopener"><span>GITHUB</span>j75390 ↗</a>
       <a href="https://app.notion.com/p/410bd08dbbd2814988e5de95087e3166" target="_blank" rel="noopener"><span>NOTION</span>포트폴리오 ↗</a>
       <a href="https://blog.naver.com/j75390" target="_blank" rel="noopener"><span>BLOG</span>네이버 블로그 ↗</a>
       <a href="https://dijk.tistory.com/" target="_blank" rel="noopener"><span>BLOG</span>티스토리 ↗</a>
-      <a href="https://gitlab.com/dijk3" target="_blank" rel="noopener"><span>GITLAB</span>dijk3 ↗</a>
     </div>
   </div>
 </section>
