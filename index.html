@@ -1,0 +1,275 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>장동근 | 백엔드 개발자 포트폴리오</title>
+<meta name="description" content="Java·Spring Boot와 Python·Flask로 서버 기능을 개발하는 백엔드 개발자 장동근의 포트폴리오">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+<style>
+:root{--bg:#f6f9fb;--card:#fff;--ink:#16202b;--sub:#5d6b79;--line:#e3e9ee;--acc:#0f766e;--acc2:#14b8a6;--soft:#e8f5f2;--code:#18222d;--shadow:0 10px 30px rgba(15,50,60,.08)}
+:root[data-theme=dark]{--bg:#0d141b;--card:#131d27;--ink:#e8eef4;--sub:#93a3b3;--line:#233140;--acc:#2dd4bf;--acc2:#14b8a6;--soft:#12302e;--code:#0a1016;--shadow:0 10px 30px rgba(0,0,0,.35)}
+*{box-sizing:border-box;margin:0}
+html{scroll-behavior:smooth;scroll-padding-top:84px}
+body{font-family:Pretendard,'Malgun Gothic',system-ui,sans-serif;background:var(--bg);color:var(--ink);line-height:1.7;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:1120px;margin:0 auto;padding:0 28px}
+header{position:sticky;top:0;z-index:20;background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.nav{display:flex;align-items:center;gap:8px;height:64px}
+.brand{font-weight:800;font-size:18px;margin-right:auto;display:flex;align-items:center;gap:10px}
+.brand i{width:30px;height:30px;border-radius:9px;background:linear-gradient(135deg,var(--acc),var(--acc2));display:grid;place-items:center;color:#fff;font:700 13px Consolas,monospace;font-style:normal}
+nav a{padding:8px 13px;border-radius:10px;font-size:15px;font-weight:600;color:var(--sub);border-bottom:2px solid transparent}
+nav a:hover,nav a.on{color:var(--acc)}
+nav a.on{border-bottom-color:var(--acc)}
+#theme{width:38px;height:38px;border-radius:50%;border:1px solid var(--line);background:var(--card);cursor:pointer;font-size:17px;margin-left:8px;color:var(--ink)}
+section{padding:96px 0}
+section+section{border-top:1px solid var(--line)}
+.h2{font-size:clamp(28px,4vw,42px);font-weight:600;text-align:center;letter-spacing:-1px}
+.rule{width:150px;height:2px;margin:18px auto 56px;background:linear-gradient(90deg,var(--line) 0 30%,var(--acc) 30% 70%,var(--line) 70%)}
+
+.eyebrow{display:flex;align-items:center;gap:12px;font-size:12px;letter-spacing:2.5px;color:var(--sub);font-weight:600;margin-bottom:18px}
+.eyebrow i{width:34px;height:1px;background:var(--acc)}
+.en{font-size:clamp(40px,6.2vw,72px);font-weight:800;letter-spacing:-3px;line-height:1;margin-bottom:22px}
+.en small{display:block;font-size:15px;letter-spacing:2px;color:var(--sub);font-weight:500;margin-top:10px}
+.hero h1{font-size:clamp(24px,3vw,34px)!important;letter-spacing:-1px!important;line-height:1.45!important}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:28px}
+.stats div{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:16px 16px 14px;box-shadow:var(--shadow)}
+.stats b{display:block;font-size:24px;color:var(--acc);letter-spacing:-1px;line-height:1.2}
+.stats span{display:block;font-size:12.5px;color:var(--sub);margin-top:6px;line-height:1.5}
+.sec{display:flex;align-items:center;justify-content:center;gap:12px;font-size:12px;letter-spacing:3px;color:var(--acc);font-weight:700;margin-bottom:14px}
+.sec:before,.sec:after{content:"";width:40px;height:1px;background:var(--acc);opacity:.5}
+/* hero */
+#home{padding:72px 0 80px}
+.hero{display:grid;grid-template-columns:1.1fr .9fr;gap:48px;align-items:center}
+.hero h1{font-size:clamp(34px,5vw,56px);font-weight:300;letter-spacing:-2px;line-height:1.25}
+.hero h1 b{display:inline-block;font-weight:700;color:var(--acc);border-bottom:2px solid var(--acc);padding-bottom:2px}
+.lead{margin-top:26px;color:var(--sub);font-size:18px;max-width:520px}
+.cta{display:flex;gap:12px;margin-top:30px;flex-wrap:wrap}
+.btn{padding:12px 22px;border-radius:12px;font-weight:700;font-size:15px;border:1px solid var(--line);background:var(--card)}
+.btn.p{background:var(--acc);color:#fff;border-color:var(--acc)}
+:root[data-theme=dark] .btn.p{color:#06201d}
+.stage{position:relative;justify-self:center;width:min(100%,360px)}
+.photo{width:100%;aspect-ratio:4/5;border-radius:26px;object-fit:cover;box-shadow:var(--shadow);border:6px solid var(--card)}
+.chip{position:absolute;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:10px 16px;font-size:14px;font-weight:700;box-shadow:var(--shadow);display:flex;gap:8px;align-items:center;white-space:nowrap}
+.chip em{font-style:normal;color:var(--acc)}
+.c1{left:-64px;top:44px}.c2{right:-40px;top:46%}.c3{left:-34px;bottom:56px}
+.meta{margin-top:22px;text-align:center;color:var(--sub);font-size:14px}
+/* about */
+.two{display:grid;grid-template-columns:.9fr 1.1fr;gap:28px;align-items:start}
+.code{background:var(--code);color:#cfe8e4;border-radius:16px;box-shadow:var(--shadow);overflow:hidden}
+.code .bar{display:flex;gap:7px;align-items:center;padding:13px 16px;border-bottom:1px solid rgba(255,255,255,.08);font:13px Consolas,monospace;color:#8fa6a6}
+.code .bar s{width:11px;height:11px;border-radius:50%;background:#ff6b6b}.code .bar s:nth-child(2){background:#ffd166}.code .bar s:nth-child(3){background:#4ade80}
+.code pre{padding:18px 20px;font:14px/1.85 Consolas,'Courier New',monospace;overflow-x:auto}
+.k{color:#7dd3fc}.s{color:#86efac}.c{color:#6b8591}
+.flow{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.node{background:var(--soft);border:1px solid color-mix(in srgb,var(--acc) 30%,transparent);border-radius:14px;padding:16px;text-align:center}
+.node b{display:block;font-size:15px}.node span{font-size:12.5px;color:var(--sub)}
+.node.db{background:color-mix(in srgb,#8b5cf6 12%,var(--card));border-color:color-mix(in srgb,#8b5cf6 35%,transparent)}
+.flow .arr{grid-column:1/-1;text-align:center;color:var(--acc);font-size:12px;letter-spacing:1px;margin:-4px 0}
+.points{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:28px}
+.pt{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:22px}
+.pt h4{color:var(--acc);font-size:13px;letter-spacing:1.5px;margin-bottom:8px}
+.pt p{font-size:15px;color:var(--sub)}
+/* timeline */
+.tl{display:grid;gap:18px;max-width:860px;margin:0 auto}
+.row{display:grid;grid-template-columns:200px 1fr;gap:28px;background:var(--card);border:1px solid var(--line);border-radius:18px;padding:26px}
+.row .d{color:var(--acc);font-weight:700;font-size:14px}
+.row h3{font-size:19px;margin-bottom:6px}
+.row p,.row li{color:var(--sub);font-size:15px}
+.row ul{padding-left:18px;margin-top:8px}
+.tag{display:inline-block;margin:4px 6px 0 0;padding:3px 11px;border-radius:999px;background:var(--soft);color:var(--acc);font-size:13px;font-weight:700}
+/* projects */
+.pj{background:var(--card);border:1px solid var(--line);border-radius:22px;overflow:hidden;box-shadow:var(--shadow);margin-bottom:34px}
+.pj .in{display:grid;grid-template-columns:1fr 1fr}
+.pj .shot{background:#0b1220;display:grid;place-items:center;min-height:320px}
+.pj .shot img{width:100%;height:100%;object-fit:cover;display:block}
+.pj .shot.ph{background:linear-gradient(135deg,var(--soft),color-mix(in srgb,var(--acc) 18%,var(--card)));padding:30px;text-align:center}
+.pj .shot.ph b{font-size:26px;color:var(--acc);line-height:1.35}
+.pj .tx{padding:34px}
+.pj .kind{font-size:13px;font-weight:700;color:var(--acc);letter-spacing:1px}
+.pj h3{font-size:26px;margin:8px 0 10px;letter-spacing:-.5px}
+.pj .ds{color:var(--sub);font-size:16px}
+.pj ul{margin:16px 0 4px 18px;font-size:15px}.pj li{margin:4px 0}
+.pj .links{display:flex;gap:10px;margin-top:18px;flex-wrap:wrap}
+.pj .links a{font-size:14px;font-weight:700;padding:8px 16px;border-radius:10px;border:1px solid var(--line)}
+.pj .links a:hover{border-color:var(--acc);color:var(--acc)}
+.pj:nth-child(even) .in{direction:rtl}.pj:nth-child(even) .in>*{direction:ltr}
+/* skills */
+.sk{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.box{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:24px}
+.box h4{font-size:13px;letter-spacing:1.5px;color:var(--sub);margin-bottom:14px}
+.box .tags span{display:inline-block;margin:0 6px 8px 0;padding:6px 13px;border-radius:10px;background:var(--soft);font-size:14px;font-weight:600}
+.box small{display:block;color:var(--sub);font-size:13px;margin-top:6px}
+/* trouble */
+.ts{max-width:880px;margin:0 auto;display:grid;gap:16px}
+details{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:20px 24px}
+summary{cursor:pointer;font-weight:700;font-size:17px}
+details .b{display:grid;gap:12px;margin-top:16px}
+details .b div{padding-left:14px;border-left:3px solid var(--acc);color:var(--sub);font-size:15px}
+details .b b{display:block;color:var(--ink);font-size:14px;margin-bottom:2px}
+/* contact */
+.ct{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;max-width:900px;margin:0 auto}
+.ct a{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:24px;display:block;transition:.2s}
+.ct a:hover{border-color:var(--acc);transform:translateY(-3px)}
+.ct small{color:var(--sub);display:block}.ct b{font-size:17px;color:var(--acc)}
+footer{padding:36px 0;text-align:center;color:var(--sub);font-size:14px;border-top:1px solid var(--line)}
+#top{position:fixed;right:24px;bottom:24px;width:48px;height:48px;border-radius:14px;background:var(--acc);color:#fff;border:0;font-size:20px;cursor:pointer;box-shadow:var(--shadow)}
+@media(max-width:860px){
+ .stats{grid-template-columns:1fr}.lead,.ds,.row p,.row li,.pt p{word-break:keep-all}
+ .hero,.two,.pj .in,.row{grid-template-columns:1fr}.pj:nth-child(even) .in{direction:ltr}
+ .points,.sk,.ct{grid-template-columns:1fr}.c1,.c2,.c3{position:static;margin-top:10px}.stage{display:flex;flex-direction:column}
+ nav a{padding:6px 8px;font-size:13px}.brand span{display:none}.row{gap:8px}
+}
+</style>
+</head>
+<body>
+<header><div class="wrap nav">
+  <a class="brand" href="#home"><i>&lt;/&gt;</i><span>장동근</span></a>
+  <nav>
+    <a href="#home" class="on">홈</a><a href="#about">소개</a><a href="#career">이력 및 활동</a><a href="#projects">프로젝트</a><a href="#skills">개발 역량</a><a href="#contact">연락처</a>
+  </nav>
+  <button id="theme" aria-label="테마 전환">☀</button>
+</div></header>
+
+<section id="home"><div class="wrap hero">
+  <div>
+    <div class="eyebrow"><i></i>BACKEND DEVELOPER · PORTFOLIO 2026</div>
+    <div class="en">JANG DONGGEUN<small>장동근</small></div>
+    <h1>요청이 데이터가 되는 과정을<br>설계하는 <b>백엔드 개발자</b></h1>
+    <p class="lead">Java·Spring Boot와 Python·Flask로 서버 기능을 만듭니다. 같은 요청이 겹쳐도 값이 어긋나지 않도록, 코드의 확인보다 DB 제약과 락에 기대는 설계를 좋아합니다.</p>
+    <div class="stats">
+      <div><b>20 → 1</b><span>동시 예약 요청 중 성공 1건<br>유니크 제약으로 보장</span></div>
+      <div><b>1~2% → 91%</b><span>추적 번호 부여율<br>PointTracker로 교체</span></div>
+      <div><b>154</b><span>자동 시험·점검<br>40 + 60 + 54</span></div>
+    </div>
+    <div class="cta"><a class="btn p" href="#projects">프로젝트 보기</a><a class="btn" href="https://github.com/j75390" target="_blank" rel="noopener">GitHub</a><a class="btn" href="#contact">연락하기</a></div>
+  </div>
+  <div class="stage">
+    <img class="photo" src="assets/profile.jpg" alt="장동근">
+    <span class="chip c1"><em>◆</em> Spring Boot · Flask</span>
+    <span class="chip c2"><em>◆</em> 동시성 · 데이터 정합성</span>
+    <span class="chip c3"><em>◆</em> MySQL · JPA</span>
+  </div>
+</div></section>
+
+<section id="about"><div class="wrap">
+  <div class="sec">01 PROFILE</div><h2 class="h2">화면 뒤의 처리 구조를 설계합니다.</h2><div class="rule"></div>
+  <div class="two">
+    <div class="code"><div class="bar"><s></s><s></s><s></s><span>ReservationService.java · 요약</span></div>
+<pre><span class="c">// StudySeat 좌석 예약 처리 흐름</span>
+<span class="k">@Transactional</span>
+Reservation reserve(Req req) {
+  Member m = members.<span class="k">lockById</span>(req.memberId());
+  <span class="c">// 회원 행 비관적 락: 같은 회원 요청을 순서대로</span>
+  slots.saveAll(split(req));
+  <span class="c">// UNIQUE(seat_id, slot_start): 겹치면 DB가 거부</span>
+  ledger.use(m, price, <span class="s">"RESERVE"</span>);
+  <span class="c">// 원장에 쌓고 잔액은 합계로 계산</span>
+  <span class="k">return</span> reservations.save(r);
+}</pre></div>
+    <div>
+      <div class="flow">
+        <div class="node"><b>Client</b><span>좌석·시간 선택</span></div>
+        <div class="node"><b>Controller</b><span>요청 검증</span></div>
+        <div class="node"><b>Service</b><span>트랜잭션</span></div>
+        <div class="arr">▼ 락 · 슬롯 저장 · 원장 기록</div>
+        <div class="node db"><b>회원 행 락</b><span>순서대로 처리</span></div>
+        <div class="node db"><b>슬롯 UNIQUE</b><span>(seat, slot)</span></div>
+        <div class="node db"><b>포인트 원장</b><span>(예약, 사유) UNIQUE</span></div>
+      </div>
+    </div>
+  </div>
+  <div class="points">
+    <div class="pt"><h4>CONCURRENCY</h4><p>예약을 1시간 슬롯 행으로 나누고 유니크 제약을 걸어, 20명이 동시에 눌러도 1명만 성공하게 했습니다.</p></div>
+    <div class="pt"><h4>DATA INTEGRITY</h4><p>포인트는 덮어쓰지 않고 원장에 쌓습니다. 같은 예약의 환불이 두 번 기록되지 않습니다.</p></div>
+    <div class="pt"><h4>RECOVERY</h4><p>서버가 꺼져 있던 구간의 통계는 시작할 때 비어 있는 곳만 찾아 채웁니다.</p></div>
+  </div>
+</div></section>
+
+<section id="career"><div class="wrap">
+  <div class="sec">02 CAREER</div><h2 class="h2">이력 및 활동</h2><div class="rule"></div>
+  <div class="tl">
+    <div class="row"><div class="d">2026.04.27 ~ 2026.11.23<br>수료 예정</div><div><h3>DW아카데미 5기 · AIoT 기반 드론 영상 관제시스템</h3>
+      <p>웹 화면, Java, MySQL, Spring·Spring Boot, Python·AI 영상, Flask를 배웠습니다.</p>
+      <ul><li>Java: 객체지향, Controller·Service·DAO·DTO 계층 설계</li><li>Spring Boot: Gradle, Thymeleaf, Spring Security, JPA</li><li>Python·AI 영상: 공공데이터 API, NumPy, OpenCV, YOLO 객체 탐지·추적</li></ul></div></div>
+    <div class="row"><div class="d">2026.10.06 ~ 11.23 예정</div><div><h3>팀 프로젝트 2차 · white-eyes (6인)</h3><p>드론·CCTV 영상 기반 혼잡도 분석 서비스에서 분석 서버(탐지·추적·유입/유출·체류)와 시간별·일별 통계 집계, 누락 통계 복구를 맡았습니다.</p><span class="tag">Flask</span><span class="tag">Spring Boot</span><span class="tag">MySQL</span></div></div>
+    <div class="row"><div class="d">2026.06.25 ~ 07.24</div><div><h3>팀 프로젝트 1차 · Obsidian Shield (5인)</h3><p>실시간 보행자 관제 시스템에서 회원·권한 관리와 통합 관제 대시보드, 유즈케이스·UI/UX 설계를 맡았습니다.</p><span class="tag">Flask</span><span class="tag">YOLO</span><span class="tag">JSON</span></div></div>
+  </div>
+</div></section>
+
+<section id="projects"><div class="wrap">
+  <div class="sec">03 PROJECTS</div><h2 class="h2">프로젝트</h2><div class="rule"></div>
+
+  <article class="pj"><div class="in"><div class="shot"><img src="assets/studyseat-booking.jpg" alt="StudySeat 좌석 예약 화면" loading="lazy"></div>
+    <div class="tx"><div class="kind">PERSONAL · 2026.11</div><h3>StudySeat</h3>
+      <p class="ds">전국 지도에서 지점을 찾고 매장 도면에서 좌석을 직접 골라 예약한 뒤 QR로 입실하는 스터디카페 좌석 예약 서비스입니다.</p>
+      <ul><li>예약을 1시간 슬롯으로 나누고 유니크 제약으로 이중 예약 방지(20명 동시 예약 → 1명 성공)</li><li>포인트 원장과 회원 행 락으로 이중 사용·이중 환불 방지</li><li>좌석 수만 주면 도면을 배치하는 엔진(756개 조합에서 겹침 시험)</li><li>자동 시험 40개 통과(H2 기준)</li></ul>
+      <span class="tag">Java 17</span><span class="tag">Spring Boot</span><span class="tag">JPA</span><span class="tag">Flyway</span><span class="tag">Thymeleaf</span>
+      <div class="links"><a href="https://github.com/j75390/studyseat" target="_blank" rel="noopener">GitHub →</a></div></div></div></article>
+
+  <article class="pj"><div class="in"><div class="shot"><img src="assets/ai-console.jpg" alt="AI 팀 관제 관제실 화면" loading="lazy"></div>
+    <div class="tx"><div class="kind">PERSONAL · 2026.11</div><h3>AI 팀 관제</h3>
+      <p class="ds">Codex와 Gemini에 같은 요청을 동시에 보내 리뷰를 받고, AI별 호출 결과와 남은 한도를 한 화면에서 확인하는 내 PC용 웹 앱입니다.</p>
+      <ul><li>리뷰어를 스레드로 동시에 호출하고 Codex는 읽기 전용으로 실행</li><li>앱 로그인과 AI별 연동 두 겹으로 토큰 보호, Gemini 키는 DPAPI 암호화</li><li>Codex·Gemini·Claude의 한도 정보를 각각 읽어 카드로 표시</li><li>자동 시험 60개 통과</li></ul>
+      <span class="tag">Python</span><span class="tag">Canvas 2D</span><span class="tag">PBKDF2</span>
+      <div class="links"><a href="https://github.com/j75390/ai-team-console" target="_blank" rel="noopener">GitHub →</a></div></div></div></article>
+
+  <article class="pj"><div class="in"><div class="shot"><img src="assets/game-battle.jpg" alt="잿빛 원정대 전투 화면" loading="lazy"></div>
+    <div class="tx"><div class="kind">PERSONAL · 2026.09 ~ 11</div><h3>잿빛 원정대</h3>
+      <p class="ds">성화가 꺼지고 재만 남은 왕국에서 원정대원들이 최초의 불씨를 찾아 폐허로 들어가는 다크 고딕 덱빌딩 로그라이크입니다.</p>
+      <ul><li>손패 전투, 독·맹독을 나눈 공통 상태 시스템, 안개 지도</li><li>카드·유물·몬스터·이벤트를 JSON으로 관리하는 콘텐츠 도구</li><li>지역 5, 몬스터 46, 이벤트 175, 유물 115 / 점검 스크립트 54개</li></ul>
+      <span class="tag">Godot 4</span><span class="tag">GDScript</span><span class="tag">Python</span>
+      <div class="links"><a href="https://github.com/j75390/gametest" target="_blank" rel="noopener">GitHub →</a></div></div></div></article>
+
+  <article class="pj"><div class="in"><div class="shot ph"><b>통계 집계와<br>누락 복구</b></div>
+    <div class="tx"><div class="kind">TEAM 6 · DW아카데미 · 2026.10 ~ 11 예정</div><h3>white-eyes</h3>
+      <p class="ds">드론·CCTV 영상에서 사람의 수와 유입·유출·체류를 분석해 시간별·일별 통계와 다시보기로 보여 주는 혼잡도 분석 서비스입니다.</p>
+      <ul><li>추적 번호 부여율 1~2% → 약 91%(PointTracker로 교체)</li><li>앱이 꺼진 구간을 시간별 48시간, 일별 7일 범위로 보충</li><li>전송 실패 결과를 5분간 보관했다가 재전송(120초 중단 시험에서 120건)</li></ul>
+      <span class="tag">Flask</span><span class="tag">Spring Boot</span><span class="tag">MySQL</span>
+      <div class="links"><a href="https://github.com/white-eyes1/white-eyes-spring/pull/150" target="_blank" rel="noopener">집계 PR #150 →</a><a href="https://github.com/white-eyes1/white-eyes-spring/pull/155" target="_blank" rel="noopener">복구 PR #155 →</a></div></div></div></article>
+
+  <article class="pj"><div class="in"><div class="shot ph"><b>회원·권한 관리와<br>통합 관제 대시보드</b></div>
+    <div class="tx"><div class="kind">TEAM 5 · DW아카데미 · 2026.06 ~ 07</div><h3>Obsidian Shield</h3>
+      <p class="ds">드론·CCTV 영상에서 사람을 탐지하고 얼굴 식별·이동 추적·이벤트 기록·지도 시각화까지 연결한 실시간 보행자 관제 시스템입니다.</p>
+      <ul><li>회원 검색·필터·정렬·페이지네이션, 가입 승인, 권한 변경</li><li>회원·카메라·탐지 대상·이벤트·지도를 한 화면에 모은 대시보드</li></ul>
+      <span class="tag">Flask</span><span class="tag">JSON</span></div></div></article>
+</div></section>
+
+<section id="skills"><div class="wrap">
+  <div class="sec">04 SKILLS</div><h2 class="h2">개발 역량</h2><div class="rule"></div>
+  <div class="sk">
+    <div class="box"><h4>BACKEND</h4><div class="tags"><span>Java</span><span>Spring Boot</span><span>JPA</span><span>Spring Security</span><span>Python</span><span>Flask</span></div><small>StudySeat · white-eyes · AI 팀 관제</small></div>
+    <div class="box"><h4>DATABASE</h4><div class="tags"><span>MySQL</span><span>H2</span><span>Flyway</span></div><small>유니크 제약·락·원장 설계, 마이그레이션 관리. MySQL 8 실서버 검증은 아직 못 했습니다.</small></div>
+    <div class="box"><h4>FRONTEND</h4><div class="tags"><span>HTML/CSS</span><span>JavaScript</span><span>Thymeleaf</span><span>Leaflet</span><span>Chart.js</span></div><small>화면 구현과 지도·그래프</small></div>
+    <div class="box"><h4>TESTING</h4><div class="tags"><span>동시성 시험</span><span>점검 스크립트</span></div><small>StudySeat 40개, AI 팀 관제 60개, 잿빛 원정대 54개</small></div>
+    <div class="box"><h4>AI · VISION</h4><div class="tags"><span>OpenCV</span><span>YOLO</span><span>NumPy</span></div><small>교육 과정에서 탐지·추적 사용</small></div>
+    <div class="box"><h4>TOOLS</h4><div class="tags"><span>Git/GitHub</span><span>Gradle</span><span>Godot</span><span>Notion</span></div><small>이슈→PR 흐름, 명세 문서 병행 수정</small></div>
+  </div>
+</div></section>
+
+<section id="contact"><div class="wrap">
+  <div class="sec">05 CONTACT</div><h2 class="h2">연락처</h2><div class="rule"></div>
+  <div class="ct">
+    <a href="mailto:j75390@gmail.com"><small>Email</small><b>j75390@gmail.com</b></a>
+    <a href="https://github.com/j75390" target="_blank" rel="noopener"><small>GitHub</small><b>github.com/j75390</b></a>
+    <a href="https://gitlab.com/dijk3" target="_blank" rel="noopener"><small>GitLab</small><b>gitlab.com/dijk3</b></a>
+    <a href="https://dijk.tistory.com/" target="_blank" rel="noopener"><small>Blog</small><b>티스토리</b></a>
+    <a href="https://blog.naver.com/j75390" target="_blank" rel="noopener"><small>Blog</small><b>네이버 블로그</b></a>
+    <a href="https://app.notion.com/p/410bd08dbbd2814988e5de95087e3166" target="_blank" rel="noopener"><small>Notion</small><b>포트폴리오 노션</b></a>
+  </div>
+</div></section>
+
+<footer>© 2026 장동근 · Backend Developer</footer>
+<button id="top" aria-label="맨 위로">↑</button>
+<script>
+const root=document.documentElement,btn=document.getElementById('theme');
+let t=null;try{t=localStorage.getItem('theme')}catch(e){}
+if(!t)t=matchMedia('(prefers-color-scheme:dark)').matches?'dark':'light';
+function apply(v){root.dataset.theme=v;btn.textContent=v==='dark'?'☾':'☀';try{localStorage.setItem('theme',v)}catch(e){}}
+apply(t);btn.onclick=()=>apply(root.dataset.theme==='dark'?'light':'dark');
+document.getElementById('top').onclick=()=>scrollTo({top:0,behavior:'smooth'});
+const links=[...document.querySelectorAll('nav a')],secs=links.map(a=>document.querySelector(a.getAttribute('href')));
+addEventListener('scroll',()=>{let i=0;secs.forEach((s,k)=>{if(s.getBoundingClientRect().top<140)i=k});links.forEach((a,k)=>a.classList.toggle('on',k===i))},{passive:true});
+</script>
+</body>
+</html>
