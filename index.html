@@ -33,10 +33,11 @@ a{color:inherit;text-decoration:none}
 .btn{padding:14px 26px;border-radius:14px;font-weight:700;font-size:15px;border:1px solid var(--line);background:var(--card);transition:.2s}
 .btn.p{background:var(--grad);color:#fff;border:0;box-shadow:0 10px 26px rgba(91,91,214,.32)}
 .btn:hover{transform:translateY(-3px)}
-.nums{display:flex;gap:24px;margin-top:46px;flex-wrap:wrap}
+.nums{display:grid;grid-template-columns:repeat(3,1fr);gap:26px;margin-top:46px;max-width:580px}
 .nums div b{display:block;font-size:30px;font-weight:800;letter-spacing:-1.2px;background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
-.nums div{flex:1 1 150px;max-width:180px}
-.nums div span{display:block;margin-top:4px;line-height:1.55;font-size:13.5px;color:var(--sub)}
+.nums div{border-top:2px solid var(--line);padding-top:16px}
+.nums div span{display:block;margin-top:8px;line-height:1.6;font-size:13.5px;color:var(--sub);white-space:nowrap}
+@media(max-width:560px){.nums{grid-template-columns:1fr;gap:20px}.nums div span{white-space:normal}}
 .ph{position:relative;justify-self:center;width:min(100%,340px)}
 .ph:before{content:"";position:absolute;inset:-14px;border-radius:44px;background:var(--grad);opacity:.9;transform:rotate(4deg)}
 .ph img{position:relative;width:100%;aspect-ratio:4/5;object-fit:cover;border-radius:36px;border:6px solid var(--card);display:block;box-shadow:var(--shadow)}
@@ -185,7 +186,7 @@ footer{text-align:center;color:var(--sub);font-size:13px;padding:56px 0 44px}
     <h1>해 보고, 확인하고,<br><span class="g">다시 해 보는</span><br>신입 백엔드 개발자</h1>
     <p class="lead">Java · Spring Boot, Python · Flask로 서버를 개발합니다.</p>
     <div class="btns"><a class="btn p" href="#projects">프로젝트 보기</a><a class="btn" href="https://github.com/j75390" target="_blank" rel="noopener">GitHub</a><a class="btn" href="#contact">연락처</a></div>
-    <div class="nums"><div><b>호기심</b><span>모르는 기술도 일단 만들어 봅니다</span></div><div><b>꾸준함</b><span>4년 복무 후, 7개월째 개발을 배웁니다</span></div><div><b>책임감</b><span>맡은 일은 확인하고 마무리합니다</span></div></div>
+    <div class="nums"><div><b>호기심</b><span>모르는 기술도<br>일단 만들어 봅니다</span></div><div><b>꾸준함</b><span>4년 복무 후,<br>7개월째 개발을 배웁니다</span></div><div><b>책임감</b><span>맡은 일은<br>확인하고 마무리합니다</span></div></div>
   </div>
   <div class="ph"><img src="assets/profile.jpg" alt="장동근"><div class="tag">장동근<small>JANG DONGGEUN</small></div></div>
 </div></section>
