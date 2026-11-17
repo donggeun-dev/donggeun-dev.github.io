@@ -223,7 +223,7 @@ footer{text-align:center;color:var(--sub);font-size:13px;padding:56px 0 44px}
   <article class="pj"><div class="vis"><div class="hov"><img src="assets/ai-console.jpg" alt="AI 팀 관제 관제실 화면" loading="lazy"><div class="ov"><a href="https://github.com/j75390/ai-team-console" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor"><path d="M12 .5a11.5 11.5 0 0 0-3.64 22.41c.58.1.79-.25.79-.56v-2c-3.2.7-3.88-1.37-3.88-1.37-.52-1.33-1.28-1.69-1.28-1.69-1.04-.71.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.76 2.7 1.25 3.36.96.1-.75.4-1.25.73-1.54-2.55-.29-5.24-1.28-5.24-5.69 0-1.26.45-2.28 1.19-3.08-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.17 1.18a11 11 0 0 1 5.77 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.05.74.8 1.19 1.82 1.19 3.08 0 4.42-2.69 5.39-5.25 5.68.41.36.78 1.06.78 2.14v3.17c0 .31.21.67.8.56A11.5 11.5 0 0 0 12 .5Z"/></svg></a><a href="#/projects/ai-team-console" aria-label="상세보기"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M8 7h9v9"/></svg></a></div></div></div>
     <div class="bd"><div class="kd">PERSONAL · 2026.11</div><h3>AI 팀 관제</h3><p class="one">AI 리뷰어 호출·한도 확인 웹 앱</p>
     <ul class="bl"><li>여러 AI에게 한 번에 리뷰를 맡기는 웹 앱</li><li>Codex · Gemini에 같은 요청을 동시에 호출</li><li>결과와 남은 한도를 한 화면에서 확인</li></ul>
-    <div class="tg"><span>Python</span><span>Canvas 2D</span><span>PBKDF2</span></div>
+    <div class="tg"><span>Python</span><span>Canvas 2D</span></div>
     
     <div class="ln"><a class="dt" href="#/projects/ai-team-console">상세보기</a><a href="https://github.com/j75390/ai-team-console" target="_blank" rel="noopener">GitHub ↗</a><a href="https://app.notion.com/p/414bd08dbbd281feb70dd7434209a903" target="_blank" rel="noopener">노션 ↗</a></div></div></article>
 </section>
@@ -742,8 +742,7 @@ const P=[
 "desc": "Codex와 Gemini에게 같은 요청을 동시에 보내고, 결과와 남은 한도를 한 화면에서 봅니다.",
 "tags": [
 "Python",
-"Canvas 2D",
-"PBKDF2"
+"Canvas 2D"
 ],
 "flow": [
 "요청 입력",
@@ -766,14 +765,14 @@ const P=[
 "호출 실패·한도 소진을 레이더 신호로 띄우고 추적·재시도·해소 선택"
 ],
 [
-"토큰 보호",
-"PBKDF2 로그인, 5회 실패 시 잠금, Gemini 키는 DPAPI 암호화"
+"결과 모아 보기",
+"AI마다 형식이 다른 응답을 카드 하나로 맞춰 결과와 남은 한도를 나란히 표시"
 ]
 ],
 "res": [
 [
 "자동 시험 60개 통과",
-"호출·한도·로그인"
+"호출·한도 표시"
 ],
 [
 "외부 패키지 없이 구현",
@@ -806,8 +805,8 @@ const P=[
 "Codex와 Gemini에 같은 요청을 동시에 보내고, 결과와 남은 한도를 카드로 모아 보여준다."
 ],
 [
-"안전장치",
-"리뷰어는 읽기 전용으로 호출하고, 앱 로그인과 AI별 연동으로 내 토큰을 보호한다."
+"쓰는 경우",
+"코드를 고치기 전에 여러 AI에게 리뷰를 받을 때, 한 번 요청해서 결과를 비교한다."
 ],
 [
 "내 역할",
