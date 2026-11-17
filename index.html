@@ -364,6 +364,7 @@ const P=[
 "회원·권한 관리, 통합 관제 대시보드 UI/UX"
 ]
 ],
+"intro": ["assets/intro-obsidian-shield.mp4", "등록한 대상을 CCTV 영상에서 찾아 알려 주는 실시간 보행자 관제 시스템"],
 "videos": [
 [
 "assets/obsidian-shield-1.mp4",
@@ -490,6 +491,7 @@ const P=[
 "분석 서버(탐지·추적·유입/유출), 시간별·일별 통계 집계"
 ]
 ],
+"intro": ["assets/intro-white-eyes.mp4", "드론 영상으로 구역별 혼잡도를 세고 지도에 표시하는 혼잡도 분석 서비스"],
 "videos": [
 [
 "assets/white-eyes-admin.mp4",
@@ -704,6 +706,7 @@ const P=[
 "기획·설계·구현 전체 (개인)"
 ]
 ],
+"intro": ["assets/intro-studyseat.mp4", "지도에서 지점을 찾고 도면에서 좌석을 골라 예약하는 스터디카페 좌석 예약 서비스"],
 "videos": [
 [
 "assets/studyseat-1.mp4",
@@ -792,6 +795,7 @@ const P=[
 "기획·설계·구현 전체 (개인)"
 ]
 ],
+"intro": ["assets/intro-ai-team-console.mp4", "Claude · Codex · Gemini를 한 화면에서 호출하고 한도를 확인하는 앱"],
 "videos": [
 [
 "assets/ai-console-1.mp4",
@@ -810,6 +814,7 @@ function card(q,lab,cls){return '<a class="'+cls+'" href="#/projects/'+q.id+'"><
 function render(k){const q=P[k],pv=P[(k+P.length-1)%P.length],nx=P[(k+1)%P.length];
  detV.innerHTML='<div class="dv"><a class="back" href="#projects">← 프로젝트</a><div class="dh"><div><div class="kd">'+q.kind+' · '+q.period+'</div><h1>'+E(q.title)+'</h1><p class="one">'+E(q.one)+'</p><p class="ds">'+E(q.desc)+'</p><div class="tg">'+q.tags.map(t=>'<span>'+t+'</span>').join('')+'</div><div class="ln"><a class="dt" href="'+q.links[0][1]+'" target="_blank" rel="noopener">'+GH+'GitHub ↗</a><a href="'+q.links[1][1]+'" target="_blank" rel="noopener">노션 ↗</a></div></div><img src="'+q.shots[0][0]+'" alt="'+E(q.title)+'"></div>'
  +'<div class="gl">'+q.gl.map(g=>'<div><small>'+E(g[0])+'</small><p>'+E(g[1])+'</p></div>').join('')+'</div>'
+ +(q.intro?'<h2 class="s2">소개 영상</h2><div class="vd"><video src="'+q.intro[0]+'#t=0.5" controls preload="metadata" playsinline></video><p>'+E(q.intro[1])+'</p></div>':'')
  +(q.videos&&q.videos.length?'<h2 class="s2">시연 영상</h2>'+q.videos.map(v=>'<div class="vd"><video src="'+v[0]+'#t=0.5" controls preload="metadata" playsinline></video><p>'+E(v[1])+'</p></div>').join(''):'')
  +'<h2 class="s2">핵심 흐름</h2><div class="fl">'+q.flow.map((f,i)=>'<div><i>'+(i+1)+'</i><span>'+E(f)+'</span></div>').join('')+'</div>'
  +'<h2 class="s2">핵심 설계</h2><div class="cg">'+q.core.map(c=>'<div class="cc'+(c[2]?' mine':'')+'">'+(c[2]?'<em>내 담당</em>':'')+'<h4>'+E(c[0])+'</h4><p>'+E(c[1])+'</p></div>').join('')+'</div>'
