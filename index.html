@@ -117,6 +117,10 @@ footer{text-align:center;color:var(--sub);font-size:13px;padding:56px 0 44px}
 .vd{max-width:1000px;margin:0 auto 34px;text-align:center}
 .vd video{width:100%;display:block;border-radius:20px;border:1px solid var(--line);box-shadow:var(--shadow);background:#000}
 .vd p{margin-top:12px;font-size:13.5px;color:var(--sub)}
+.vg{max-width:1100px;margin:0 auto 34px;align-items:start;display:grid;grid-template-columns:repeat(2,1fr);gap:22px}
+.vg figure{margin:0;background:var(--card);border:1px solid var(--line);border-radius:20px;overflow:hidden;box-shadow:var(--shadow);line-height:0}
+.vg video{width:100%;display:block;background:#000}
+.vg figcaption{line-height:1.5;font-size:13.5px;color:var(--sub);padding:13px 18px;border-top:1px solid var(--line)}
 
 .gl{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:16px;margin-top:22px}
 .gl div{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:20px 22px;box-shadow:var(--shadow)}
@@ -161,7 +165,7 @@ footer{text-align:center;color:var(--sub);font-size:13px;padding:56px 0 44px}
 .pn a{background:var(--card);border:1px solid var(--line);border-radius:22px;padding:24px 28px;box-shadow:var(--shadow);transition:.2s}.pn a:hover{transform:translateY(-3px)}
 .pn small{display:block;color:var(--p1);font-weight:800;font-size:13px;margin-bottom:4px}.pn b{font-size:18px;letter-spacing:-.5px}.pn span{display:block;font-size:13.5px;color:var(--sub)}
 .pn a.nx{text-align:right}
-@media(max-width:900px){.dv{padding:96px 16px 30px}.dh{grid-template-columns:1fr;padding:26px 22px}.pn{grid-template-columns:1fr}.sg{grid-template-columns:1fr}}
+@media(max-width:900px){.dv{padding:96px 16px 30px}.dh{grid-template-columns:1fr;padding:26px 22px}.pn{grid-template-columns:1fr}.sg{grid-template-columns:1fr}.vg{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
@@ -815,7 +819,7 @@ function render(k){const q=P[k],pv=P[(k+P.length-1)%P.length],nx=P[(k+1)%P.lengt
  detV.innerHTML='<div class="dv"><a class="back" href="#projects">← 프로젝트</a><div class="dh"><div><div class="kd">'+q.kind+' · '+q.period+'</div><h1>'+E(q.title)+'</h1><p class="one">'+E(q.one)+'</p><p class="ds">'+E(q.desc)+'</p><div class="tg">'+q.tags.map(t=>'<span>'+t+'</span>').join('')+'</div><div class="ln"><a class="dt" href="'+q.links[0][1]+'" target="_blank" rel="noopener">'+GH+'GitHub ↗</a><a href="'+q.links[1][1]+'" target="_blank" rel="noopener">노션 ↗</a></div></div><img src="'+q.shots[0][0]+'" alt="'+E(q.title)+'"></div>'
  +'<div class="gl">'+q.gl.map(g=>'<div><small>'+E(g[0])+'</small><p>'+E(g[1])+'</p></div>').join('')+'</div>'
  +(q.intro?'<h2 class="s2">소개 영상</h2><div class="vd"><video src="'+q.intro[0]+'#t=0.5" controls preload="metadata" playsinline></video><p>'+E(q.intro[1])+'</p></div>':'')
- +(q.videos&&q.videos.length?'<h2 class="s2">시연 영상</h2>'+q.videos.map(v=>'<div class="vd"><video src="'+v[0]+'#t=0.5" controls preload="metadata" playsinline></video><p>'+E(v[1])+'</p></div>').join(''):'')
+ +(q.videos&&q.videos.length?'<h2 class="s2">시연 영상</h2>'+(q.videos.length>1?'<div class="vg">'+q.videos.map(v=>'<figure><video src="'+v[0]+'#t=0.5" controls preload="metadata" playsinline></video><figcaption>'+E(v[1])+'</figcaption></figure>').join('')+'</div>':q.videos.map(v=>'<div class="vd"><video src="'+v[0]+'#t=0.5" controls preload="metadata" playsinline></video><p>'+E(v[1])+'</p></div>').join('')):'')
  +'<h2 class="s2">핵심 흐름</h2><div class="fl">'+q.flow.map((f,i)=>'<div><i>'+(i+1)+'</i><span>'+E(f)+'</span></div>').join('')+'</div>'
  +'<h2 class="s2">핵심 설계</h2><div class="cg">'+q.core.map(c=>'<div class="cc'+(c[2]?' mine':'')+'">'+(c[2]?'<em>내 담당</em>':'')+'<h4>'+E(c[0])+'</h4><p>'+E(c[1])+'</p></div>').join('')+'</div>'
  +'<h2 class="s2">주요 결과</h2><div class="rg">'+q.res.map(r=>'<div class="rc"><b>'+E(r[0])+'</b><p>'+E(r[1])+'</p></div>').join('')+'</div>'
