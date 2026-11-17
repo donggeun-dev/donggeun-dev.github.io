@@ -95,6 +95,12 @@ section{padding:96px 0 6px}
 .sb h4{font-size:13px;font-weight:800;letter-spacing:1.3px;color:var(--p1);margin-bottom:16px}
 .sb span{display:inline-block;padding:7px 15px;border-radius:12px;background:var(--soft);font-size:14px;font-weight:600;margin:0 7px 9px 0}
 .sb p{font-size:13.5px;color:var(--sub);margin-top:8px}
+.sb span.u{background:var(--grad);color:#fff}
+.sb span.l{background:transparent;border:1px solid var(--line);color:var(--sub);font-weight:500;padding:6px 14px}
+.lg{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin:-8px 0 28px}
+.lg span{display:inline-block;padding:6px 14px;border-radius:12px;font-size:13px;font-weight:600}
+.lg span.u{background:var(--grad);color:#fff}
+.lg span.l{border:1px solid var(--line);color:var(--sub);font-weight:500}
 /* contact */
 .ct{border-radius:40px;background:var(--grad);color:#fff;padding:64px 60px;display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center;position:relative;overflow:hidden;box-shadow:0 26px 60px rgba(91,91,214,.35)}
 .ct:before{content:"";position:absolute;width:420px;height:420px;border-radius:50%;background:rgba(255,255,255,.14);right:-120px;top:-160px}
@@ -232,11 +238,20 @@ footer{text-align:center;color:var(--sub);font-size:13px;padding:56px 0 44px}
 </section>
 
 <section id="stack">
-  <div class="head"><div class="eb">STACK</div><h2 class="h2">쓴 기술</h2></div>
+  <div class="head"><div class="eb">STACK</div><h2 class="h2">기술 스택</h2></div>
+  <p class="lg"><span class="u">프로젝트에서 사용</span><span class="l">학습·실습·사용 경험</span></p>
   <div class="sk">
-    <div class="sb"><h4>BACKEND</h4><span>Java 17</span><span>Spring Boot</span><span>JPA</span><span>Spring Security</span><span>Python</span><span>Flask</span></div>
-    <div class="sb"><h4>DATABASE</h4><span>MySQL</span><span>H2</span><span>Flyway</span></div>
-    <div class="sb"><h4>FRONT · TOOLS</h4><span>HTML/CSS</span><span>JavaScript</span><span>Thymeleaf</span><span>Leaflet</span><span>Chart.js</span><span>Godot</span><span>Git</span></div>
+    <div class="sb"><h4>언어</h4><span class="u">Java</span><span class="u">Python</span><span class="u">JavaScript</span><span class="u">SQL</span></div>
+    <div class="sb"><h4>백엔드</h4><span class="u">Spring Boot</span><span class="u">Spring Security</span><span class="u">Flask</span><span class="u">PBKDF2</span><span class="l">Spring Legacy</span><span class="l">Spring MVC</span><span class="l">JSP</span><span class="l">JSTL</span><span class="l">Lombok</span><span class="l">Log4j2</span></div>
+    <div class="sb"><h4>데이터베이스</h4><span class="u">MySQL</span><span class="u">JPA</span><span class="u">ORM</span><span class="u">H2</span><span class="u">Flyway</span><span class="u">테이블 설계</span><span class="u">CRUD</span><span class="l">MyBatis</span><span class="l">DBeaver</span><span class="l">DataGrip</span></div>
+    <div class="sb"><h4>프론트엔드</h4><span class="u">HTML</span><span class="u">CSS</span><span class="u">JavaScript</span><span class="u">Thymeleaf</span><span class="u">Leaflet</span><span class="u">Chart.js</span><span class="u">Canvas 2D</span><span class="l">Flexbox</span><span class="l">CSS Grid</span><span class="l">DOM</span><span class="l">이벤트</span><span class="l">ES Modules</span></div>
+    <div class="sb"><h4>API · 테스트</h4><span class="u">RESTful API</span><span class="u">JSON</span><span class="u">pytest</span><span class="l">Postman</span><span class="l">Swagger</span><span class="l">공공데이터 API</span></div>
+    <div class="sb"><h4>데이터 · AI</h4><span class="u">OpenCV</span><span class="u">YOLO 객체 탐지</span><span class="u">InsightFace</span><span class="u">객체 추적</span><span class="l">모델 학습</span><span class="l">NumPy</span></div>
+    <div class="sb"><h4>게임</h4><span class="u">Godot 4</span><span class="u">GDScript</span></div>
+    <div class="sb"><h4>인프라</h4><span class="u">Docker</span><span class="l">WSL2</span><span class="l">Ubuntu Server 24.04 LTS</span><span class="l">온프레미스 서버 구축</span><span class="l">Gradle</span><span class="l">JDK 17</span></div>
+    <div class="sb"><h4>버전 관리</h4><span class="u">Git</span><span class="u">GitHub</span><span class="u">이슈</span><span class="u">Pull Request</span><span class="l">GitLab</span><span class="l">SSH</span></div>
+    <div class="sb"><h4>개발 · 협업 도구</h4><span class="u">IntelliJ</span><span class="u">Herdr</span><span class="l">Notion</span><span class="l">Slack</span><span class="l">Google Workspace</span><span class="l">Telegram</span></div>
+    <div class="sb"><h4>AI 활용</h4><span class="u">Claude Code</span><span class="u">Codex</span><span class="u">Gemini</span></div>
   </div>
 </section>
 
