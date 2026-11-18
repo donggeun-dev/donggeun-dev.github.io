@@ -78,26 +78,29 @@ section{padding:96px 0 6px}
 .pf button{font:inherit;font-size:14px;font-weight:700;padding:9px 18px;border-radius:999px;border:1px solid var(--line);background:var(--card);color:var(--sub);cursor:pointer;transition:.2s}
 .pf button i{font-style:normal;font-weight:600;opacity:.6;margin-left:4px}
 .pf button.on{background:var(--grad);color:#fff;border-color:transparent;box-shadow:0 8px 20px rgba(80,90,220,.28)}
-.pg{display:grid;grid-template-columns:repeat(6,1fr);gap:24px}.pg .pc{grid-column:span 2}.pg .pc:nth-last-child(2):nth-child(3n+1){grid-column:2/span 2}.pg .pc:last-child:nth-child(3n+2){grid-column:4/span 2}
-.pc{position:relative;display:block;border-radius:26px;overflow:hidden;background:#0d1020;aspect-ratio:4/5;color:#fff;box-shadow:var(--shadow);isolation:isolate;transition:transform .35s,box-shadow .35s}
-.pc:hover{transform:translateY(-8px);box-shadow:0 28px 54px rgba(40,50,130,.34)}
-.pc[hidden]{display:none}
-.pc .pi{position:absolute;inset:0}
-.pc .pi img{width:100%;height:100%;object-fit:cover;object-position:top left;display:block;transition:transform .5s,filter .35s;filter:saturate(1.05)}
-.pc:hover .pi img{transform:scale(1.07);filter:blur(3px) brightness(.55)}
-.pc .pk{position:absolute;top:16px;left:16px;font-style:normal;font-size:11.5px;font-weight:800;letter-spacing:.8px;padding:6px 12px;border-radius:999px;background:rgba(10,12,30,.62);backdrop-filter:blur(8px);color:#fff}
-.pc::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(8,10,28,.08) 0%,rgba(8,10,28,0) 22%,rgba(8,10,28,.78) 58%,rgba(8,10,28,.97) 100%);z-index:1;pointer-events:none}
-.pc .pt{position:absolute;left:0;right:0;bottom:0;padding:24px 24px 26px;z-index:2}
-.pc .pt small{display:block;font-size:13px;font-weight:700;letter-spacing:.4px;color:rgba(255,255,255,.72);margin-bottom:6px}
-.pc .pt b{display:block;font-size:22px;line-height:1.35;letter-spacing:-.8px;font-weight:800;text-shadow:0 2px 14px rgba(0,0,0,.55)}
-.pc .pm{max-height:0;opacity:0;overflow:hidden;transition:max-height .45s,opacity .35s,margin .35s}
-.pc:hover .pm,.pc:focus-visible .pm{max-height:220px;opacity:1;margin-top:14px}
-.pc .pm p{font-size:14px;line-height:1.55;color:rgba(255,255,255,.88);margin-bottom:12px}
-.pc .pm .tg{margin:0 0 14px}.pc .pm .tg span{background:rgba(255,255,255,.16);color:#fff;font-size:11.5px;padding:3px 10px;margin:0 5px 5px 0}
-.pc .go{display:inline-flex;align-items:center;gap:6px;font-size:13.5px;font-weight:800;color:#fff;background:var(--grad);padding:8px 16px;border-radius:999px}
-@media(hover:none){.pc .pm{max-height:none;opacity:1;margin-top:12px}.pc .pm p{display:none}.pc .pi img{filter:none}}
-@media(max-width:900px){.pg{grid-template-columns:repeat(2,1fr)}.pg .pc,.pg .pc:nth-last-child(2):nth-child(3n+1),.pg .pc:last-child:nth-child(3n+2){grid-column:auto}}
-@media(max-width:560px){.pg{grid-template-columns:1fr}.pg .pc{grid-column:auto}.pc{aspect-ratio:4/4.4}}
+.pg{display:flex;flex-wrap:wrap;justify-content:center;gap:26px}
+.pcard{--w:calc((100% - 52px)/3);position:relative;display:flex;flex-direction:column;width:var(--w);border-radius:28px;overflow:hidden;background:var(--card);border:1px solid var(--line);box-shadow:var(--shadow);color:inherit;transition:transform .35s,box-shadow .35s;animation:pcIn .5s both}
+.pcard[hidden]{display:none}
+@keyframes pcIn{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
+.pcard:hover{transform:translateY(-10px);box-shadow:0 30px 60px rgba(30,40,110,.26)}
+.pcard .pi{position:relative;height:232px;overflow:hidden;background:linear-gradient(135deg,var(--c1),var(--c2))}
+.pcard .pi:before{content:"";position:absolute;width:260px;height:260px;right:-70px;top:-90px;border-radius:50%;background:rgba(255,255,255,.14)}
+.pcard .pi:after{content:"";position:absolute;width:160px;height:160px;left:-50px;bottom:-60px;border-radius:50%;background:rgba(255,255,255,.1)}
+.pcard .pi img{position:absolute;z-index:1;left:9%;top:44px;width:98%;height:auto;display:block;border-radius:16px;box-shadow:0 22px 44px rgba(0,0,0,.42);transform:rotate(-3deg);transform-origin:top left;transition:transform .55s cubic-bezier(.2,.8,.2,1)}
+.pcard:hover .pi img{transform:rotate(0) translate(-4px,-8px) scale(1.05)}
+.pcard .pk{position:absolute;z-index:2;top:18px;left:18px;font-style:normal;font-size:11.5px;font-weight:800;letter-spacing:.9px;padding:6px 13px;border-radius:999px;background:rgba(255,255,255,.94);color:var(--c1)}
+.pcard .pt{display:flex;flex-direction:column;flex:1;padding:22px 24px 24px}
+.pcard .pe{display:flex;justify-content:space-between;align-items:baseline;gap:10px;margin-bottom:8px}
+.pcard .pe small{font-size:13px;font-weight:800;letter-spacing:.3px;color:var(--p1)}
+.pcard .pe span{font-size:12px;font-weight:600;color:var(--sub)}
+.pcard .pt b{display:block;font-size:21px;line-height:1.38;letter-spacing:-.9px;font-weight:800;margin-bottom:10px}
+.pcard .pt p{font-size:14.5px;line-height:1.6;color:var(--sub);margin-bottom:14px}
+.pcard .tg{margin:0 0 18px;display:flex;flex-wrap:nowrap;overflow:hidden;white-space:nowrap}.pcard .tg span{flex:none}
+.pcard .go{margin-top:auto;display:inline-flex;align-items:center;gap:7px;font-size:14px;font-weight:800;color:var(--p1)}
+.pcard .go svg{transition:transform .3s}.pcard:hover .go svg{transform:translateX(6px)}
+@media(hover:none){.pcard:hover{transform:none}.pcard:hover .pi img{transform:rotate(-3deg)}}
+@media(max-width:900px){.pcard{--w:calc((100% - 26px)/2)}}
+@media(max-width:560px){.pcard{--w:100%}.pcard .pi{height:210px}}
 .pj h3{font-size:30px;letter-spacing:-1.2px;margin:6px 0 6px}
 .pj .one{color:var(--sub);font-size:16px;margin-bottom:22px}
 .bl{list-style:none;display:grid;gap:9px;margin-bottom:4px}.bl li{font-size:15.5px;padding-left:20px;position:relative}.bl li:before{content:"";position:absolute;left:2px;top:.78em;width:7px;height:7px;border-radius:50%;background:var(--grad)}
@@ -220,11 +223,11 @@ footer{text-align:center;color:var(--sub);font-size:13px;padding:56px 0 44px}
   <div class="head"><div class="eb">PROJECTS</div><h2 class="h2">프로젝트</h2></div>
   <div class="pf" role="tablist"><button class="on" data-f="all">전체 <i>5</i></button><button data-f="team">팀 <i>2</i></button><button data-f="solo">개인 <i>3</i></button></div>
   <div class="pg">
-  <a class="pc" data-k="team" href="#/projects/obsidian-shield"><div class="pi"><img src="assets/obsidian-members.jpg" alt="Obsidian Shield 사용자 관리 화면" loading="lazy"><em class="pk">TEAM · 5인 · 2026.06–07</em></div><div class="pt"><small>Obsidian Shield</small><b>찾는 사람이 나타나면 바로 알려 줍니다</b><div class="pm"><p>카메라 영상에서 사람을 찾아 알아보는 실시간 관제 시스템</p><div class="tg"><span>Flask</span><span>YOLO</span><span>InsightFace</span></div><span class="go">자세히 보기 <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M8 7h9v9"/></svg></span></div></div></a>
-  <a class="pc" data-k="team" href="#/projects/white-eyes"><div class="pi"><img src="assets/white-eyes-dashboard.jpg" alt="white-eyes 관리자 대시보드" loading="lazy"><em class="pk">TEAM · 6인 · 2026.10–11</em></div><div class="pt"><small>white-eyes</small><b>지금 그곳, 얼마나 붐빌까?</b><div class="pm"><p>드론·CCTV 영상으로 사람을 세고 혼잡 단계를 지도에 보여 주는 서비스</p><div class="tg"><span>Flask</span><span>Spring Boot</span><span>MySQL</span></div><span class="go">자세히 보기 <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M8 7h9v9"/></svg></span></div></div></a>
-  <a class="pc" data-k="solo" href="#/projects/gray-expedition"><div class="pi"><img src="assets/game-battle.jpg" alt="잿빛 원정대 전투 화면" loading="lazy"><em class="pk">PERSONAL · 2026.09–11</em></div><div class="pt"><small>잿빛 원정대</small><b>불이 꺼진 왕국에서 불씨를 찾아서</b><div class="pm"><p>카드로 싸우며 나아가는 다크 판타지 덱빌딩 게임</p><div class="tg"><span>Godot 4</span><span>GDScript</span></div><span class="go">자세히 보기 <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M8 7h9v9"/></svg></span></div></div></a>
-  <a class="pc" data-k="solo" href="#/projects/studyseat"><div class="pi"><img src="assets/studyseat-booking.jpg" alt="StudySeat 도면 예약 화면" loading="lazy"><em class="pk">PERSONAL · 2026.11</em></div><div class="pt"><small>StudySeat</small><b>내 자리, 미리 잡아두세요</b><div class="pm"><p>지도에서 찾고 도면에서 고르고 QR로 입실하는 스터디카페 예약</p><div class="tg"><span>Spring Boot</span><span>JPA</span><span>Flyway</span></div><span class="go">자세히 보기 <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M8 7h9v9"/></svg></span></div></div></a>
-  <a class="pc" data-k="solo" href="#/projects/ai-team-console"><div class="pi"><img src="assets/ai-console.jpg" alt="AI 팀 관제 관제실 화면" loading="lazy"><em class="pk">PERSONAL · 2026.11</em></div><div class="pt"><small>AI 팀 관제</small><b>AI 셋에게 한 번에 물어보면?</b><div class="pm"><p>여러 AI에게 리뷰를 동시에 맡기고 결과와 한도를 한 화면에서 확인</p><div class="tg"><span>Python</span><span>Canvas 2D</span></div><span class="go">자세히 보기 <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M8 7h9v9"/></svg></span></div></div></a>
+  <a class="pcard" data-k="team" style="--c1:#0b1230;--c2:#2f5bd8" href="#/projects/obsidian-shield"><div class="pi"><em class="pk">TEAM · 5인</em><img src="assets/obsidian-members.jpg" alt="Obsidian Shield 사용자 관리 화면" loading="lazy"></div><div class="pt"><div class="pe"><small>Obsidian Shield</small><span>2026.06 – 07</span></div><b>찾는 사람이 나타나면 바로 알려 줍니다</b><p>카메라 영상에서 사람을 찾아 알아보는 실시간 관제 시스템</p><div class="tg"><span>Flask</span><span>YOLO</span><span>InsightFace</span></div><span class="go">자세히 보기 <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div></a>
+  <a class="pcard" data-k="team" style="--c1:#053d33;--c2:#12b886" href="#/projects/white-eyes"><div class="pi"><em class="pk">TEAM · 6인</em><img src="assets/white-eyes-dashboard.jpg" alt="white-eyes 관리자 대시보드" loading="lazy"></div><div class="pt"><div class="pe"><small>white-eyes</small><span>2026.10 – 11</span></div><b>지금 그곳, 얼마나 붐빌까?</b><p>드론·CCTV 영상으로 사람을 세고 혼잡 단계를 지도에 보여 주는 서비스</p><div class="tg"><span>Flask</span><span>Spring Boot</span><span>MySQL</span></div><span class="go">자세히 보기 <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div></a>
+  <a class="pcard" data-k="solo" style="--c1:#241046;--c2:#8b5cf6" href="#/projects/gray-expedition"><div class="pi"><em class="pk">PERSONAL</em><img src="assets/game-battle.jpg" alt="잿빛 원정대 전투 화면" loading="lazy"></div><div class="pt"><div class="pe"><small>잿빛 원정대</small><span>2026.09 – 11</span></div><b>불이 꺼진 왕국에서 불씨를 찾아서</b><p>카드로 싸우며 나아가는 다크 판타지 덱빌딩 게임</p><div class="tg"><span>Godot 4</span><span>GDScript</span></div><span class="go">자세히 보기 <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div></a>
+  <a class="pcard" data-k="solo" style="--c1:#0d5c57;--c2:#5eead4" href="#/projects/studyseat"><div class="pi"><em class="pk">PERSONAL</em><img src="assets/studyseat-booking.jpg" alt="StudySeat 도면 예약 화면" loading="lazy"></div><div class="pt"><div class="pe"><small>StudySeat</small><span>2026.11</span></div><b>내 자리, 미리 잡아두세요</b><p>지도에서 찾고 도면에서 고르고 QR로 입실하는 스터디카페 예약</p><div class="tg"><span>Spring Boot</span><span>JPA</span><span>Flyway</span></div><span class="go">자세히 보기 <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div></a>
+  <a class="pcard" data-k="solo" style="--c1:#04230f;--c2:#22c55e" href="#/projects/ai-team-console"><div class="pi"><em class="pk">PERSONAL</em><img src="assets/ai-console.jpg" alt="AI 팀 관제 관제실 화면" loading="lazy"></div><div class="pt"><div class="pe"><small>AI 팀 관제</small><span>2026.11</span></div><b>AI 셋에게 한 번에 물어보면?</b><p>여러 AI에게 리뷰를 동시에 맡기고 결과와 한도를 한 화면에서 확인</p><div class="tg"><span>Python</span><span>Canvas 2D</span></div><span class="go">자세히 보기 <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div></a>
   </div>
 </section>
 
@@ -827,7 +830,7 @@ const P=[
 }
 ];
 const homeV=document.getElementById('homeView'),detV=document.getElementById('detailView');
-document.querySelectorAll('.pf button').forEach(b=>b.addEventListener('click',()=>{document.querySelectorAll('.pf button').forEach(x=>x.classList.toggle('on',x===b));const f=b.dataset.f;document.querySelectorAll('.pc').forEach(c=>{c.hidden=f!=='all'&&c.dataset.k!==f})}));let inDetail=false;
+document.querySelectorAll('.pf button').forEach(b=>b.addEventListener('click',()=>{document.querySelectorAll('.pf button').forEach(x=>x.classList.toggle('on',x===b));const f=b.dataset.f;document.querySelectorAll('.pcard').forEach(c=>{c.hidden=f!=='all'&&c.dataset.k!==f})}));let inDetail=false;
 const E=x=>x.replace(/&/g,'&amp;').replace(/</g,'&lt;');
 function card(q,lab,cls){return '<a class="'+cls+'" href="#/projects/'+q.id+'"><small>'+lab+'</small><b>'+E(q.title)+'</b><span>'+E(q.one)+'</span></a>'}
 function render(k){const q=P[k],pv=P[(k+P.length-1)%P.length],nx=P[(k+1)%P.length];
