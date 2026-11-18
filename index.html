@@ -218,6 +218,49 @@ footer{text-align:center;color:var(--sub);font-size:13px;padding:56px 0 44px}
 .pn a{background:var(--card);border:1px solid var(--line);border-radius:22px;padding:24px 28px;box-shadow:var(--shadow);transition:.2s}.pn a:hover{transform:translateY(-3px)}
 .pn small{display:block;color:var(--p1);font-weight:800;font-size:13px;margin-bottom:4px}.pn b{font-size:18px;letter-spacing:-.5px}.pn span{display:block;font-size:13.5px;color:var(--sub)}
 .pn a.nx{text-align:right}
+/* journey gantt */
+.gt{max-width:1100px;margin:0 auto}
+.gt-lg{display:flex;gap:10px;flex-wrap:wrap;justify-content:center;margin:-6px 0 22px;font-size:13px;font-weight:600;color:var(--sub)}
+.gt-lg span:before{content:"";display:inline-block;width:22px;height:9px;border-radius:5px;margin-right:8px;vertical-align:1px;background:var(--grad)}
+.gt-lg .e:before{background:var(--soft);box-shadow:inset 0 0 0 1px var(--line)}
+.gt-lg .p:before{background:linear-gradient(90deg,#ff8f7a,#ffc15e)}
+.gt-lg .s:before{background:repeating-linear-gradient(135deg,rgba(91,91,214,.45) 0 4px,transparent 4px 8px);box-shadow:inset 0 0 0 1px rgba(91,91,214,.35)}
+.gt-body{position:relative;--lw:250px;padding-top:38px;border-radius:26px;background:var(--card);border:1px solid var(--line);box-shadow:var(--shadow);overflow:hidden}
+.gt-ov{position:absolute;left:var(--lw);right:22px;top:0;bottom:0;pointer-events:none;z-index:0}
+.gt-ax{position:absolute;left:0;right:0;top:12px;height:20px}
+.gt-ax b{position:absolute;transform:translateX(6px);font-size:12.5px;font-weight:700;color:var(--sub)}
+.gt-ov u{position:absolute;top:0;bottom:0;width:1px;background:var(--line)}
+.gt-now{position:absolute;top:0;bottom:0;width:0;border-left:2px dashed #ff6b81;z-index:3}
+.gt-now span{position:absolute;top:8px;left:-1px;transform:translateX(-50%);background:#ff6b81;color:#fff;font-size:11.5px;font-weight:800;padding:2px 9px;border-radius:999px;white-space:nowrap}
+.gt-r{position:relative;z-index:1;display:grid;grid-template-columns:var(--lw) 1fr;align-items:center;padding:16px 22px 16px 28px;border-top:1px solid var(--line);color:inherit;transition:background .2s}
+.gt-ov+.gt-r{border-top:0}
+a.gt-r:hover{background:color-mix(in srgb,var(--p1) 6%,transparent)}
+.gt-l{padding-right:18px}
+.gt-l small{display:block;font-size:12.5px;font-weight:600;color:var(--sub);line-height:1.5}
+.gt-l h4{font-size:18px;letter-spacing:-.6px;margin:2px 0 1px;line-height:1.35}
+.gt-l p{font-size:13.5px;color:var(--sub);line-height:1.5;margin:0}
+.gt-go{display:inline-block;margin-left:8px;color:var(--p1);opacity:0;transform:translateX(-6px);transition:.25s}
+a.gt-r:hover .gt-go{opacity:1;transform:none}
+.gt-t{position:relative;height:34px;margin-right:0}
+.gt-b{position:absolute;top:2px;height:30px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-style:normal;--g1:var(--p1);--g2:var(--p2);
+ background:linear-gradient(90deg,var(--g1),var(--g2)) left/var(--dn,100%) 100% no-repeat,repeating-linear-gradient(135deg,color-mix(in srgb,var(--g1) 38%,transparent) 0 6px,transparent 6px 12px);
+ background-color:color-mix(in srgb,var(--g1) 8%,transparent);transform-origin:left;transition:transform .9s cubic-bezier(.2,.8,.2,1) calc(var(--i)*.09s),box-shadow .25s;box-shadow:0 8px 18px -8px color-mix(in srgb,var(--g1) 70%,transparent)}
+.gt-b em{font-style:normal;font-size:12.5px;font-weight:800;color:#fff;letter-spacing:-.2px;text-shadow:0 1px 2px rgba(0,0,0,.22);white-space:nowrap}
+.gt-b.sm{min-width:16px;border-radius:8px}
+.gt-b.sm em{position:absolute;right:calc(100% + 9px);color:var(--sub);text-shadow:none}
+a.gt-r:hover .gt-b{box-shadow:0 12px 24px -8px color-mix(in srgb,var(--g1) 80%,transparent)}
+.gt-r.solo .gt-b{--g1:#ff8f7a;--g2:#ffc15e}
+.gt-r.edu .gt-b{background:var(--soft);box-shadow:inset 0 0 0 1px var(--line)}
+.gt-r.edu .gt-b em{color:var(--sub);text-shadow:none}
+.gt:not(.in) .gt-b{transform:scaleX(0)}
+@media(prefers-reduced-motion:reduce){.gt:not(.in) .gt-b{transform:none}.gt-b{transition:none}}
+@media(max-width:760px){
+ .gt-body{padding-top:0}.gt-ov{display:none}
+ .gt-r{grid-template-columns:1fr;gap:10px;padding:18px 20px}
+ .gt-l{padding-right:0}
+ .gt-t{background:linear-gradient(var(--soft),var(--soft)) center/100% 4px no-repeat}
+ .gt-go{opacity:1;transform:none}
+}
 @media(max-width:900px){.dv{padding:96px 16px 30px}.dh{grid-template-columns:1fr;padding:26px 22px}.pn{grid-template-columns:1fr}.sg{grid-template-columns:1fr}.vg{grid-template-columns:1fr}}
 </style>
 </head>
@@ -246,12 +289,12 @@ footer{text-align:center;color:var(--sub);font-size:13px;padding:56px 0 44px}
 
 <section id="journey">
   <div class="head"><div class="eb">JOURNEY</div><h2 class="h2">걸어온 순서</h2></div>
-  <div class="jr">
-    <div class="st"><div class="d">2026.04.27</div><h4>DW아카데미 입교</h4><p>AIoT 기반 드론 영상 관제시스템</p></div>
-    <div class="st"><div class="d">2026.06.25 – 07.24</div><h4>Obsidian Shield</h4><p>팀 5인 · 회원·권한 관리</p></div>
-    <div class="st"><div class="d">2026.09.30 – 11.12</div><h4>잿빛 원정대</h4><p>개인 · 덱빌딩 로그라이크</p></div>
-    <div class="st"><div class="d">2026.10.06 – 11.23 예정</div><h4>white-eyes</h4><p>팀 6인 · 통계 집계·복구</p></div>
-    <div class="st"><div class="d">2026.11.09 – 11.10</div><h4>StudySeat · AI 팀 관제</h4><p>개인 · 2개 프로젝트</p></div>
+  <div class="gt" id="gt" data-a="244">
+    <p class="gt-lg"><span class="e">교육</span><span class="t">팀 프로젝트</span><span class="p">개인 프로젝트</span><span class="s">진행·예정</span></p>
+    <div class="gt-body">
+      <div class="gt-ov"><div class="gt-ax"><b style="left:0.0%">4월</b><b style="left:12.3%">5월</b><b style="left:25.0%">6월</b><b style="left:37.3%">7월</b><b style="left:50.0%">8월</b><b style="left:62.7%">9월</b><b style="left:75.0%">10월</b><b style="left:87.7%">11월</b></div><u style="left:0.0%"></u><u style="left:12.3%"></u><u style="left:25.0%"></u><u style="left:37.3%"></u><u style="left:50.0%"></u><u style="left:62.7%"></u><u style="left:75.0%"></u><u style="left:87.7%"></u><u style="left:100.0%"></u><div class="gt-now" hidden><span>오늘</span></div></div>
+      <div class="gt-r edu" style="--i:0"><div class="gt-l"><small>2026.04.27 – 11.24 수료 예정</small><h4>DW아카데미</h4><p>AIoT 기반 드론 영상 관제시스템</p></div><div class="gt-t"><i class="gt-b" data-s="26" data-e="238" style="left:10.66%;width:86.89%"><em>7개월</em></i></div></div><a class="gt-r team" href="#/projects/obsidian-shield" style="--i:1"><div class="gt-l"><small>2026.06.25 – 07.24 · 팀 5인</small><h4>Obsidian Shield<span class="gt-go" aria-hidden="true">→</span></h4><p>회원·권한 관리, 통합 관제 화면</p></div><div class="gt-t"><i class="gt-b" data-s="85" data-e="115" style="left:34.84%;width:12.3%"><em>1개월</em></i></div></a><a class="gt-r solo" href="#/projects/gray-expedition" style="--i:2"><div class="gt-l"><small>2026.09.30 – 11.12 · 개인</small><h4>잿빛 원정대<span class="gt-go" aria-hidden="true">→</span></h4><p>덱빌딩 로그라이크 게임</p></div><div class="gt-t"><i class="gt-b" data-s="182" data-e="226" style="left:74.59%;width:18.03%"><em>6주</em></i></div></a><a class="gt-r team" href="#/projects/white-eyes" style="--i:3"><div class="gt-l"><small>2026.10.06 – 11.23 예정 · 팀 6인</small><h4>white-eyes<span class="gt-go" aria-hidden="true">→</span></h4><p>통계 집계·복구</p></div><div class="gt-t"><i class="gt-b" data-s="188" data-e="237" style="left:77.05%;width:20.08%"><em>7주</em></i></div></a><a class="gt-r solo" href="#/projects/studyseat" style="--i:4"><div class="gt-l"><small>2026.11.09 – 11.10 · 개인</small><h4>StudySeat<span class="gt-go" aria-hidden="true">→</span></h4><p>스터디카페 좌석 예약</p></div><div class="gt-t"><i class="gt-b sm" data-s="222" data-e="224" style="left:90.98%;width:0.82%"><em>2일</em></i></div></a><a class="gt-r solo" href="#/projects/ai-team-console" style="--i:5"><div class="gt-l"><small>2026.11.09 – 11.10 · 개인</small><h4>AI 팀 관제<span class="gt-go" aria-hidden="true">→</span></h4><p>AI 호출·한도 관제 웹 앱</p></div><div class="gt-t"><i class="gt-b sm" data-s="222" data-e="224" style="left:90.98%;width:0.82%"><em>2일</em></i></div></a>
+    </div>
   </div>
 </section>
 
@@ -908,6 +951,15 @@ function route(){const m=location.hash.match(/^#\/projects\/([\w-]+)/),k=m?P.fin
  document.title='장동근 | 개발자 포트폴리오';
  if(inDetail){inDetail=false;detV.hidden=true;homeV.hidden=false;const el=location.hash.length>1&&document.querySelector(location.hash);if(el)el.scrollIntoView({behavior:'instant'});else scrollTo({top:0,behavior:'instant'})}}
 addEventListener('hashchange',route);route();
+/* 걸어온 순서: 막대가 나타나는 효과, 오늘 표시, 진행 중 구간 */
+(function(){
+ const g=document.getElementById('gt');if(!g)return;
+ const tot=+g.dataset.a,A=Date.UTC(2026,3,1),t=Math.floor((Date.now()-A)/864e5);
+ g.querySelectorAll('.gt-b').forEach(b=>{const s=+b.dataset.s,e=+b.dataset.e;if(t>=s&&t<e)b.style.setProperty('--dn',((t-s+1)/(e-s)*100)+'%')});
+ const n=g.querySelector('.gt-now');if(t>=0&&t<tot){n.style.left=((t+.5)/tot*100)+'%';n.hidden=false}
+ if(!('IntersectionObserver' in window)){g.classList.add('in');return}
+ new IntersectionObserver((es,o)=>es.forEach(x=>{if(x.isIntersecting){g.classList.add('in');o.disconnect()}}),{threshold:.25}).observe(g);
+})();
 /* 영상 확대 보기: 영상 가운데를 누르면 크게 뜬다(아래 컨트롤 막대는 그대로 재생·소리·전체화면) */
 (function(){
  const lb=document.createElement('div');lb.id='lb';lb.setAttribute('role','dialog');lb.setAttribute('aria-modal','true');lb.setAttribute('aria-label','영상 크게 보기');
