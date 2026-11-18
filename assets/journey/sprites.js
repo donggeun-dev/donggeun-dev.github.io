@@ -97,7 +97,7 @@ function talk(c,index,dy=0){
  }
  const m=mouths.get(index);if(!m)return;c.fillStyle='#653447';c.fillRect(m.x,m.y+dy,2,2);c.fillStyle='#ee99a6';c.fillRect(m.x,m.y+dy+1,2,1);
 }
-/* 발과 손을 나누어 움직여 걷기와 타자 치기에 미세한 동작을 준다. */
+/* 몸을 가로로 나누지 않고, 완성된 프레임 전체를 한 번에 그린다. */
 function person(c,cx,fy,o={}){
  prepare(c);if(!ready){waiting.set(c,{cx,fy,o:{...o}});return}
  const O=o.outfit||OUT.dw,index=pick(O,o),img=recolor(index,o,O),friend=index>=13&&index<28;
@@ -114,24 +114,9 @@ function person(c,cx,fy,o={}){
  c.translate(-42,-84);
  if(O.bag&&!o.nobag&&index>=9&&index<=11)drawBag(c);
  if(mirror){c.translate(84,0);c.scale(-1,1)}
- if(walk&&index>=28){
-  // 머리는 고정하고 몸 아래는 실제 걷기 그림 네 장으로 바꾼다.
-  // 발바닥은 같은 바닥에 맞추며 진행 방향과 얼굴 방향을 일치시킨다.
-  const phase=(index-28)%4,head=images[index-phase],cut=52,bob=phase%2?-1:0;
-  c.drawImage(img,0,cut,84,84-cut,0,cut,84,84-cut);
-  c.drawImage(head,0,0,84,cut+1,0,bob,84,cut+1);
- }else if(walk){c.drawImage(img,0,0);
- }else if(index===6||index===8){
-  // 스캔과 타자의 교대 프레임은 얼굴을 고정해 머리가 덜컥 움직이지 않게 한다.
-  const fixed=index===6?5:7,cut=index===6?49:52;
-  c.drawImage(img,0,cut,84,84-cut,0,cut,84,84-cut);
-  c.drawImage(recolor(fixed,o,O),0,0,84,cut,0,0,84,cut);
- }else if(arm==='type2'){
-  c.drawImage(img,0,0,84,52,0,0,84,52);c.drawImage(img,0,52,84,17,0,53,84,17);c.drawImage(img,0,69,84,15,0,69,84,15);
- }else if(legs==='jump'&&index!==10&&index!==12){
-  c.drawImage(img,0,0,84,69,0,0,84,69);c.drawImage(img,0,69,84,15,0,66,84,15);
- }else c.drawImage(img,0,0);
- if(o.talk)talk(c,index===6?5:index===8?7:index);
+ // 이전의 가로 분할·1칸 이동 합성은 목과 몸통에 흰 틈을 만들었으므로 사용하지 않는다.
+ c.drawImage(img,0,0);
+ if(o.talk)talk(c,index);
  c.restore();
 }
 window.JourneyArt={OUT,person};
