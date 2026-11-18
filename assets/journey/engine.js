@@ -148,11 +148,10 @@ function flush(){
 window.addEventListener('journeyartready',()=>{if(!window.__started&&!matchMedia('(prefers-reduced-motion: reduce)').matches)render(0)});
 /* 구동 */
 let T0=null,playing=false,raf=0,reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
-function frame(now){raf=0;if(!document.getElementById('jy-w').offsetParent){T0=null;raf=requestAnimationFrame(frame);return}if(T0==null)T0=now;let t=Math.max(0,(now-T0)/1000);if(t>=TOTAL){t=TOTAL-0.001;playing=false}render(t);
+function frame(now){raf=0;if(!document.getElementById('jy-w').offsetParent){T0=null;raf=requestAnimationFrame(frame);return}if(T0==null)T0=now;const t=Math.max(0,(now-T0)/1000)%TOTAL;render(t);
  const jw=document.getElementById('jy-w');if(jw.scrollWidth>jw.clientWidth){const s=segAt(t),x=s.w?lerp(SX(s.a),SX(s.b),(t-s.t0)/(s.t1-s.t0)):SX(s.i);jw.scrollLeft=x/W*jw.scrollWidth-jw.clientWidth/2}
  if(playing)raf=requestAnimationFrame(frame)}
 function start(){cancelAnimationFrame(raf);T0=null;playing=true;raf=requestAnimationFrame(frame)}
-document.getElementById('jy-rp').onclick=start;
 window.__jy={render,total:TOTAL,seg:SEG};
 if(reduce){render(TOTAL-1)}else{
  const io=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting&&!window.__started){window.__started=1;start()}})},{threshold:.35});io.observe(document.getElementById('jy-w'));
