@@ -78,29 +78,28 @@ section{padding:96px 0 6px}
 .pf button{font:inherit;font-size:14px;font-weight:700;padding:9px 18px;border-radius:999px;border:1px solid var(--line);background:var(--card);color:var(--sub);cursor:pointer;transition:.2s}
 .pf button i{font-style:normal;font-weight:600;opacity:.6;margin-left:4px}
 .pf button.on{background:var(--grad);color:#fff;border-color:transparent;box-shadow:0 8px 20px rgba(80,90,220,.28)}
-.pg{display:flex;flex-wrap:wrap;justify-content:center;gap:26px}
-.pcard{--w:calc((100% - 52px)/3);position:relative;display:flex;flex-direction:column;width:var(--w);border-radius:28px;overflow:hidden;background:var(--card);border:1px solid var(--line);box-shadow:var(--shadow);color:inherit;transition:transform .35s,box-shadow .35s;animation:pcIn .5s both}
-.pcard[hidden]{display:none}
-@keyframes pcIn{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
-.pcard:hover{transform:translateY(-10px);box-shadow:0 30px 60px rgba(30,40,110,.26)}
-.pcard .pi{position:relative;height:232px;overflow:hidden;background:linear-gradient(135deg,var(--c1),var(--c2))}
-.pcard .pi:before{content:"";position:absolute;width:260px;height:260px;right:-70px;top:-90px;border-radius:50%;background:rgba(255,255,255,.14)}
-.pcard .pi:after{content:"";position:absolute;width:160px;height:160px;left:-50px;bottom:-60px;border-radius:50%;background:rgba(255,255,255,.1)}
-.pcard .pi img{position:absolute;z-index:1;left:9%;top:44px;width:98%;height:auto;display:block;border-radius:16px;box-shadow:0 22px 44px rgba(0,0,0,.42);transform:rotate(-3deg);transform-origin:top left;transition:transform .55s cubic-bezier(.2,.8,.2,1)}
-.pcard:hover .pi img{transform:rotate(0) translate(-4px,-8px) scale(1.05)}
-.pcard .pk{position:absolute;z-index:2;top:18px;left:18px;font-style:normal;font-size:11.5px;font-weight:800;letter-spacing:.9px;padding:6px 13px;border-radius:999px;background:rgba(255,255,255,.94);color:var(--c1)}
-.pcard .pt{display:flex;flex-direction:column;flex:1;padding:22px 24px 24px}
-.pcard .pe{display:flex;justify-content:space-between;align-items:baseline;gap:10px;margin-bottom:8px}
-.pcard .pe small{font-size:13px;font-weight:800;letter-spacing:.3px;color:var(--p1)}
-.pcard .pe span{font-size:12px;font-weight:600;color:var(--sub)}
-.pcard .pt b{display:block;font-size:21px;line-height:1.38;letter-spacing:-.9px;font-weight:800;margin-bottom:10px}
-.pcard .pt p{font-size:14.5px;line-height:1.6;color:var(--sub);margin-bottom:14px}
-.pcard .tg{margin:0 0 18px;display:flex;flex-wrap:nowrap;overflow:hidden;white-space:nowrap}.pcard .tg span{flex:none}
-.pcard .go{margin-top:auto;display:inline-flex;align-items:center;gap:7px;font-size:14px;font-weight:800;color:var(--p1)}
-.pcard .go svg{transition:transform .3s}.pcard:hover .go svg{transform:translateX(6px)}
-@media(hover:none){.pcard:hover{transform:none}.pcard:hover .pi img{transform:rotate(-3deg)}}
-@media(max-width:900px){.pcard{--w:calc((100% - 26px)/2)}}
-@media(max-width:560px){.pcard{--w:100%}.pcard .pi{height:210px}}
+.cv{position:relative;height:556px;perspective:1800px;overflow:hidden;-webkit-mask-image:linear-gradient(90deg,transparent 0,#000 15%,#000 85%,transparent 100%);mask-image:linear-gradient(90deg,transparent 0,#000 15%,#000 85%,transparent 100%);outline:none}
+.cvc{position:absolute;left:50%;top:40px;width:420px;margin-left:-210px;border-radius:30px;background:transparent;box-shadow:0 30px 60px -22px rgba(36,44,120,.34),0 6px 18px -8px rgba(36,44,120,.14);transition:transform .75s cubic-bezier(.2,.8,.2,1),opacity .6s;cursor:pointer;will-change:transform;backface-visibility:hidden;color:var(--ink)}
+.cvc.nt{transition:none}
+.cvi{position:relative;border-radius:30px;overflow:hidden;isolation:isolate;transform:translateZ(0)}
+.cvi:after{content:"";position:absolute;inset:0;background:var(--bg);opacity:var(--dim,0);transition:opacity .6s;pointer-events:none;z-index:6}
+.cvm{position:relative;aspect-ratio:16/9;background:linear-gradient(135deg,var(--c1),var(--c2))}
+.cvm img,.cvm video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:left top;display:block}
+.cvm video{opacity:0;transition:opacity .7s}.cvc.on .cvm video.pl{opacity:1}
+.cvm img{transition:transform 1.2s ease,opacity .7s}.cvc.on .cvm img{transform:scale(1.04)}.cvm.vp img{opacity:0}
+.cvm:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(10,12,34,0) 0,rgba(10,12,34,0) 66%,rgba(10,12,34,.30) 100%);pointer-events:none}
+.cvm em{position:absolute;top:16px;left:16px;z-index:3;font-style:normal;font-size:11.5px;font-weight:800;letter-spacing:.3px;padding:6px 12px;border-radius:999px;background:rgba(255,255,255,.94);color:var(--c1)}
+.cvb{background:var(--card);padding:22px 26px 28px}
+.cvb small{display:block;font-weight:700;color:var(--sub);font-size:13px;letter-spacing:.2px}
+.cvb h3{font-size:24px;line-height:1.36;letter-spacing:-1px;margin:6px 0 8px}
+.cvb p{color:var(--sub);font-size:14.5px;line-height:1.6;margin-bottom:14px}
+.cvt{margin-bottom:16px}.cvt span{display:inline-block;padding:4px 11px;border-radius:999px;background:var(--soft);color:var(--p1);font-size:12px;font-weight:700;margin:0 6px 6px 0}
+.cvg{display:inline-flex;align-items:center;gap:6px;font-weight:800;color:var(--p1);font-size:14px}
+.cvn{display:flex;justify-content:center;align-items:center;gap:20px;margin-top:2px}
+.cvn button{width:46px;height:46px;border-radius:50%;border:0;background:var(--card);font-size:18px;color:var(--ink);cursor:pointer;box-shadow:0 8px 20px -8px rgba(36,44,120,.28);transition:.2s}
+.cvn button:hover{transform:translateY(-2px)}
+.cvd{display:flex;gap:8px;align-items:center}.cvd i{width:8px;height:8px;border-radius:50%;background:var(--line);transition:.3s;cursor:pointer}.cvd i.on{width:26px;border-radius:5px;background:var(--p1)}
+@media(max-width:560px){.cv{-webkit-mask-image:none;mask-image:none;height:560px}.cvc{width:310px;margin-left:-155px}}
 .pj h3{font-size:30px;letter-spacing:-1.2px;margin:6px 0 6px}
 .pj .one{color:var(--sub);font-size:16px;margin-bottom:22px}
 .bl{list-style:none;display:grid;gap:9px;margin-bottom:4px}.bl li{font-size:15.5px;padding-left:20px;position:relative}.bl li:before{content:"";position:absolute;left:2px;top:.78em;width:7px;height:7px;border-radius:50%;background:var(--grad)}
@@ -222,13 +221,8 @@ footer{text-align:center;color:var(--sub);font-size:13px;padding:56px 0 44px}
 <section id="projects">
   <div class="head"><div class="eb">PROJECTS</div><h2 class="h2">프로젝트</h2></div>
   <div class="pf" role="tablist"><button class="on" data-f="all">전체 <i>5</i></button><button data-f="team">팀 <i>2</i></button><button data-f="solo">개인 <i>3</i></button></div>
-  <div class="pg">
-  <a class="pcard" data-k="team" style="--c1:#0b1230;--c2:#2f5bd8" href="#/projects/obsidian-shield"><div class="pi"><em class="pk">TEAM · 5인</em><img src="assets/obsidian-members.jpg" alt="Obsidian Shield 사용자 관리 화면" loading="lazy"></div><div class="pt"><div class="pe"><small>Obsidian Shield</small><span>2026.06 – 07</span></div><b>찾는 사람이 나타나면 바로 알려 줍니다</b><p>카메라 영상에서 사람을 찾아 알아보는 실시간 관제 시스템</p><div class="tg"><span>Flask</span><span>YOLO</span><span>InsightFace</span></div><span class="go">자세히 보기 <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div></a>
-  <a class="pcard" data-k="team" style="--c1:#053d33;--c2:#12b886" href="#/projects/white-eyes"><div class="pi"><em class="pk">TEAM · 6인</em><img src="assets/white-eyes-dashboard.jpg" alt="white-eyes 관리자 대시보드" loading="lazy"></div><div class="pt"><div class="pe"><small>white-eyes</small><span>2026.10 – 11</span></div><b>지금 그곳, 얼마나 붐빌까?</b><p>드론·CCTV 영상으로 사람을 세고 혼잡 단계를 지도에 보여 주는 서비스</p><div class="tg"><span>Flask</span><span>Spring Boot</span><span>MySQL</span></div><span class="go">자세히 보기 <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div></a>
-  <a class="pcard" data-k="solo" style="--c1:#241046;--c2:#8b5cf6" href="#/projects/gray-expedition"><div class="pi"><em class="pk">PERSONAL</em><img src="assets/game-battle.jpg" alt="잿빛 원정대 전투 화면" loading="lazy"></div><div class="pt"><div class="pe"><small>잿빛 원정대</small><span>2026.09 – 11</span></div><b>불이 꺼진 왕국에서 불씨를 찾아서</b><p>카드로 싸우며 나아가는 다크 판타지 덱빌딩 게임</p><div class="tg"><span>Godot 4</span><span>GDScript</span></div><span class="go">자세히 보기 <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div></a>
-  <a class="pcard" data-k="solo" style="--c1:#0d5c57;--c2:#5eead4" href="#/projects/studyseat"><div class="pi"><em class="pk">PERSONAL</em><img src="assets/studyseat-booking.jpg" alt="StudySeat 도면 예약 화면" loading="lazy"></div><div class="pt"><div class="pe"><small>StudySeat</small><span>2026.11</span></div><b>내 자리, 미리 잡아두세요</b><p>지도에서 찾고 도면에서 고르고 QR로 입실하는 스터디카페 예약</p><div class="tg"><span>Spring Boot</span><span>JPA</span><span>Flyway</span></div><span class="go">자세히 보기 <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div></a>
-  <a class="pcard" data-k="solo" style="--c1:#04230f;--c2:#22c55e" href="#/projects/ai-team-console"><div class="pi"><em class="pk">PERSONAL</em><img src="assets/ai-console.jpg" alt="AI 팀 관제 관제실 화면" loading="lazy"></div><div class="pt"><div class="pe"><small>AI 팀 관제</small><span>2026.11</span></div><b>AI 셋에게 한 번에 물어보면?</b><p>여러 AI에게 리뷰를 동시에 맡기고 결과와 한도를 한 화면에서 확인</p><div class="tg"><span>Python</span><span>Canvas 2D</span></div><span class="go">자세히 보기 <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div></a>
-  </div>
+  <div class="cv" id="cv" tabindex="0" aria-label="프로젝트 목록. 좌우 화살표로 넘길 수 있습니다"></div>
+  <div class="cvn"><button type="button" id="cvp" aria-label="이전">←</button><div class="cvd" id="cvd"></div><button type="button" id="cvx" aria-label="다음">→</button></div>
 </section>
 
 <section id="journey">
@@ -830,7 +824,51 @@ const P=[
 }
 ];
 const homeV=document.getElementById('homeView'),detV=document.getElementById('detailView');
-document.querySelectorAll('.pf button').forEach(b=>b.addEventListener('click',()=>{document.querySelectorAll('.pf button').forEach(x=>x.classList.toggle('on',x===b));const f=b.dataset.f;document.querySelectorAll('.pcard').forEach(c=>{c.hidden=f!=='all'&&c.dataset.k!==f})}));let inDetail=false;
+(function(){
+const SEC=6,R=document.getElementById('cv');if(!R)return;
+const D=[
+ {id:'obsidian-shield',k:'team',n:'Obsidian Shield',chip:'TEAM · 5인',per:'2026.06–07',hook:'찾는 사람이 나타나면 바로 알려 줍니다',one:'카메라 영상에서 사람을 찾아 알아보는 실시간 관제 시스템',img:'assets/obsidian-members.jpg',vid:'assets/intro-obsidian-shield.mp4',tags:['Flask','YOLO','InsightFace'],c1:'#0b1230',c2:'#2f5bd8'},
+ {id:'white-eyes',k:'team',n:'white-eyes',chip:'TEAM · 6인',per:'2026.10–11',hook:'지금 그곳, 얼마나 붐빌까?',one:'드론·CCTV 영상으로 사람을 세고 혼잡 단계를 지도에 보여 주는 서비스',img:'assets/white-eyes-dashboard.jpg',vid:'assets/intro-white-eyes.mp4',tags:['Flask','Spring Boot','MySQL'],c1:'#053d33',c2:'#12b886'},
+ {id:'gray-expedition',k:'solo',n:'잿빛 원정대',chip:'PERSONAL',per:'2026.09–11',hook:'불이 꺼진 왕국에서 불씨를 찾아서',one:'카드로 싸우며 나아가는 다크 판타지 덱빌딩 게임',img:'assets/game-battle.jpg',vid:'',tags:['Godot 4','GDScript'],c1:'#241046',c2:'#8b5cf6'},
+ {id:'studyseat',k:'solo',n:'StudySeat',chip:'PERSONAL',per:'2026.11',hook:'내 자리, 미리 잡아두세요',one:'지도에서 찾고 도면에서 고르고 QR로 입실하는 스터디카페 예약',img:'assets/studyseat-booking.jpg',vid:'assets/intro-studyseat.mp4',tags:['Spring Boot','JPA','Flyway'],c1:'#0d5c57',c2:'#5eead4'},
+ {id:'ai-team-console',k:'solo',n:'AI 팀 관제',chip:'PERSONAL',per:'2026.11',hook:'AI 셋에게 한 번에 물어보면?',one:'여러 AI에게 리뷰를 동시에 맡기고 결과와 한도를 한 화면에서 확인',img:'assets/ai-console.jpg',vid:'assets/intro-ai-team-console.mp4',tags:['Python','Canvas 2D'],c1:'#04230f',c2:'#22c55e'}];
+const reduce=matchMedia('(prefers-reduced-motion:reduce)').matches;
+let list=D,cur=0,tm=null,hover=false,inView=false,cards=[],prev=[];
+const dotsEl=document.getElementById('cvd');
+const tg=t=>'<div class="cvt">'+t.map(x=>'<span>'+x+'</span>').join('')+'</div>';
+function build(){
+ R.innerHTML=list.map((d,i)=>'<div class="cvc" style="--c1:'+d.c1+';--c2:'+d.c2+'" data-i="'+i+'"><div class="cvi"><div class="cvm"><img src="'+d.img+'" alt="'+d.n+' 화면" loading="lazy">'+(d.vid?'<video src="'+d.vid+'" muted loop playsinline preload="none"></video>':'')+'<em>'+d.chip+'</em></div><div class="cvb"><small>'+d.n+' · '+d.per+'</small><h3>'+d.hook+'</h3><p>'+d.one+'</p>'+tg(d.tags)+'<span class="cvg">자세히 보기 →</span></div></div></div>').join('');
+ dotsEl.innerHTML=list.map((_,i)=>'<i data-i="'+i+'"></i>').join('');
+ cards=[...R.querySelectorAll('.cvc')];prev=cards.map((_,i)=>i);cur=Math.min(cur,list.length-1);lay();arm();
+}
+function off(i){const N=list.length;let o=i-cur;if(o>N/2)o-=N;if(o<-N/2)o+=N;return o}
+function lay(){
+ cards.forEach((c,i)=>{const o=off(i),a=Math.abs(o);
+  if(Math.abs(o-prev[i])>2)c.classList.add('nt');
+  c.style.transform='translateX('+(o*340)+'px) translateZ('+(-a*200)+'px) rotateY('+(-o*32)+'deg) scale('+(o?0.94:1)+')';
+  c.style.zIndex=10-a;c.style.opacity=a>2?0:1;c.querySelector('.cvi').style.setProperty('--dim',Math.min(.8,a*.34));
+  if(c.classList.contains('nt')){void c.offsetWidth;c.classList.remove('nt')}
+  prev[i]=o;
+  const v=c.querySelector('video'),md=c.querySelector('.cvm'),isOn=i===cur;c.classList.toggle('on',isOn);
+  if(v){if(isOn&&inView&&!reduce){v.preload='auto';try{v.currentTime=4}catch(e){}v.classList.add('pl');md.classList.add('vp');v.play().catch(()=>{})}else{v.classList.remove('pl');md.classList.remove('vp');setTimeout(()=>{if(!c.classList.contains('on')||!inView)v.pause()},700)}}
+ });
+ dotsEl.querySelectorAll('i').forEach((x,i)=>x.classList.toggle('on',i===cur));
+}
+function arm(){clearTimeout(tm);if(!hover&&inView&&!reduce&&list.length>1)tm=setTimeout(()=>{cur=(cur+1)%list.length;lay();arm()},SEC*1000)}
+function show(i){cur=(i+list.length)%list.length;lay();arm()}
+R.addEventListener('click',e=>{const c=e.target.closest('.cvc');if(!c)return;const i=+c.dataset.i;if(i===cur)location.hash='#/projects/'+list[i].id;else show(i)});
+dotsEl.addEventListener('click',e=>{const d=e.target.closest('i');if(d)show(+d.dataset.i)});
+document.getElementById('cvp').addEventListener('click',()=>show(cur-1));
+document.getElementById('cvx').addEventListener('click',()=>show(cur+1));
+R.addEventListener('keydown',e=>{if(e.key==='ArrowLeft'){show(cur-1);e.preventDefault()}else if(e.key==='ArrowRight'){show(cur+1);e.preventDefault()}else if(e.key==='Enter'){location.hash='#/projects/'+list[cur].id}});
+const box=document.getElementById('projects');
+box.addEventListener('mouseenter',()=>{hover=true;clearTimeout(tm)});
+box.addEventListener('mouseleave',()=>{hover=false;arm()});
+document.addEventListener('visibilitychange',()=>{document.hidden?clearTimeout(tm):arm()});
+new IntersectionObserver(es=>{inView=es[0].isIntersecting;lay();arm()},{threshold:.35}).observe(R);
+document.querySelectorAll('.pf button').forEach(b=>b.addEventListener('click',()=>{document.querySelectorAll('.pf button').forEach(x=>x.classList.toggle('on',x===b));const f=b.dataset.f;list=f==='all'?D:D.filter(d=>d.k===f);cur=0;build()}));
+build();
+})();let inDetail=false;
 const E=x=>x.replace(/&/g,'&amp;').replace(/</g,'&lt;');
 function card(q,lab,cls){return '<a class="'+cls+'" href="#/projects/'+q.id+'"><small>'+lab+'</small><b>'+E(q.title)+'</b><span>'+E(q.one)+'</span></a>'}
 function render(k){const q=P[k],pv=P[(k+P.length-1)%P.length],nx=P[(k+1)%P.length];
