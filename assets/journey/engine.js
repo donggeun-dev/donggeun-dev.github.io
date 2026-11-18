@@ -31,10 +31,10 @@ function person(cx,fy,o){JourneyArt.person(c,cx,fy,o)}
 function mk(ox,oy){return(x,y,w,h,col)=>{c.fillStyle=col;c.fillRect(Math.round(ox+x),Math.round(oy+y),w,h)}}
 function lerp(a,b,p){return a+(b-a)*p}
 /* 소품 */
-function desk(cx,fy,w,col){const m=mk(0,0);m(cx-w/2,fy-9,w,2,col||'#b8845a');m(cx-w/2,fy-7,w,7,'#8f6240');m(cx-w/2,fy-9,w,1,'#d4a373')}
+function desk(cx,fy,w,col){const m=mk(0,0);m(cx-w/2,fy-5,w,2,col||'#b8845a');m(cx-w/2,fy-3,w,3,'#8f6240');m(cx-w/2,fy-5,w,1,'#d4a373')}
 function laptop(cx,fy){const m=mk(0,0);m(cx-6,fy-17,12,8,'#cfd3e6');m(cx-6,fy-17,12,1,'#e8ebf7');m(cx-1,fy-14,2,2,'#8d93b8')}
 function holo(cx,top,w,h,draw,alpha){c.save();c.globalAlpha=alpha==null?1:alpha;const m=mk(0,0);m(cx-w/2,top,w,h,'rgba(34,184,207,.18)');m(cx-w/2,top,w,1,'#22b8cf');m(cx-w/2,top+h-1,w,1,'#22b8cf');m(cx-w/2,top,1,h,'#22b8cf');m(cx-w/2+w-1,top,1,h,'#22b8cf');draw&&draw(cx-w/2,top);c.restore()}
-function laptop2(cx,fy){const m=mk(0,0);m(cx-3,fy-12,6,4,'#cfd3e6');m(cx-3,fy-12,6,1,'#eef0fa');m(cx,fy-10,1,1,'#8d93b8')}
+function laptop2(cx,fy){const m=mk(0,0);m(cx-3,fy-9,6,4,'#cfd3e6');m(cx-3,fy-9,6,1,'#eef0fa');m(cx,fy-7,1,1,'#8d93b8')}
 function codeLines(t){return(x,y)=>{const m=mk(x,y),cols=['#ff8f7a','#8b8bff','#34d399','#f0c04a'];for(let i=0;i<4;i++){const wv=4+((Math.floor(t*3)+i*3)%7);m(2+(i%2)*2,2+i*2,wv,1,cols[(i+Math.floor(t*2))%4])}}}
 function bubble(txt,x,y,a){BQ.push({txt,x,y,a:a==null?1:a})}
 function ease(p){return p<.5?2*p*p:1-Math.pow(-2*p+2,2)/2}
@@ -67,7 +67,7 @@ function team(i,tl,mx,fy,cnt){
  });
  /* 앞: 긴 책상 + 노트북 */
  c.save();c.globalAlpha=Math.min(1,inP)*(1-exitP);
- {const m=mk(0,0);m(L,fy-8,Rr-L,6,'#8f6240');m(L,fy-8,Rr-L,2,'#e0bd96');m(L,fy-8,Rr-L,1,'#f4d9b6')}
+ {const m=mk(0,0);m(L,fy-4,Rr-L,4,'#8f6240');m(L,fy-4,Rr-L,2,'#e0bd96');m(L,fy-4,Rr-L,1,'#f4d9b6')}
  people.forEach((p,k)=>{if(p.main||tl>.15+k*.22+.4)laptop2(mx+p.dx,fy)});
  c.restore();
  /* 말풍선 */
@@ -81,9 +81,9 @@ function seat(k,tl,mx){
  const arm=sit?(Math.floor(tl*3.6)%2?'tr1':'tr2'):'down';
  c.save();c.globalAlpha=a;
  const m=mk(ox,fy-28);
- m(19,17,20,2,'#c9a27a');m(19,17,20,1,'#e6c7a2');m(20,19,2,9,'#8f6240');m(36,19,2,9,'#8f6240');
- m(26,16,4,1,'#555570');m(23,5,13,11,'#2b2f4a');m(24,6,11,9,'#0f1a2e');m(21,16,5,1,'#cfd3e6');
- const sc=mk(ox+25,fy-21);
+ m(16,23,20,2,'#c9a27a');m(16,23,20,1,'#e6c7a2');m(17,25,2,3,'#8f6240');m(33,25,2,3,'#8f6240');
+ m(23,22,4,1,'#555570');m(20,11,13,11,'#2b2f4a');m(21,12,11,9,'#0f1a2e');m(18,22,5,1,'#cfd3e6');
+ const sc=mk(ox+22,fy-15);
  if(k==='study'){const cols=['#ff8f7a','#8b8bff','#34d399','#f0c04a'];for(let q=0;q<4;q++){const wv=2+((Math.floor(tl*3)+q*3)%6);sc(q%2,q*2,wv,1,cols[(q+Math.floor(tl*2))%4])}sc(8,7,1,1,Math.floor(tl*4)%2?'#fff':'#0f1a2e')}
  else if(k==='game'){sc(0,0,3,1,'#34d399');sc(6,0,3,1,'#ff8f7a');sc(0,7,9,1,'#3a2d55');sc(1,3,2,4,'#8b8bff');sc(1,2,2,1,'#f6cfb0');sc(6,3,2,4,'#ff8f7a');sc(6,4,1,1,'#fff');if(Math.floor(tl*2.4)%2)sc(3,4,3,1,'#fff')}
  else{const sw=Math.floor(tl/1.3)%2;if(!sw){for(let q=0;q<4;q++)for(let r2=0;r2<3;r2++){const on=((q*3+r2*5+Math.floor(tl*2))%4)<1;sc(q*2+(q>0?q:0)*0,r2*3,2,2,on?'#ff8f7a':'#34d399')}}else{sc(0,5,1,2,'#34d399');sc(2,3,1,4,'#8b8bff');sc(4,1,1,6,'#22b8cf');sc(6,4,1,3,'#f0c04a');sc(8,2,1,5,'#ff8f7a')}}
@@ -123,13 +123,13 @@ function render(t){
   if(tl>2.0)bubble('전역!',mx,GY-36,1);
  }else if(k==='job'){
   const cyc=(tl*1.1)%1;
-  c.save();desk(mx,GY,34,'#e8ecf7');c.restore();
-  const m=mk(0,0);m(mx-17,GY-7,34,7,'#d7dcef');m(mx-17,GY-9,34,1,'#fff');m(mx-17,GY-3,34,1,'#2f6fd6');
+  c.save();desk(mx,GY,38,'#e8ecf7');c.restore();
+  const m=mk(0,0);m(mx-19,GY-3,38,3,'#d7dcef');m(mx-19,GY-5,38,1,'#fff');m(mx-19,GY-1,38,1,'#2f6fd6');
   person(mx,GY,{outfit:OUT.job,arm:cyc<.5?'scan':'scan2',glasses:true,talk:cyc>.5});
   /* 계산대, 단말기 */
-  m(mx+4,GY-17,9,7,'#8d93b8');m(mx+5,GY-16,7,3,'#34d399');m(mx+6,GY-12,5,1,'#cfd3e6');
-  const ix=mx-14+cyc*26;m(ix,GY-12,4,3,'#ff8f7a');m(ix,GY-12,4,1,'#fff');
-  c.fillStyle='rgba(255,60,60,'+(cyc>.45&&cyc<.6?1:.0)+')';c.fillRect(mx+8,GY-12,1,4);
+  m(mx+10,GY-13,9,7,'#8d93b8');m(mx+11,GY-12,7,3,'#34d399');m(mx+12,GY-8,5,1,'#cfd3e6');
+  const ix=mx-14+cyc*26;m(ix,GY-8,4,3,'#ff8f7a');m(ix,GY-8,4,1,'#fff');
+  c.fillStyle='rgba(255,60,60,'+(cyc>.45&&cyc<.6?1:.0)+')';c.fillRect(mx+12,GY-8,1,4);
   if(cyc>.45&&cyc<.9)bubble('삑!',mx+10,GY-34);
   if(((tl/1.1)|0)%3===2&&cyc<.45)bubble('어서오세요',mx-4,GY-36,1);
  }else if(k==='team5'){team(i,tl,mx,GY,5)}else if(k==='team6'){team(i,tl,mx,GY,6)}else if(k==='study'||k==='game'||k==='web'){seat(k,tl,mx)
