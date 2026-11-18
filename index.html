@@ -158,6 +158,22 @@ footer{text-align:center;color:var(--sub);font-size:13px;padding:56px 0 44px}
 .vg figure{margin:0;background:var(--card);border:1px solid var(--line);border-radius:20px;overflow:hidden;box-shadow:var(--shadow);line-height:0}
 .vg video{width:100%;display:block;background:#000}
 .vg figcaption{line-height:1.5;font-size:13.5px;color:var(--sub);padding:13px 18px;border-top:1px solid var(--line)}
+.vg figure,.vd{position:relative}
+.vg video,.vd video{cursor:zoom-in}
+.vg figure:after,.vd:after{content:"⤢ 크게 보기";position:absolute;top:12px;right:12px;padding:6px 12px;border-radius:999px;background:rgba(10,12,28,.62);color:#fff;font-size:12.5px;font-weight:600;line-height:1.4;opacity:0;transform:translateY(-4px);transition:.2s;pointer-events:none;backdrop-filter:blur(6px)}
+.vg figure:hover:after,.vd:hover:after{opacity:1;transform:none}
+#lb{position:fixed;inset:0;z-index:300;display:none;align-items:center;justify-content:center;flex-direction:column;gap:14px;padding:28px 20px;background:rgba(8,10,24,.9);backdrop-filter:blur(8px)}
+#lb.on{display:flex;animation:lbin .22s ease}
+@keyframes lbin{from{opacity:0}to{opacity:1}}
+#lb video{aspect-ratio:16/9;width:min(94vw,calc(78vh*16/9),1500px);height:auto;object-fit:contain;border-radius:16px;background:#000;box-shadow:0 30px 80px rgba(0,0,0,.55);cursor:default}
+#lb p{color:#cfd3ee;font-size:14.5px;line-height:1.55;max-width:min(92vw,900px);text-align:center;margin:0}
+#lb button{position:absolute;z-index:2;border:0;border-radius:50%;width:46px;height:46px;background:rgba(255,255,255,.14);color:#fff;font-size:22px;cursor:pointer;transition:.2s;line-height:1}
+#lb button:hover{background:rgba(255,255,255,.26)}
+#lb .lbx{top:18px;right:18px}
+#lb .lbp{left:18px;top:50%;margin-top:-23px}
+#lb .lbn{right:18px;top:50%;margin-top:-23px}
+#lb .lbc{position:absolute;top:26px;left:50%;transform:translateX(-50%);color:#aab0d4;font-size:13px;font-weight:600}
+@media(max-width:700px){#lb .lbp,#lb .lbn{top:auto;bottom:18px;margin:0}#lb .lbp{left:20px}#lb .lbn{right:20px}}
 
 .gl{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:16px;margin-top:22px}
 .gl div{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:20px 22px;box-shadow:var(--shadow)}
@@ -889,9 +905,32 @@ function render(k){const q=P[k],pv=P[(k+P.length-1)%P.length],nx=P[(k+1)%P.lengt
  document.title=q.title+' | 장동근';}
 function route(){const m=location.hash.match(/^#\/projects\/([\w-]+)/),k=m?P.findIndex(x=>x.id===m[1]):-1;
  if(k>=0){render(k);homeV.hidden=true;detV.hidden=false;inDetail=true;links.forEach(a=>a.classList.toggle('on',a.getAttribute('href')==='#projects'));scrollTo({top:0,behavior:'instant'});return}
- document.title='장동근 | 백엔드 개발자';
+ document.title='장동근 | 개발자 포트폴리오';
  if(inDetail){inDetail=false;detV.hidden=true;homeV.hidden=false;const el=location.hash.length>1&&document.querySelector(location.hash);if(el)el.scrollIntoView({behavior:'instant'});else scrollTo({top:0,behavior:'instant'})}}
 addEventListener('hashchange',route);route();
+/* 영상 확대 보기: 영상 가운데를 누르면 크게 뜬다(아래 컨트롤 막대는 그대로 재생·소리·전체화면) */
+(function(){
+ const lb=document.createElement('div');lb.id='lb';lb.setAttribute('role','dialog');lb.setAttribute('aria-modal','true');lb.setAttribute('aria-label','영상 크게 보기');
+ lb.innerHTML='<span class="lbc"></span><button class="lbx" aria-label="닫기">✕</button><button class="lbp" aria-label="이전 영상">‹</button><video controls playsinline></video><p></p><button class="lbn" aria-label="다음 영상">›</button>';
+ document.body.appendChild(lb);
+ const lv=lb.querySelector('video'),cap=lb.querySelector('p'),ct=lb.querySelector('.lbc'),pv=lb.querySelector('.lbp'),nx=lb.querySelector('.lbn');
+ let list=[],idx=0,src=null;
+ const text=v=>{const f=v.closest('figure'),c=f?f.querySelector('figcaption'):v.parentElement.querySelector('p');return c?c.textContent:''};
+ function show(i,t){idx=(i+list.length)%list.length;const v=list[idx];src=v;lv.src=v.currentSrc||v.src;cap.textContent=text(v);ct.textContent=list.length>1?(idx+1)+' / '+list.length:'';pv.style.display=nx.style.display=list.length>1?'':'none';lv.currentTime=t||0;lv.play().catch(()=>{})}
+ function open(v){list=[...document.querySelectorAll('#detailView .vg video,#detailView .vd video')];if(!list.length)list=[v];list.forEach(x=>x.pause());show(Math.max(0,list.indexOf(v)),v.currentTime>1?v.currentTime:0);lb.classList.add('on');document.body.style.overflow='hidden'}
+ function close(){lv.pause();if(src)try{src.currentTime=lv.currentTime}catch(e){}lb.classList.remove('on');document.body.style.overflow='';lv.removeAttribute('src');lv.load()}
+ document.addEventListener('click',e=>{
+  const v=e.target.closest&&e.target.closest('.vg video,.vd video');
+  if(!v||document.fullscreenElement)return;
+  const r=v.getBoundingClientRect();
+  if(e.clientY>r.bottom-64)return; /* 아래 컨트롤 막대는 건드리지 않는다 */
+  e.preventDefault();e.stopPropagation();open(v)
+ },true);
+ lb.addEventListener('click',e=>{if(e.target===lb||e.target.classList.contains('lbx'))close()});
+ pv.onclick=()=>show(idx-1);nx.onclick=()=>show(idx+1);
+ addEventListener('keydown',e=>{if(!lb.classList.contains('on'))return;if(e.key==='Escape')close();else if(e.key==='ArrowLeft'&&list.length>1)show(idx-1);else if(e.key==='ArrowRight'&&list.length>1)show(idx+1)});
+ addEventListener('hashchange',()=>{if(lb.classList.contains('on'))close()});
+})();
 </script>
 </body>
 </html>
