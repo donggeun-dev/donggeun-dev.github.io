@@ -1,0 +1,174 @@
+{
+"Java": [
+"openjdk",
+"#ED8B00"
+],
+"Python": [
+"python",
+"#3776AB"
+],
+"JavaScript": [
+"javascript",
+"#F7DF1E"
+],
+"SQL": [
+"mysql",
+"#4479A1"
+],
+"GDScript": [
+"godotengine",
+"#478CBF"
+],
+"Spring Boot": [
+"springboot",
+"#6DB33F"
+],
+"Spring Security": [
+"springsecurity",
+"#6DB33F"
+],
+"Flask": [
+"flask",
+"#000000"
+],
+"Spring MVC": [
+"spring",
+"#6DB33F"
+],
+"Spring Legacy": [
+"spring",
+"#6DB33F"
+],
+"MySQL": [
+"mysql",
+"#4479A1"
+],
+"JPA": [
+"hibernate",
+"#59666C"
+],
+"Flyway": [
+"flyway",
+"#CC0200"
+],
+"DBeaver": [
+"dbeaver",
+"#382923"
+],
+"DataGrip": [
+"datagrip",
+"#000000"
+],
+"HTML/CSS": [
+"html5",
+"#E34F26"
+],
+"Thymeleaf": [
+"thymeleaf",
+"#005F0F"
+],
+"Leaflet": [
+"leaflet",
+"#199900"
+],
+"Chart.js": [
+"chartdotjs",
+"#FF6384"
+],
+"Canvas 2D": [
+"html5",
+"#E34F26"
+],
+"Godot 4": [
+"godotengine",
+"#478CBF"
+],
+"RESTful API": [
+"openapiinitiative",
+"#6BA539"
+],
+"JSON": [
+"json",
+"#000000"
+],
+"pytest": [
+"pytest",
+"#0A9EDC"
+],
+"Postman": [
+"postman",
+"#FF6C37"
+],
+"Swagger": [
+"swagger",
+"#85EA2D"
+],
+"OpenCV": [
+"opencv",
+"#5C3EE8"
+],
+"NumPy": [
+"numpy",
+"#013243"
+],
+"Docker": [
+"docker",
+"#2496ED"
+],
+"Linux": [
+"linux",
+"#FCC624"
+],
+"Ubuntu Server": [
+"ubuntu",
+"#E95420"
+],
+"VirtualBox": [
+"virtualbox",
+"#21A0DC"
+],
+"Gradle": [
+"gradle",
+"#02303A"
+],
+"Git": [
+"git",
+"#F05032"
+],
+"GitHub": [
+"github",
+"#181717"
+],
+"GitLab": [
+"gitlab",
+"#FC6D26"
+],
+"Notion": [
+"notion",
+"#000000"
+],
+"Slack": [
+"slack",
+"#4A154B"
+],
+"Google Workspace": [
+"google",
+"#4285F4"
+],
+"IntelliJ": [
+"intellijidea",
+"#000000"
+],
+"Claude Code": [
+"claude",
+"#D97757"
+],
+"Codex": [
+"openai",
+"#412991"
+],
+"Gemini": [
+"googlegemini",
+"#8E75B2"
+]
+}
