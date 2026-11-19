@@ -1,18 +1,37 @@
 /* 걸어온 순서(JOURNEY) 도트 여정 — 장면·타이밍. 그림은 sprites.js(JourneyArt)가 담당. */
 (function(){
 const cv=document.getElementById('jy-cv'),c=cv.getContext('2d');c.imageSmoothingEnabled=false;
-const W=300,H=66,GY=60;
+const H=66,GY=60,STEP=244/7,PAD=28;
 const N=[
  {n:'군 전역',s:'육군 부사관 4년',d:'2021.12 – 2025.12',dw:3.2,out:'mil',ox:-8,k:'mil'},
  {n:'알바',s:'',d:'',dw:3.4,out:'job',ox:0,k:'job'},
  {n:'DW아카데미 입교',s:'AIoT 드론 영상 관제',d:'2026.04.27',dw:3.6,out:'dw',ox:-10,k:'study'},
- {n:'Obsidian Shield',s:'팀 5인',d:'2026.06.25',dw:5.2,out:'dw',ox:0,k:'team5'},
- {n:'잿빛 원정대',s:'개인',d:'2026.09.30',dw:3.8,out:'dw',ox:-10,k:'game'},
- {n:'white-eyes',s:'팀 6인',d:'2026.10.06',dw:5.2,out:'dw',ox:-8,k:'team6'},
- {n:'StudySeat · AI 팀 관제',s:'개인',d:'2026.11.09',dw:3.8,out:'dw',ox:-10,k:'web'},
+ // 프로젝트 목록을 기준으로 여정도 함께 늘어난다. 날짜가 같은 달이면 목록 순서를 유지한다.
+ ...projectStages(),
  {n:'수료 예정',s:'',d:'2026.11.24',dw:4.2,out:'grad',ox:0,k:'grad'}
 ];
-const WALK=2.4,XS=i=>28+i*(244/7),SX=i=>XS(i)+N[i].ox;
+function projectStages(){
+ const scenes={
+  'obsidian-shield':{k:'team5',d:'2026.06.25',dw:5.2,ox:0},
+  'gray-expedition':{k:'game',d:'2026.09.30'},
+  'white-eyes':{k:'team6',d:'2026.10.06',dw:5.2,ox:-8},
+  studyseat:{k:'booking',d:'2026.11.09'},
+  'ai-team-console':{k:'console'},
+  barodam:{k:'market'}
+ };
+ return (typeof P==='undefined'?[]:P).map(p=>{
+  const scene=scenes[p.id]||{},month=p.period.match(/\d{4}\.\d{2}/)?.[0]||'';
+  return {n:p.title,s:p.kind.startsWith('TEAM')?'팀 '+(p.kind.match(/\d+인/)?.[0]||'프로젝트'):'개인',d:scene.d||month,dw:3.8,out:'dw',ox:-10,k:'project',...scene,month};
+ }).sort((a,b)=>a.month.localeCompare(b.month));
+}
+const W=Math.ceil(PAD*2+STEP*(N.length-1)),density=cv.height/H;
+// 지점 사이 간격과 인물 크기를 유지하고, 프로젝트 수만큼 줄을 연장한다.
+cv.width=Math.round(W*density);c.setTransform(density,0,0,density,0,0);c.imageSmoothingEnabled=false;
+const inner=document.querySelector('.jy-in');
+inner.style.setProperty('--jy-width',W);
+inner.style.setProperty('--jy-min-width',(W*3)+'px');
+inner.style.setProperty('--jy-label-width',(STEP*.94/W*100)+'%');
+const WALK=2.4,XS=i=>PAD+i*STEP,SX=i=>XS(i)+N[i].ox;
 const SEG=[];let T=0;
 N.forEach((n,i)=>{SEG.push({t0:T,t1:T+n.dw,i,w:0});T+=n.dw;if(i<N.length-1){SEG.push({t0:T,t1:T+WALK,a:i,b:i+1,w:1});T+=WALK}});
 const TOTAL=T;
@@ -81,7 +100,8 @@ function seat(k,tl,mx){
  JourneyArt.scene(c,mx,fy,{kind:'study',frame:phase});
  const ax=mx+14;
  if(k==='game'&&tl>.8){c.save();c.globalAlpha=Math.min(1,(tl-.8)/.5);[['#c58da5',-9],['#9b87b7',0],['#86b5a0',9]].forEach(([col,dx],q)=>{const bob=Math.sin(tl*2.4+q)*.4,cm=mk(ax+dx-3,fy-47+bob+(q===1?-1:0));cm(0,0,7,11,'#f6e9dc');cm(1,1,5,9,col);cm(3,4,1,3,'#f6e9dc');cm(2,5,3,1,'#f6e9dc')});c.restore()}
- if(tl>.9){const tx=k==='study'?['Hello World','Java!','Spring Boot','public static void']:k==='game'?['혼자서도!','덱빌딩','로그라이크']:['예약 완료!','AI 호출 관제','배포!'];bubble(tx[Math.floor(tl)%tx.length],ax,fy-(k==='game'?51:32))}
+ const captions={study:['Hello World','Java!','Spring Boot','public static void'],game:['혼자서도!','덱빌딩','로그라이크'],booking:['좌석 선택!','예약 완료!','QR 입실!'],console:['AI 동시 요청!','코드 리뷰!','결과 확인!'],market:['상품 탐색!','쿠폰 적용!','주문 완료!']};
+ if(tl>.9){const tx=captions[k]||['코딩 중!','구현 완료!','배포!'];bubble(tx[Math.floor(tl)%tx.length],ax,fy-(k==='game'?51:32))}
 }
 function render(t){
  BQ=[];c.clearRect(0,0,W,H);
@@ -91,9 +111,9 @@ function render(t){
  /* 바닥선 */
  for(let x=2;x<W-2;x+=4){const done=x<mx;c.fillStyle=done?(x<W/2?'#5b5bd6':'#22b8cf'):'rgba(150,155,190,.45)';c.fillRect(x,GY,3,done?2:1)}
  c.fillStyle='rgba(150,155,190,.45)';c.fillRect(W-8,GY-1,3,3);c.fillRect(W-6,GY-2,2,5);
- const sceneKind=N[i].k,cover=walk?null:sceneKind==='job'?[mx-17,mx+17]:['study','game','web'].includes(sceneKind)?[mx-10,mx+23]:sceneKind==='team5'?[mx-46,mx+46]:sceneKind==='team6'?[mx-46,mx+63]:sceneKind==='mil'?[mx-9,mx+28]:[mx-10,mx+10];
+ const sceneKind=N[i].k,cover=walk?null:sceneKind==='job'?[mx-17,mx+17]:['study','game','booking','console','market','project'].includes(sceneKind)?[mx-10,mx+23]:sceneKind==='team5'?[mx-46,mx+46]:sceneKind==='team6'?[mx-46,mx+63]:sceneKind==='mil'?[mx-9,mx+28]:[mx-10,mx+10];
  /* 표지판 */
- N.forEach((n,k)=>{const x=Math.round(XS(k)),reached=k<=cur,col=['#8d8aa8','#8d8aa8','#2a9fb5','#5b5bd6','#f0764f','#5b5bd6','#f0764f','#22b8cf'][k];
+ N.forEach((n,k)=>{const x=Math.round(XS(k)),reached=k<=cur,col=n.k==='grad'?'#22b8cf':n.k==='study'?'#2a9fb5':n.k.startsWith('team')?'#5b5bd6':k<2?'#8d8aa8':'#f0764f';
   if(cover&&x>=cover[0]&&x<=cover[1]){c.fillStyle=reached?col:'rgba(150,155,190,.5)';c.fillRect(x-1,GY,3,2);return}
   c.fillStyle=reached?'#1d2033':'rgba(150,155,190,.6)';if(document.documentElement.dataset.theme==='dark')c.fillStyle=reached?'#eceefb':'rgba(150,155,190,.6)';
   c.fillRect(x,GY-9,1,10);c.fillStyle=reached?col:'rgba(150,155,190,.5)';c.fillRect(x+1,GY-9,5,3);c.fillRect(x+1,GY-8,4,1)});
@@ -118,7 +138,7 @@ function render(t){
   const phase=Math.floor(tl*2.1)%3;
   JourneyArt.scene(c,mx,GY,{kind:'sort',frame:phase});
   if(tl>.3)bubble(['소분 중!','택배 분류!','분류 완료!'][phase],mx,GY-34);
- }else if(k==='team5'){team(i,tl,mx,GY,5)}else if(k==='team6'){team(i,tl,mx,GY,6)}else if(k==='study'||k==='game'||k==='web'){seat(k,tl,mx)
+ }else if(k==='team5'){team(i,tl,mx,GY,5)}else if(k==='team6'){team(i,tl,mx,GY,6)}else if(['study','game','booking','console','market','project'].includes(k)){seat(k,tl,mx)
  }else if(k==='grad'){
   const jp=Math.abs(Math.sin(tl*3.2))*7;
   confetti(mx,GY,tl,26);

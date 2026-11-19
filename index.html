@@ -221,13 +221,13 @@ footer{text-align:center;color:var(--sub);font-size:13px;padding:56px 0 44px}
 /* journey pixel */
 .jy{max-width:1100px;margin:0 auto}
 .jy-w{overflow-x:auto;border-radius:26px;background:var(--card);border:1px solid var(--line);box-shadow:var(--shadow);scrollbar-width:thin}
-.jy-in{position:relative;min-width:900px;padding:12px 0 0}
-#jy-cv{display:block;width:100%;aspect-ratio:300/66;image-rendering:pixelated;image-rendering:crisp-edges}
-.jy-b{position:absolute;left:0;top:12px;right:0;aspect-ratio:300/66;pointer-events:none}
+.jy-in{position:relative;min-width:var(--jy-min-width,900px);padding:12px 0 0}
+#jy-cv{display:block;width:100%;aspect-ratio:var(--jy-width,300)/66;image-rendering:pixelated;image-rendering:crisp-edges}
+.jy-b{position:absolute;left:0;top:12px;right:0;aspect-ratio:var(--jy-width,300)/66;pointer-events:none}
 .jy-bb{position:absolute;transform:translate(-50%,-100%);background:#fff;color:#1d2033;border:2px solid #1d2033;border-radius:6px;padding:1px 8px;font-size:12.5px;font-weight:800;white-space:nowrap;opacity:0;box-shadow:2px 2px 0 rgba(29,32,51,.85);line-height:1.5}
 .jy-bb:after{content:"";position:absolute;left:50%;bottom:-7px;width:8px;height:8px;background:#fff;border-right:2px solid #1d2033;border-bottom:2px solid #1d2033;transform:translateX(-50%) rotate(45deg)}
 .jy-l{position:relative;height:104px}
-.jy-l a{position:absolute;top:8px;width:11%;transform:translateX(-50%);text-align:center;cursor:pointer;color:inherit;text-decoration:none;transition:opacity .3s,transform .3s}
+.jy-l a{position:absolute;top:8px;width:var(--jy-label-width,11%);transform:translateX(-50%);text-align:center;cursor:pointer;color:inherit;text-decoration:none;transition:opacity .3s,transform .3s}
 .jy-l a b{display:block;font-size:13.5px;letter-spacing:-.3px;line-height:1.4}
 .jy-l a small{display:block;font-size:11.5px;color:var(--sub);line-height:1.45}
 .jy-l a.off{opacity:.38}.jy-l a.on b{color:var(--p1)}
@@ -1052,6 +1052,6 @@ addEventListener('hashchange',route);route();
 })();
 </script>
 <script src="assets/journey/sprites.js?v=line-20261119-6"></script>
-<script src="assets/journey/engine.js?v=line-20261119-7"></script>
+<script src="assets/journey/engine.js?v=line-20261119-8"></script>
 </body>
 </html>
