@@ -4,7 +4,7 @@ const cv=document.getElementById('jy-cv'),c=cv.getContext('2d');c.imageSmoothing
 const W=300,H=66,GY=60;
 const N=[
  {n:'군 전역',s:'육군 부사관 4년',d:'2021.12 – 2025.12',dw:3.2,out:'mil',ox:-8,k:'mil'},
- {n:'알바',s:'전역 후',d:'',dw:3.4,out:'job',ox:-10,k:'job'},
+ {n:'쿠팡 소분 알바',s:'택배 분류·소분',d:'',dw:3.4,out:'job',ox:0,k:'job'},
  {n:'DW아카데미 입교',s:'AIoT 드론 영상 관제',d:'2026.04.27',dw:3.6,out:'dw',ox:-10,k:'study'},
  {n:'Obsidian Shield',s:'팀 5인',d:'2026.06.25',dw:5.2,out:'dw',ox:0,k:'team5'},
  {n:'잿빛 원정대',s:'개인',d:'2026.09.30',dw:3.8,out:'dw',ox:-10,k:'game'},
@@ -28,13 +28,13 @@ let BQ=[];
 /* 그리기 도구 */
 const OUT=JourneyArt.OUT;
 function person(cx,fy,o){JourneyArt.person(c,cx,fy,o)}
-function mk(ox,oy){return(x,y,w,h,col)=>{c.fillStyle=col;c.fillRect(Math.round(ox+x),Math.round(oy+y),w,h)}}
+function mk(ox,oy){return(x,y,w,h,col)=>{c.fillStyle=col;c.fillRect(Math.round((ox+x)*3)/3,Math.round((oy+y)*3)/3,w,h)}}
 function lerp(a,b,p){return a+(b-a)*p}
 /* 소품 */
 function desk(cx,fy,w,col){const m=mk(0,0);m(cx-w/2,fy-5,w,2,col||'#b8845a');m(cx-w/2,fy-3,w,3,'#8f6240');m(cx-w/2,fy-5,w,1,'#d4a373')}
 function laptop(cx,fy){const m=mk(0,0);m(cx-6,fy-17,12,8,'#cfd3e6');m(cx-6,fy-17,12,1,'#e8ebf7');m(cx-1,fy-14,2,2,'#8d93b8')}
 function holo(cx,top,w,h,draw,alpha){c.save();c.globalAlpha=alpha==null?1:alpha;const m=mk(0,0);m(cx-w/2,top,w,h,'rgba(34,184,207,.18)');m(cx-w/2,top,w,1,'#22b8cf');m(cx-w/2,top+h-1,w,1,'#22b8cf');m(cx-w/2,top,1,h,'#22b8cf');m(cx-w/2+w-1,top,1,h,'#22b8cf');draw&&draw(cx-w/2,top);c.restore()}
-function laptop2(cx,fy){const m=mk(0,0);m(cx-3,fy-9,6,4,'#cfd3e6');m(cx-3,fy-9,6,1,'#eef0fa');m(cx,fy-7,1,1,'#8d93b8')}
+function laptop2(cx,fy){const m=mk(cx,fy);m(-3,-9.667,6,4.334,'#4a4059');m(-3.333,-9.334,6.666,3.667,'#4a4059');m(-2.667,-9.334,5.334,3.667,'#c1b6ce');m(-2.333,-9,4.666,3,'#a69bb9');m(-2.333,-9,4.666,.333,'#e4dbe9');m(-.333,-8.0,.666,.666,'#e4dbe9');m(-4,-5.334,8,.667,'#51455d');m(-3.667,-5.334,7.334,.334,'#d3c9de');m(-.667,-5.334,1.334,.334,'#f4eff7')}
 function codeLines(t){return(x,y)=>{const m=mk(x,y),cols=['#ff8f7a','#8b8bff','#34d399','#f0c04a'];for(let i=0;i<4;i++){const wv=4+((Math.floor(t*3)+i*3)%7);m(2+(i%2)*2,2+i*2,wv,1,cols[(i+Math.floor(t*2))%4])}}}
 function bubble(txt,x,y,a){BQ.push({txt,x,y,a:a==null?1:a})}
 function ease(p){return p<.5?2*p*p:1-Math.pow(-2*p+2,2)/2}
@@ -67,7 +67,7 @@ function team(i,tl,mx,fy,cnt){
  });
  /* 앞: 긴 책상 + 노트북 */
  c.save();c.globalAlpha=Math.min(1,inP)*(1-exitP);
- {const m=mk(0,0);m(L,fy-4,Rr-L,4,'#8f6240');m(L,fy-4,Rr-L,2,'#e0bd96');m(L,fy-4,Rr-L,1,'#f4d9b6')}
+ {const m=mk(0,0),w=Rr-L;m(L,fy-5,w,.334,'#604958');m(L,fy-4.666,w,1,'#dbb48b');m(L,fy-3.666,w,.667,'#9e7358');m(L,fy-3,w,.334,'#604958');[L+3,(L+Rr)/2,Rr-4].forEach(x=>{m(x,fy-2.666,1,2.666,'#604958');m(x+.334,fy-2.666,.334,2.666,'#a28876')});for(let x=L+5;x<Rr-7;x+=8)m(x,fy-4.333,3,.334,'#c79d78')}
  people.forEach((p,k)=>{if(p.main||tl>.15+k*.22+.4)laptop2(mx+p.dx,fy)});
  c.restore();
  /* 말풍선 */
@@ -77,21 +77,11 @@ function team(i,tl,mx,fy,cnt){
 }
 
 function seat(k,tl,mx){
- const a=Math.min(1,tl/.7),fy=GY,ox=Math.round(mx-12),sit=tl>.45;
- const arm=sit?(Math.floor(tl*3.6)%2?'tr1':'tr2'):'down';
- c.save();c.globalAlpha=a;
- const m=mk(ox,fy-28);
- m(16,23,20,2,'#c9a27a');m(16,23,20,1,'#e6c7a2');m(17,25,2,3,'#8f6240');m(33,25,2,3,'#8f6240');
- m(23,22,4,1,'#555570');m(20,11,13,11,'#2b2f4a');m(21,12,11,9,'#0f1a2e');m(18,22,5,1,'#cfd3e6');
- const sc=mk(ox+22,fy-15);
- if(k==='study'){const cols=['#ff8f7a','#8b8bff','#34d399','#f0c04a'];for(let q=0;q<4;q++){const wv=2+((Math.floor(tl*3)+q*3)%6);sc(q%2,q*2,wv,1,cols[(q+Math.floor(tl*2))%4])}sc(8,7,1,1,Math.floor(tl*4)%2?'#fff':'#0f1a2e')}
- else if(k==='game'){sc(0,0,3,1,'#34d399');sc(6,0,3,1,'#ff8f7a');sc(0,7,9,1,'#3a2d55');sc(1,3,2,4,'#8b8bff');sc(1,2,2,1,'#f6cfb0');sc(6,3,2,4,'#ff8f7a');sc(6,4,1,1,'#fff');if(Math.floor(tl*2.4)%2)sc(3,4,3,1,'#fff')}
- else{const sw=Math.floor(tl/1.3)%2;if(!sw){for(let q=0;q<4;q++)for(let r2=0;r2<3;r2++){const on=((q*3+r2*5+Math.floor(tl*2))%4)<1;sc(q*2+(q>0?q:0)*0,r2*3,2,2,on?'#ff8f7a':'#34d399')}}else{sc(0,5,1,2,'#34d399');sc(2,3,1,4,'#8b8bff');sc(4,1,1,6,'#22b8cf');sc(6,4,1,3,'#f0c04a');sc(8,2,1,5,'#ff8f7a')}}
- c.restore();
- person(mx,fy,{outfit:OUT.dw,legs:'sit',arm,glasses:true,nobag:false,talk:Math.floor(tl*2)%3===0});
- const ax=mx+17;
- if(k==='game'&&tl>.8){c.save();c.globalAlpha=Math.min(1,(tl-.8)/.5);[['#ff8f7a',-9],['#8b8bff',0],['#34d399',9]].forEach(([col,dx],q)=>{const bob=Math.round(Math.sin(tl*3+q)*1);const cm=mk(ax+dx-3,fy-47+bob+(q===1?-1:0));cm(0,0,7,11,'#fff');cm(1,1,5,9,col);cm(3,4,1,3,'#fff');cm(2,5,3,1,'#fff')});c.restore()}
- if(tl>.9){const tx=k==='study'?['Hello World','Java!','Spring Boot','public static void']:k==='game'?['혼자서도!','덱빌딩','로그라이크']:['예약 완료!','AI 호출 관제','배포!'];bubble(tx[Math.floor(tl/1.0)%tx.length],ax,fy-(k==='game'?51:30))}
+ const fy=GY,phase=Math.floor(tl*2.2)%3;
+ JourneyArt.scene(c,mx,fy,{kind:'study',frame:phase});
+ const ax=mx+14;
+ if(k==='game'&&tl>.8){c.save();c.globalAlpha=Math.min(1,(tl-.8)/.5);[['#c58da5',-9],['#9b87b7',0],['#86b5a0',9]].forEach(([col,dx],q)=>{const bob=Math.sin(tl*2.4+q)*.4,cm=mk(ax+dx-3,fy-47+bob+(q===1?-1:0));cm(0,0,7,11,'#f6e9dc');cm(1,1,5,9,col);cm(3,4,1,3,'#f6e9dc');cm(2,5,3,1,'#f6e9dc')});c.restore()}
+ if(tl>.9){const tx=k==='study'?['Hello World','Java!','Spring Boot','public static void']:k==='game'?['혼자서도!','덱빌딩','로그라이크']:['예약 완료!','AI 호출 관제','배포!'];bubble(tx[Math.floor(tl)%tx.length],ax,fy-(k==='game'?51:32))}
 }
 function render(t){
  BQ=[];c.clearRect(0,0,W,H);
@@ -101,8 +91,10 @@ function render(t){
  /* 바닥선 */
  for(let x=2;x<W-2;x+=4){const done=x<mx;c.fillStyle=done?(x<W/2?'#5b5bd6':'#22b8cf'):'rgba(150,155,190,.45)';c.fillRect(x,GY,3,done?2:1)}
  c.fillStyle='rgba(150,155,190,.45)';c.fillRect(W-8,GY-1,3,3);c.fillRect(W-6,GY-2,2,5);
+ const sceneKind=N[i].k,cover=walk?null:sceneKind==='job'?[mx-17,mx+17]:['study','game','web'].includes(sceneKind)?[mx-10,mx+23]:sceneKind==='team5'?[mx-46,mx+46]:sceneKind==='team6'?[mx-46,mx+63]:sceneKind==='mil'?[mx-9,mx+28]:[mx-10,mx+10];
  /* 표지판 */
  N.forEach((n,k)=>{const x=Math.round(XS(k)),reached=k<=cur,col=['#8d8aa8','#8d8aa8','#2a9fb5','#5b5bd6','#f0764f','#5b5bd6','#f0764f','#22b8cf'][k];
+  if(cover&&x>=cover[0]&&x<=cover[1]){c.fillStyle=reached?col:'rgba(150,155,190,.5)';c.fillRect(x-1,GY,3,2);return}
   c.fillStyle=reached?'#1d2033':'rgba(150,155,190,.6)';if(document.documentElement.dataset.theme==='dark')c.fillStyle=reached?'#eceefb':'rgba(150,155,190,.6)';
   c.fillRect(x,GY-9,1,10);c.fillStyle=reached?col:'rgba(150,155,190,.5)';c.fillRect(x+1,GY-9,5,3);c.fillRect(x+1,GY-8,4,1)});
  LB.forEach((a,k)=>{a.classList.toggle('off',k>cur);a.classList.toggle('on',k===cur&&!walk)});
@@ -122,16 +114,10 @@ function render(t){
   if(sal&&tl%1.8<.9)bubble('충성!',mx,GY-36);
   if(tl>2.0)bubble('전역!',mx,GY-36,1);
  }else if(k==='job'){
-  const cyc=(tl*1.1)%1;
-  c.save();desk(mx,GY,38,'#e8ecf7');c.restore();
-  const m=mk(0,0);m(mx-19,GY-3,38,3,'#d7dcef');m(mx-19,GY-5,38,1,'#fff');m(mx-19,GY-1,38,1,'#2f6fd6');
-  person(mx,GY,{outfit:OUT.job,arm:cyc<.5?'scan':'scan2',glasses:true,talk:cyc>.5});
-  /* 계산대, 단말기 */
-  m(mx+10,GY-13,9,7,'#8d93b8');m(mx+11,GY-12,7,3,'#34d399');m(mx+12,GY-8,5,1,'#cfd3e6');
-  const ix=mx-14+cyc*26;m(ix,GY-8,4,3,'#ff8f7a');m(ix,GY-8,4,1,'#fff');
-  c.fillStyle='rgba(255,60,60,'+(cyc>.45&&cyc<.6?1:.0)+')';c.fillRect(mx+12,GY-8,1,4);
-  if(cyc>.45&&cyc<.9)bubble('삑!',mx+10,GY-34);
-  if(((tl/1.1)|0)%3===2&&cyc<.45)bubble('어서오세요',mx-4,GY-36,1);
+  // 사용자 확인: 편의점이 아닌 쿠팡 택배 소분 작업.
+  const phase=Math.floor(tl*2.1)%3;
+  JourneyArt.scene(c,mx,GY,{kind:'sort',frame:phase});
+  if(tl>.3)bubble(['소분 중!','택배 분류!','분류 완료!'][phase],mx,GY-34);
  }else if(k==='team5'){team(i,tl,mx,GY,5)}else if(k==='team6'){team(i,tl,mx,GY,6)}else if(k==='study'||k==='game'||k==='web'){seat(k,tl,mx)
  }else if(k==='grad'){
   const jp=Math.abs(Math.sin(tl*3.2))*7;
