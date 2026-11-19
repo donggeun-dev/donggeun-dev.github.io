@@ -27,7 +27,7 @@ function projectStages(){
 const W=Math.ceil(PAD*2+STEP*(N.length-1)),density=cv.height/H;
 // 지점 사이 간격과 인물 크기를 유지하고, 프로젝트 수만큼 줄을 연장한다.
 cv.width=Math.round(W*density);c.setTransform(density,0,0,density,0,0);c.imageSmoothingEnabled=false;
-const inner=document.querySelector('.jy-in');
+const inner=document.querySelector('.jy-in'),viewport=document.getElementById('jy-w');
 inner.style.setProperty('--jy-width',W);
 inner.style.setProperty('--jy-min-width',(W*3)+'px');
 inner.style.setProperty('--jy-label-width',(STEP*.94/W*100)+'%');
@@ -35,11 +35,22 @@ const WALK=2.4,XS=i=>PAD+i*STEP,SX=i=>XS(i)+N[i].ox;
 const SEG=[];let T=0;
 N.forEach((n,i)=>{SEG.push({t0:T,t1:T+n.dw,i,w:0});T+=n.dw;if(i<N.length-1){SEG.push({t0:T,t1:T+WALK,a:i,b:i+1,w:1});T+=WALK}});
 const TOTAL=T;
+let cameraSubject=SX(0);
+function follow(cx){
+ cameraSubject=cx;
+ const width=inner.getBoundingClientRect().width;
+ const max=Math.max(0,width-viewport.clientWidth);
+ const x=Math.max(0,Math.min(max,cx/W*width-viewport.clientWidth*.46));
+ // 캐릭터가 전진하는 만큼 줄 전체를 이동한다. 스크롤 조작이나 역방향 복귀는 없다.
+ inner.style.transform='translate3d('+(-x)+'px,0,0)';
+ viewport.scrollLeft=0;
+}
+new ResizeObserver(()=>follow(cameraSubject)).observe(viewport);
 const segAt=t=>SEG.find(s=>Math.max(0,t)>=s.t0&&Math.max(0,t)<s.t1)||SEG[SEG.length-1];
 const dwellStart=i=>SEG.find(s=>!s.w&&s.i===i).t0;
 /* 라벨 */
 const jl=document.getElementById('jy-l');
-N.forEach((n,i)=>{const a=document.createElement('a');a.style.left=(XS(i)/W*100)+'%';a.innerHTML='<b>'+n.n+'</b><small>'+n.s+(n.d?'<br>'+n.d:'')+'</small>';a.tabIndex=0;a.setAttribute('role','button');a.onclick=()=>{T0=performance.now()-(dwellStart(i)+.12)*1000;playing=true;render(dwellStart(i)+.12);if(!raf)raf=requestAnimationFrame(frame)};a.onkeydown=e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();a.click()}};jl.appendChild(a)});
+N.forEach((n,i)=>{const a=document.createElement('a');a.style.left=(XS(i)/W*100)+'%';a.innerHTML='<b>'+n.n+'</b><small>'+n.s+(n.d?'<br>'+n.d:'')+'</small>';a.tabIndex=0;a.setAttribute('role','button');a.onfocus=()=>{if(a.matches(':focus-visible'))a.click()};a.onclick=()=>{T0=performance.now()-(dwellStart(i)+.12)*1000;playing=true;render(dwellStart(i)+.12);if(!raf)raf=requestAnimationFrame(frame)};a.onkeydown=e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();a.click()}};jl.appendChild(a)});
 const LB=[...jl.children];
 /* 말풍선 풀 */
 const jb=document.getElementById('jy-b');const BP=[];for(let i=0;i<8;i++){const d=document.createElement('div');d.className='jy-bb';jb.appendChild(d);BP.push(d)}
@@ -108,6 +119,7 @@ function render(t){
  const s=segAt(t);let mx,i,tl=0,walk=false,p=0;
  if(!s.w){i=s.i;tl=t-s.t0;mx=SX(i)}else{walk=true;p=(t-s.t0)/(s.t1-s.t0);mx=lerp(SX(s.a),SX(s.b),p);i=p<.45?s.a:s.b}
  const cur=walk?(p<.5?s.a:s.b):s.i;
+ follow(mx);
  /* 바닥선 */
  for(let x=2;x<W-2;x+=4){const done=x<mx;c.fillStyle=done?(x<W/2?'#5b5bd6':'#22b8cf'):'rgba(150,155,190,.45)';c.fillRect(x,GY,3,done?2:1)}
  c.fillStyle='rgba(150,155,190,.45)';c.fillRect(W-8,GY-1,3,3);c.fillRect(W-6,GY-2,2,5);
@@ -155,7 +167,6 @@ window.addEventListener('journeyartready',()=>{if(!window.__started&&!matchMedia
 /* 구동 */
 let T0=null,playing=false,raf=0,reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
 function frame(now){raf=0;if(!document.getElementById('jy-w').offsetParent){T0=null;raf=requestAnimationFrame(frame);return}if(T0==null)T0=now;const t=Math.max(0,(now-T0)/1000)%TOTAL;render(t);
- const jw=document.getElementById('jy-w');if(jw.scrollWidth>jw.clientWidth){const s=segAt(t),x=s.w?lerp(SX(s.a),SX(s.b),(t-s.t0)/(s.t1-s.t0)):SX(s.i);jw.scrollLeft=x/W*jw.scrollWidth-jw.clientWidth/2}
  if(playing)raf=requestAnimationFrame(frame)}
 function start(){cancelAnimationFrame(raf);T0=null;playing=true;raf=requestAnimationFrame(frame)}
 window.__jy={render,total:TOTAL,seg:SEG};

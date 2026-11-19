@@ -220,8 +220,8 @@ footer{text-align:center;color:var(--sub);font-size:13px;padding:56px 0 44px}
 .pn a.nx{text-align:right}
 /* journey pixel */
 .jy{max-width:1100px;margin:0 auto}
-.jy-w{overflow-x:auto;border-radius:26px;background:var(--card);border:1px solid var(--line);box-shadow:var(--shadow);scrollbar-width:thin}
-.jy-in{position:relative;min-width:var(--jy-min-width,900px);padding:12px 0 0}
+.jy-w{overflow:hidden;overflow:clip;border-radius:26px;background:var(--card);border:1px solid var(--line);box-shadow:var(--shadow)}
+.jy-in{position:relative;min-width:var(--jy-min-width,900px);padding:12px 0 0;will-change:transform}
 #jy-cv{display:block;width:100%;aspect-ratio:var(--jy-width,300)/66;image-rendering:pixelated;image-rendering:crisp-edges}
 .jy-b{position:absolute;left:0;top:12px;right:0;aspect-ratio:var(--jy-width,300)/66;pointer-events:none}
 .jy-bb{position:absolute;transform:translate(-50%,-100%);background:#fff;color:#1d2033;border:2px solid #1d2033;border-radius:6px;padding:1px 8px;font-size:12.5px;font-weight:800;white-space:nowrap;opacity:0;box-shadow:2px 2px 0 rgba(29,32,51,.85);line-height:1.5}
@@ -1052,6 +1052,6 @@ addEventListener('hashchange',route);route();
 })();
 </script>
 <script src="assets/journey/sprites.js?v=line-20261119-6"></script>
-<script src="assets/journey/engine.js?v=line-20261119-8"></script>
+<script src="assets/journey/engine.js?v=line-20261119-9"></script>
 </body>
 </html>
