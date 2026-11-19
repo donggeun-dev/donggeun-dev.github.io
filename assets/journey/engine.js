@@ -1,4 +1,5 @@
 /* 걸어온 순서(JOURNEY) 도트 여정 — 장면·타이밍. 그림은 sprites.js(JourneyArt)가 담당. */
+import { projects } from '../js/data/projects.js';
 (function(){
 const cv=document.getElementById('jy-cv'),c=cv.getContext('2d');c.imageSmoothingEnabled=false;
 const H=66,GY=60,STEP=244/7,PAD=28;
@@ -19,7 +20,7 @@ function projectStages(){
   'ai-team-console':{k:'console'},
   barodam:{k:'market'}
  };
- return (typeof P==='undefined'?[]:P).map(p=>{
+ return projects.map(p=>{
   const scene=scenes[p.id]||{},month=p.period.match(/\d{4}\.\d{2}/)?.[0]||'';
   return {n:p.title,s:p.kind.startsWith('TEAM')?'팀 '+(p.kind.match(/\d+인/)?.[0]||'프로젝트'):'개인',d:scene.d||month,dw:3.8,out:'dw',ox:-10,k:'project',...scene,month};
  }).sort((a,b)=>a.month.localeCompare(b.month));
