@@ -4,7 +4,7 @@ const cv=document.getElementById('jy-cv'),c=cv.getContext('2d');c.imageSmoothing
 const W=300,H=66,GY=60;
 const N=[
  {n:'군 전역',s:'육군 부사관 4년',d:'2021.12 – 2025.12',dw:3.2,out:'mil',ox:-8,k:'mil'},
- {n:'쿠팡 소분 알바',s:'택배 분류·소분',d:'',dw:3.4,out:'job',ox:0,k:'job'},
+ {n:'알바',s:'',d:'',dw:3.4,out:'job',ox:0,k:'job'},
  {n:'DW아카데미 입교',s:'AIoT 드론 영상 관제',d:'2026.04.27',dw:3.6,out:'dw',ox:-10,k:'study'},
  {n:'Obsidian Shield',s:'팀 5인',d:'2026.06.25',dw:5.2,out:'dw',ox:0,k:'team5'},
  {n:'잿빛 원정대',s:'개인',d:'2026.09.30',dw:3.8,out:'dw',ox:-10,k:'game'},
