@@ -887,16 +887,6 @@ export const projects = [
       "assets/intro-depth-fill-robot.mp4",
       "깊이 카메라가 못 본 곳을 채우는 방법들을 같은 시험지로 채점한 프로젝트"
     ],
-    "videos": [
-      [
-        "assets/depth-fill-robot-1.mp4",
-        "직접 보기: 장면·구멍 유형·방법을 바꿔 가며 전/후 비교와 3D 점, 구멍 속 평균 오차를 확인"
-      ],
-      [
-        "assets/depth-fill-robot-2.mp4",
-        "시연 스크립트 실제 출력: 방법 비교, API 호출, 품질 기준 통과와 일부러 넣은 나쁜 모델의 실패"
-      ]
-    ],
     "card": {
       "group": "solo",
       "label": "depth-fill-robot",
@@ -1031,12 +1021,6 @@ export const projects = [
     "intro": [
       "assets/intro-lore.mp4",
       "캐릭터를 골라 대화하는 AI 채팅 서비스와 그 뒤의 서버"
-    ],
-    "videos": [
-      [
-        "assets/lore-1.mp4",
-        "대화 중 주 모델이 죽었을 때 예비 모델로 전환, 서버 상태 화면과 장애 넣기"
-      ]
     ],
     "card": {
       "group": "solo",
