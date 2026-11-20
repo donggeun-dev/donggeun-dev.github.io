@@ -847,7 +847,12 @@ export const projects = [
         "평가 도구 구조도"
       ]
     ],
-    "links": [],
+    "links": [
+      [
+        "노션",
+        "https://app.notion.com/p/41ebd08dbbd28166b575fcd9f3d6fcaf"
+      ]
+    ],
     "intro": [
       "assets/intro-depth-fill-robot.mp4",
       "깊이 영상의 빈 영역을 채우는 방법들을 같은 조건에서 비교하는 평가 도구"
@@ -975,7 +980,12 @@ export const projects = [
         "서버 처리 흐름 구조도"
       ]
     ],
-    "links": [],
+    "links": [
+      [
+        "노션",
+        "https://app.notion.com/p/41ebd08dbbd281ffa48cc68c42a0cca6"
+      ]
+    ],
     "intro": [
       "assets/intro-persona-chat-server.mp4",
       "기억 · 모델 전환 · 중복 방지에 집중한 AI 캐릭터 채팅 서버"
