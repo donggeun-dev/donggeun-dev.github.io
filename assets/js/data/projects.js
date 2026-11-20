@@ -1002,6 +1002,10 @@ export const projects = [
         "https://github.com/j75390/lore"
       ],
       [
+        "노션",
+        "https://app.notion.com/p/41ebd08dbbd281ffa48cc68c42a0cca6"
+      ],
+      [
         "서비스",
         "https://lorechat.kro.kr/#home"
       ]
