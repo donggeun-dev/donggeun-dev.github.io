@@ -854,7 +854,7 @@ export const projects = [
     "links": [
       [
         "GitHub",
-        "https://github.com/j75390/depth-fill-robot"
+        "https://github.com/j75390/depth-patch"
       ],
       [
         "노션",
@@ -862,7 +862,7 @@ export const projects = [
       ],
       [
         "소개 페이지(직접 눌러 보기)",
-        "https://j75390.github.io/depth-fill-robot/"
+        "https://j75390.github.io/depth-patch/"
       ]
     ],
     "gl": [
