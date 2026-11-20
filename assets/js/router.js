@@ -17,7 +17,9 @@ export function initRouter(projects) {
   }
 
   function route() {
-    const m = location.hash.match(/^#\/projects\/([\w-]+)/);
+    const ALIAS = { 'depth-fill-robot': 'depth-patch' };
+    let m = location.hash.match(/^#\/projects\/([\w-]+)/);
+    if (m && ALIAS[m[1]]) { location.replace('#/projects/' + ALIAS[m[1]]); return; }
     const index = m ? projects.findIndex((x) => x.id === m[1]) : -1;
     if (index >= 0) {
       render(index);

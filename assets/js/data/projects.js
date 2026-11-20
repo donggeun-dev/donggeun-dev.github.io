@@ -773,7 +773,7 @@ export const projects = [
     }
   },
   {
-    "id": "depth-fill-robot",
+    "id": "depth-patch",
     "kind": "PERSONAL",
     "period": "2026.11",
     "title": "Depth Patch",
@@ -884,7 +884,7 @@ export const projects = [
       ]
     ],
     "intro": [
-      "assets/intro-depth-fill-robot.mp4",
+      "assets/intro-depth-patch.mp4",
       "깊이 카메라가 못 본 곳을 채우는 방법들을 같은 시험지로 채점한 프로젝트"
     ],
     "card": {
@@ -895,7 +895,7 @@ export const projects = [
       "hook": "로봇이 못 본 곳, 얼마나 정확히 채울 수 있을까?",
       "summary": "깊이 카메라의 빈칸을 채우는 방법을 같은 시험지로 채점하고 덜 틀리는 U-Net을 만든 프로젝트",
       "image": "assets/depth-fill-lab.jpg",
-      "video": "assets/intro-depth-fill-robot.mp4",
+      "video": "assets/intro-depth-patch.mp4",
       "tags": [
         "Python",
         "PyTorch",
