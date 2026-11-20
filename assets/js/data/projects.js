@@ -831,11 +831,33 @@ export const projects = [
     ],
     "shots": [
       [
+        "assets/depth-fill-random.jpg",
+        "비교 화면: 무작위 덩어리 구멍"
+      ],
+      [
+        "assets/depth-fill-edge.jpg",
+        "비교 화면: 물체 가장자리 구멍"
+      ],
+      [
+        "assets/depth-fill-reflect.jpg",
+        "비교 화면: 반사 영역 구멍"
+      ],
+      [
         "assets/depth-fill-structure.png",
         "평가 도구 구조도"
       ]
     ],
     "links": [],
+    "intro": [
+      "assets/intro-depth-fill-robot.mp4",
+      "깊이 영상의 빈 영역을 채우는 방법들을 같은 조건에서 비교하는 평가 도구"
+    ],
+    "videos": [
+      [
+        "assets/depth-fill-robot-1.mp4",
+        "비교 화면: 구멍 유형(무작위·물체 가장자리·반사 영역)을 바꿔 가며 정답 깊이, 구멍, 보완 결과, 오차와 방법별 MAE·RMSE를 한 화면에서 확인 (합성 장면)"
+      ]
+    ],
     "gl": [
       [
         "해결하려는 문제",
@@ -861,8 +883,8 @@ export const projects = [
       "period": "2026.11",
       "hook": "빈 깊이 값, 어떤 방법이 가장 잘 채울까?",
       "summary": "깊이 영상의 빈 영역을 채우는 방법들을 같은 조건에서 비교하는 평가 도구",
-      "image": "assets/depth-fill-structure.png",
-      "video": "",
+      "image": "assets/depth-fill-random.jpg",
+      "video": "assets/intro-depth-fill-robot.mp4",
       "tags": [
         "Python",
         "PyTorch",
@@ -933,11 +955,37 @@ export const projects = [
     ],
     "shots": [
       [
+        "assets/persona-fallback.jpg",
+        "시나리오 화면: 모델 장애 → 전환"
+      ],
+      [
+        "assets/persona-dup.jpg",
+        "시나리오 화면: 같은 메시지 재전송"
+      ],
+      [
+        "assets/persona-cut.jpg",
+        "시나리오 화면: 답변 도중 끊김"
+      ],
+      [
+        "assets/persona-memory.jpg",
+        "시나리오 화면: 기억 요약"
+      ],
+      [
         "assets/persona-chat-structure.png",
         "서버 처리 흐름 구조도"
       ]
     ],
     "links": [],
+    "intro": [
+      "assets/intro-persona-chat-server.mp4",
+      "기억 · 모델 전환 · 중복 방지에 집중한 AI 캐릭터 채팅 서버"
+    ],
+    "videos": [
+      [
+        "assets/persona-chat-server-1.mp4",
+        "시나리오 화면: 모델 장애 시 전환, 같은 메시지 재전송, 답변 도중 끊김, 기억 요약을 서버 기록과 함께 확인 (가짜 모델로 실행)"
+      ]
+    ],
     "gl": [
       [
         "해결하려는 문제",
@@ -963,8 +1011,8 @@ export const projects = [
       "period": "2026.11",
       "hook": "모델이 흔들려도 대화는 끊기지 않게",
       "summary": "기억·모델 전환·중복 방지에 집중한 AI 캐릭터 채팅 서버",
-      "image": "assets/persona-chat-structure.png",
-      "video": "",
+      "image": "assets/persona-fallback.jpg",
+      "video": "assets/intro-persona-chat-server.mp4",
       "tags": [
         "Python",
         "asyncio",

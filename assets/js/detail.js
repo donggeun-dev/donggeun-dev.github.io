@@ -12,7 +12,9 @@ export function detailHtml(q, prev, next) {
   let html = '<article class="dv"><a class="back" href="#projects">← 프로젝트</a>'
     + '<header class="dh"><div><p class="kd">' + q.kind + ' · ' + q.period + '</p><h1>' + e(q.title) + '</h1><p class="one">' + e(q.one) + '</p><p class="ds">' + e(q.desc) + '</p>'
     + '<ul class="tg">' + q.tags.map((t) => '<li>' + e(t) + '</li>').join('') + '</ul>'
-    + (q.links.length ? '<div class="ln"><a class="dt" href="' + q.links[0][1] + '" target="_blank" rel="noopener">' + GITHUB_ICON + 'GitHub ↗</a><a href="' + q.links[1][1] + '" target="_blank" rel="noopener">노션 ↗</a></div>' : '') + '</div>'
+    + (q.links.length ? '<div class="ln">' + q.links.filter((l) => l[0] === 'GitHub' || l[0] === '노션').map((l) => l[0] === 'GitHub'
+      ? '<a class="dt" href="' + l[1] + '" target="_blank" rel="noopener">' + GITHUB_ICON + 'GitHub ↗</a>'
+      : '<a href="' + l[1] + '" target="_blank" rel="noopener">노션 ↗</a>').join('') + '</div>' : '') + '</div>'
     + '<img src="' + q.shots[0][0] + '" alt="' + e(q.title) + '"></header>'
     + '<dl class="gl">' + q.gl.map((g) => '<div><dt>' + e(g[0]) + '</dt><dd>' + e(g[1]) + '</dd></div>').join('') + '</dl>';
   if (q.intro) html += section('소개 영상', '<figure class="vd">' + media(q.intro[0], q.intro[1]) + '</figure>');
