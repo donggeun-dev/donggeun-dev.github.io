@@ -776,7 +776,7 @@ export const projects = [
     "id": "depth-fill-robot",
     "kind": "PERSONAL",
     "period": "2026.11",
-    "title": "depth-fill-robot",
+    "title": "Depth Patch",
     "one": "깊이 카메라의 빈칸 채우기 · 방법 비교와 U-Net",
     "desc": "로봇 깊이 카메라가 못 잰 빈칸을 채우는 방법들을 같은 시험지로 채점해 어디서 틀리는지 밝히고, 기존 방법(OpenCV Telea)보다 덜 틀리는 작은 U-Net을 만들었습니다. 실제 센서 데이터(NYU Depth v2)로 평가했습니다.",
     "tags": [
@@ -889,7 +889,7 @@ export const projects = [
     ],
     "card": {
       "group": "solo",
-      "label": "depth-fill-robot",
+      "label": "Depth Patch",
       "chip": "PERSONAL",
       "period": "2026.11",
       "hook": "로봇이 못 본 곳, 얼마나 정확히 채울 수 있을까?",
